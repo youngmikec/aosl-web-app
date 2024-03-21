@@ -47,7 +47,7 @@ const FaqComp = () => {
                                 onChange={(e) => setSearchQuery(e.target.value)}
                             />
                             <button 
-                                className='rounded-tr-md rounded-br-md  text-white bg-[#8652A4] py-2 px-6 min-w-max'
+                                className='rounded-tr-md rounded-br-md  text-white bg-[#134FE7] py-2 px-6 min-w-max'
                                 onClick={() => handleSearchQuery()}
                             >
                                 { searching ? 'Searching' : 'Search' }

@@ -106,7 +106,7 @@ const JoinUs = () => {
                         />
                         <button 
                             onClick={() => handleSubscribe()}
-                            className='rounded-lg text-white bg-[#8652A4] py-3 px-6 min-w-max'
+                            className='rounded-lg text-white bg-[#134FE7] py-3 px-6 min-w-max'
                         >
                             {/* <Link to="/sign-in"></Link> */}
                             { loading ? 'joining...' : "Join" }

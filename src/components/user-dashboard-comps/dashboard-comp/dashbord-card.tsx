@@ -14,7 +14,7 @@ type Props = {
 const DashboardCard = ({image, status, title, value, loading}: Props) => {
     let bgColor = (state: string): string => {
         let color: string = '';
-        if(state === 'PENDING') color = '#8652A4'
+        if(state === 'PENDING') color = '#134FE7'
         if(state === 'FAILED') color = '#FF9120'
         if(state === 'COMPLETED') color = '#71DD37'
         return color

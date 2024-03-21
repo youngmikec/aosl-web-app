@@ -33,7 +33,7 @@ const Sidebar = ({sidebarMenus}: Props) => {
                 </div>
                 <ul className="list-none text-[#8c8c8c]">
                     <li 
-                        className={`${ pathname === '/users-dashboard' && 'bg-[#8652A4] text-white' } my-6 py-3 px-4 text-center rounded-md hover:bg-[#8652A4] hover:text-white` } 
+                        className={`${ pathname === '/users-dashboard' && 'bg-[#134FE7] text-white' } my-6 py-3 px-4 text-center rounded-md hover:bg-[#134FE7] hover:text-white` } 
                         title="Dashboard"
                     >
                         <Link to="/users-dashboard">
@@ -45,7 +45,7 @@ const Sidebar = ({sidebarMenus}: Props) => {
                     </li>
             
                     <li 
-                        className={`${ pathname === '/sell-crypto' && 'bg-[#8652A4] text-white' } my-6 py-3 px-4 text-center rounded-md hover:bg-[#8652A4] hover:text-white` }
+                        className={`${ pathname === '/sell-crypto' && 'bg-[#134FE7] text-white' } my-6 py-3 px-4 text-center rounded-md hover:bg-[#134FE7] hover:text-white` }
                         title="sell crypto"
                     >
                         <Link to="/sell-crypto">
@@ -56,7 +56,7 @@ const Sidebar = ({sidebarMenus}: Props) => {
                         </Link>
                     </li>
                     <li 
-                        className={`${ pathname === '/buy-crypto' && 'bg-[#8652A4] text-white' } my-6 py-3 px-4 text-center rounded-md hover:bg-[#8652A4] hover:text-white` }
+                        className={`${ pathname === '/buy-crypto' && 'bg-[#134FE7] text-white' } my-6 py-3 px-4 text-center rounded-md hover:bg-[#134FE7] hover:text-white` }
                         title="buy crypto"
                     >
                         <Link to="/buy-crypto">
@@ -67,7 +67,7 @@ const Sidebar = ({sidebarMenus}: Props) => {
                         </Link>
                     </li>
                     <li 
-                        className={`${ pathname === '/trade-giftcard' && 'bg-[#8652A4] text-white' } my-6 py-3 px-4 text-center rounded-md hover:bg-[#8652A4] hover:text-white` }
+                        className={`${ pathname === '/trade-giftcard' && 'bg-[#134FE7] text-white' } my-6 py-3 px-4 text-center rounded-md hover:bg-[#134FE7] hover:text-white` }
                         title="trade giftcard"
                     >
                         <Link to="/trade-giftcard">
@@ -78,7 +78,7 @@ const Sidebar = ({sidebarMenus}: Props) => {
                         </Link>
                     </li>
                     <li 
-                        className={`${ pathname === '/airtime' && 'bg-[#8652A4] text-white' } my-6 py-3 px-4 text-center rounded-md hover:bg-[#8652A4] hover:text-white` }
+                        className={`${ pathname === '/airtime' && 'bg-[#134FE7] text-white' } my-6 py-3 px-4 text-center rounded-md hover:bg-[#134FE7] hover:text-white` }
                         title="airtime"
                     >
                         <Link to="/airtime">
@@ -89,7 +89,7 @@ const Sidebar = ({sidebarMenus}: Props) => {
                         </Link>
                     </li>
                     <li 
-                        className={`${ pathname === '/history' && 'bg-[#8652A4] text-white' } my-6 py-3 px-4 text-center rounded-md hover:bg-[#8652A4] hover:text-white` }
+                        className={`${ pathname === '/history' && 'bg-[#134FE7] text-white' } my-6 py-3 px-4 text-center rounded-md hover:bg-[#134FE7] hover:text-white` }
                         title="Order history"
                     >
                         <Link to="/history">
@@ -100,7 +100,7 @@ const Sidebar = ({sidebarMenus}: Props) => {
                         </Link>
                     </li>
                     <li 
-                        className={`${ pathname === '/account' && 'bg-[#8652A4] text-white' } my-6 py-3 px-4 text-center rounded-md hover:bg-[#8652A4] hover:text-white` }
+                        className={`${ pathname === '/account' && 'bg-[#134FE7] text-white' } my-6 py-3 px-4 text-center rounded-md hover:bg-[#134FE7] hover:text-white` }
                         title="Account setting"
                     >
                         <Link to="/account">
@@ -112,7 +112,7 @@ const Sidebar = ({sidebarMenus}: Props) => {
                     </li>
 
                     <li 
-                        className={"cursor-pointer my-6 py-3 px-4 text-center rounded-md hover:bg-[#8652A4] hover:text-white" }
+                        className={"cursor-pointer my-6 py-3 px-4 text-center rounded-md hover:bg-[#134FE7] hover:text-white" }
                         title="account"
                         onClick={() => openModal()}
                     >

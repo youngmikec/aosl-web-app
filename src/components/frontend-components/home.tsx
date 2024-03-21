@@ -70,98 +70,27 @@ const HomeComp = () => {
     return (
         <>
             <HeroSection>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 py-8 md:ml-32 lg:ml-36">
-                    <div className='py-4 w-full relative'>
-                        <h3 className='text-5xl font-bold my-8 text-white'>The Fastest Way To Buy, <br/> Sell And Trade Crypto </h3>
-                        <div className='w-3/4 my-8'>
-                            <p className='text-sm font-semibold text-justify my-2 text-white'>Join over 100,000 users across the globe to trade</p> 
-                            <p className='text-sm font-semibold text-justify my-2 text-white'>your digital asset on a fast and secured platform</p>   
-                        </div>
+                <div className="flex justify-center items-center w-full min-h-[350px]">
+                    <div>
+                        <h3 className='text-5xl font-bold my-8 text-white'>All Occupation Service LTD</h3>
 
-                        <div className='my-8'>
-                            <button className='rounded-lg mt-4 mb-8 text-white bg-[#FFAB2E] py-4 px-7 hover:bg-white hover:text-[#FFAB2E]'>
-                                <Link to="/sign-in">Let's Trade </Link>
+                        <div className='my-8 text-center'>
+                            <button className='rounded-lg mt-4 mb-8 text-white bg-[#134FE7] py-4 px-7 hover:bg-white hover:text-[#134FE7]'>
+                                <Link to="/sign-in">Get Started</Link>
                             </button>
                         </div>
-                        <img src={coin} alt="" className='hidden sm:hidden md:block lg:block absolute right-0 bottom-0 '  />
-                    </div>
-
-                    <div className='wallet-bg'>
                     </div>
                 </div>
             </HeroSection>
 
             <div className="overflow-hidden">
                 <div className="text-center mx-auto w-10/12 sm:w-7/12 md:6/12 lg:w-5/12 my-16">
-                    <h3 className='text-gray-500 font-extrabold text-3xl mb-4'>Your Gateway to Crypto Wealth</h3>
-                    <p className='text-gray-500 text-lg mx-auto'>
-                        Dive into a seamless world of financial innovation with our one-stop crypto platform. 
-                        Buy and sell cryptocurrencies effortlessly, exchange giftcards for instant cash, and convert unused airtime into valuable currency. 
-                        At <span className="text-[#8652A4] font-bold">Chinos Exchange</span>, we're redefining convenience in the digital economy, making every transaction a gateway to financial empowerment.
+                    <h3 className='text-gray-500 font-extrabold text-3xl mb-4'>WHAT WE DO</h3>
+                    <p className='text-gray-500 text-lg mx-auto text-center'>
+                        We offer training to our staff who provides care and cleaning services owever other services will be based on self-training however we will make
+                        available the qualifications of our candidates to their prospective employers upon requests.
+                        Our cost is very competitive and we like to negotiate and work together with our clients to agree on the cost. 
                     </p>
-                </div>
-
-                {/* <div className='my-8 flex justify-center w:11/12'>
-                    <div>
-                        <AppTable 
-                            tableHeaders={tableHeaders} 
-                            tableRows={tableRows} 
-                            showSearch={false} 
-                            className='w-[350px] sm:w-[450px] md:w-[600px] lg:w-[800px]'
-                        />
-                    </div>
-                </div> */}
-
-
-                <div className="">
-                    <div className="mx-auto w-10/12 phone-vector-bg rounded-md shadow-lg my-8 pt-10 border-t-2 border-[#FF3E1D]">
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
-                            <div className='mx-auto w-10/12 text-center md:text-left lg:text-left py-4 mt-10 md:my-auto lg:my-auto'>
-                                <h1 className='text-3xl sm:text-3xl md:text-5xl lg:text-5xl font-bold text-gray-700'>Buy and Sell your <br /> Cryptocurrency</h1>
-                                <p className='my-4 font-light text-xl text-[#7F7F80E5]'>Send us crypto and recieve cash with instant <br />payment via your Bank account</p>
-                                <p className='text-[#8652A4] font-[Poppins] font-bold rounded-md my-4 py-4 capitalize'> 
-                                    <Link to="/sign-in" className="flex justify-start gap-4 hover:gap-6 ease-in ease-out delay-100 md:text-xl lg:text-xl font-semibold">Let's trade <FaArrowRight className="my-auto" /></Link>
-                                </p>
-                            </div>
-
-                            <div className="px-0 mx-auto md:px-3 lg:px-3 w-11/12 md:w-full lg:w-full ">
-                                <img src={userPhone} alt="phoneCoins" className='mb-0' />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="mx-auto w-10/12 giftcard-vector-bg rounded-md shadow-lg my-6 pt-10 border-t-2 border-[#3FAFFF]">
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
-                            <div className='mx-auto w-10/12 text-center md:text-left lg:text-left py-4 mt-10 md:my-auto lg:my-auto'>
-                                <h1 className='text-3xl sm:text-3xl md:text-5xl lg:text-5xl font-bold text-gray-700'>Redeem your Gift <br/> card with ease </h1>
-                                <p className='my-4 font-light text-xl text-[#7F7F80E5]'>Unlock the World of Savings: Exchange Giftcards from <br /> 20+ Countries.</p>
-                                <p className='text-[#8652A4] font-[Poppins] font-bold rounded-md my-4 py-4 capitalize'> 
-                                    <Link to="/sign-in" className="flex justify-start gap-4 hover:gap-6 ease-in ease-out delay-100 md:text-xl lg:text-xl font-semibold">Let's trade <FaArrowRight className="my-auto" /></Link>
-                                </p>
-                            </div>
-
-                            <div className="px-0 mx-auto md:px-3 lg:px-3 w-11/12 md:w-full lg:w-full">
-                                <img src={userDashboard} alt="giftcards" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="mx-auto w-10/12 airtime-vector-bg rounded-md shadow-lg my-6 pt-10 border-t-2 border-[#8652A4]">
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
-                            <div className='mx-auto w-10/12 text-center md:text-left lg:text-left py-4 mt-10 md:my-auto lg:my-auto'>
-                                <h1 className='text-3xl sm:text-3xl md:text-5xl lg:text-5xl font-bold text-gray-700'>Convert Airtime <br/> to Cash</h1>
-                                <p className='my-4 font-light text-xl text-[#7F7F80E5]'>Don’t worry we understand the frustration <br />of excess recharge.  We make it easy for you to <br /> convert airtime on your sim to cash</p>
-                                <p className='text-[#8652A4] font-[Poppins] font-bold rounded-md my-4 py-4 capitalize'> 
-                                    <Link to="/sign-in" className="flex justify-start gap-4 hover:gap-6 ease-in ease-out delay-100 md:text-xl lg:text-xl font-semibold">Let's trade  <FaArrowRight className="my-auto" /></Link>
-                                </p>
-                            </div>
-
-                            <div className="px-0 mx-auto md:px-3 lg:px-3 w-11/12 md:w-full lg:w-full">
-                                <img src={airtimePhone} alt="networks" />
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
 
 
@@ -174,19 +103,19 @@ const HomeComp = () => {
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-10 justify-evenly my-10'>
                         <div className='text-center flex justify-center flex-col hover:shadow-lg px-7 hover:bg-white'>
                             <img src={phone} alt="" width='30' className='self-center mx-auto my-2' />
-                            <h3 className='text-purple-800 font-bold text-lg my-4'>Trusted and Secured</h3>
+                            <h3 className='text-[#134FE7] font-bold text-lg my-4'>Trusted and Secured</h3>
                             <p className=' text-sm font-light'>Our platform is built on the best data  <br /> security networks with absolute care to <br /> make sure your experience is simple and <br /> seamless</p>
 
                         </div>
                         <div className='text-center flex justify-center flex-col hover:shadow-lg px-7 hover:bg-white'>
                             <img src={icon} alt="" width='30' className='self-center mx-auto my-2' />
-                            <h3  className='text-purple-800 font-bold text-lg my-4'>Instant Payment</h3>
+                            <h3  className='text-[#134FE7] font-bold text-lg my-4'>Instant Payment</h3>
                             <p className=' text-sm font-light'>Don’t worry our team are always onboard <br /> to recieve your order and release funds <br /> ASAP to your bank account</p>
 
                         </div>
                         <div className='text-center flex justify-center flex-col hover:shadow-lg px-7 hover:bg-white'>
                             <img src={phone} alt="" width='30' className='self-center mx-auto my-2' />
-                            <h3 className='text-purple-800 font-bold text-lg my-4'>24/7 Hours Trade</h3>
+                            <h3 className='text-[#134FE7] font-bold text-lg my-4'>24/7 Hours Trade</h3>
                             <p className=' text-sm font-light'>we understand the need for someone of <br /> our users that would love to trade at <br /> midnight. Our team members are always <br /> available.</p>
 
                         </div>

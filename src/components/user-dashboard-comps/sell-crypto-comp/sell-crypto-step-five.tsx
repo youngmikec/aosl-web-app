@@ -25,7 +25,7 @@ const SellCryptoStepFive = () => {
                 <div className='my-8 flex justify-center'>
                 <button 
                     onClick={() => { clearState() }}
-                    className='rounded-md bg-[#8652A4] text-white px-6 py-3'
+                    className='rounded-md bg-[#134FE7] text-white px-6 py-3'
                 >
                     <Link to="/history">Check Status</Link>
                 </button>

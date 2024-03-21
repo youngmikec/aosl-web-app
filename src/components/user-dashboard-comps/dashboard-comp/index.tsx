@@ -134,7 +134,7 @@ const DashboardComp = () => {
                     {/* <div className='shadow-sm bg-white lg:h-52'></div>
 
                     <div className=''>
-                        <img src={image} alt=""  className=' bg-[#FFAB2E] lg:h-52' id='bg'/>
+                        <img src={image} alt=""  className=' bg-[#134FE7] lg:h-52' id='bg'/>
                     </div> */}
                 </div>
 

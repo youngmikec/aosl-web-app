@@ -50,7 +50,7 @@ const Footer = () => {
     }
     return (
         <>
-            <div className='w-full footer-bg py-20 bg-[#622F5C] text-white'>
+            <div className='w-full footer-bg py-20 bg-[#134fe7cc] text-white'>
                 <div className="mx-auto w-10/12">
                     <div className="grid lg:space-x-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
                         {/* column1 */}
@@ -67,7 +67,7 @@ const Footer = () => {
                                         rel="noreferrer"
                                         className='p-2 bg-white rounded-full'
                                     >
-                                        <GrFacebookOption className="text-[#8652A4]" />
+                                        <GrFacebookOption className="text-[#134FE7]" />
                                     </a>
                                 </li>
                                 <li className='inline-flex mx-3'>
@@ -77,7 +77,7 @@ const Footer = () => {
                                         rel="noreferrer"
                                         className='p-2 bg-white rounded-full'
                                     >
-                                        <CgInstagram className="text-[#8652A4]" />
+                                        <CgInstagram className="text-[#134FE7]" />
                                     </a>
                                 </li>
 
@@ -88,7 +88,7 @@ const Footer = () => {
                                         rel="noreferrer"
                                         className='p-2 bg-white rounded-full'
                                     >
-                                        <GrTwitter className="text-[#8652A4]" />
+                                        <GrTwitter className="text-[#134FE7]" />
                                     </a>
                                 </li>
                             </ul>
@@ -150,7 +150,7 @@ const Footer = () => {
                                     />
                                     <button 
                                         onClick={() => handleSubscribe()}
-                                        className='rounded-r-3xl text-white bg-[#8652A4] py-3 px-6 min-w-max'
+                                        className='rounded-r-3xl text-white bg-[#134FE7] py-3 px-6 min-w-max'
                                     >
                                         {
                                             loading ? 'subscribing...' : <IoIosSend />

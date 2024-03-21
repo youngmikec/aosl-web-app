@@ -127,7 +127,7 @@ const BuyCryptoStepFour = ({ changeStep }: Props) => {
                     
                 <div className='my-10 flex justify-center'>
                     <button 
-                        className='rounded-md bg-[#8652A4] text-white px-6 py-3'
+                        className='rounded-md bg-[#134FE7] text-white px-6 py-3'
                         onClick={() => handleSubmit()}
                     >
                         { loading ? 'Proccessing' : 'Finish' }
@@ -135,7 +135,7 @@ const BuyCryptoStepFour = ({ changeStep }: Props) => {
                 </div>
 
                 <a href={whatsAppUrl} target='_blank'>
-                    <div className='flex justify-center gap-3 text-[#8652A4] cursor-pointer'>
+                    <div className='flex justify-center gap-3 text-[#134FE7] cursor-pointer'>
                         <span className='my-auto'>
                             <BsWhatsapp />
                         </span>

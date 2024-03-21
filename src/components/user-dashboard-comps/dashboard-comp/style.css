@@ -1,43 +1,39 @@
-#bg{
-    opacity: 0.76;
+#bg {
+  opacity: 0.76;
 }
 
-
-p{
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 500;
-font-size: 16px;
-line-height: 24px;
-color: rgba(18, 18, 18, 0.7);
+p {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(18, 18, 18, 0.7);
 }
 
-
-
-h5{
-    color: rgba(18, 18, 18, 0.5);
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
+h5 {
+  color: rgba(18, 18, 18, 0.5);
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
 }
-
 
 .display-title {
-    color: #FFF;
-    font-family: "Poppins";
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+  color: #fff;
+  font-family: "Poppins";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 .display-digit {
-    color: #FFF;
-    font-family: "Poppins";
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+  color: #fff;
+  font-family: "Poppins";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 /* .wallet{
@@ -48,7 +44,7 @@ left: 300px;
 top: 163px;
 mix-blend-mode: overlay;
 opacity: 0.76;
-background-color: #8652A4;;
+background-color: #134FE7;;
 mix-blend-mode: overlay;
 opacity: 0.76;
 }
@@ -94,7 +90,7 @@ color: #FFFFFF;
     position: absolute;
     left: 580px;
     top: 180px;
-    color: #8652A4;
+    color: #134FE7;
 }
 
 .orders{
@@ -106,7 +102,7 @@ color: #FFFFFF;
    font-weight: 500;
    font-size: 15px; 
    line-height: 22px;
-   color: #8652A4;
+   color: #134FE7;
 
 }
 
@@ -121,7 +117,7 @@ font-style: normal;
 font-weight: 500;
 font-size: 32px;
 line-height: 48px;
-color: #8652A4;
+color: #134FE7;
 }
 
 .pending-orders{
@@ -184,7 +180,7 @@ font-style: normal;
 font-weight: 500;
 font-size: 15px;
 line-height: 22px;
-color: #8652A4;
+color: #134FE7;
 }
 
 
@@ -199,7 +195,7 @@ color: #8652A4;
     font-weight: 500;
     font-size: 15px;
     line-height: 22px;
-    color: #8652A4;
+    color: #134FE7;
     
 }
 
@@ -214,7 +210,7 @@ font-style: normal;
 font-weight: 500;
 font-size: 32px;
 line-height: 48px;
-color: #8652A4;
+color: #134FE7;
 
 }
 
@@ -229,7 +225,7 @@ font-style: normal;
 font-weight: 600;
 font-size: 24px;
 line-height: 36px;
-color: #8652A4
+color: #134FE7
 }
 
 .customer-table{
@@ -241,7 +237,7 @@ font-style: normal;
 font-weight: 700;
 font-size: 20px;
 line-height: 140%;
-color: #8652A4;
+color: #134FE7;
 }
 
 .displaying{
@@ -272,7 +268,7 @@ position: absolute;
 left: 720px;
 right: 65px;
 top: 2px;
-background-color: #8652A4;
+background-color: #134FE7;
 border-radius: 6px;
 width: 90px;
 height: 38px;

@@ -117,8 +117,8 @@ const AccountProfile = () => {
 
                         <div className='mx-3 my-auto'>
                             <button 
-                                className='hover:bg-[#8652A4] border-2 border-[#8652A4]
-                                text-[#8652A4] hover:text-white rounded-md py-1 px-6'
+                                className='hover:bg-[#134FE7] border-2 border-[#134FE7]
+                                text-[#134FE7] hover:text-white rounded-md py-1 px-6'
                                 onClick={() => openFile()}
                             >
                                 Upload
@@ -127,7 +127,7 @@ const AccountProfile = () => {
                         </div>
 
                         {/* <div className='mx-3 my-auto'>
-                            <button className='text-[#8652A4] border-2 border-[#8652A4] rounded-md py-1 px-6'>
+                            <button className='text-[#134FE7] border-2 border-[#134FE7] rounded-md py-1 px-6'>
                                 Upload
                             </button>
                         </div> */}
@@ -193,7 +193,7 @@ const AccountProfile = () => {
 
                     <div className='mt-6 flex justify-center'>
                         <button 
-                            className='rounded-md bg-[#8652A4] text-white px-6 py-3'
+                            className='rounded-md bg-[#134FE7] text-white px-6 py-3'
                             onClick={() => handleUpdateProfile()}
                         >
                             { updating ? 'Saving...' : 'Save Change'}

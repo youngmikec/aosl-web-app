@@ -8,7 +8,7 @@
 }
 
 .hero-bg {
-  background-image: url("../../assets/images/homepage_bg.png");
+  background-image: url("../../assets/images/PA-img2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -18,7 +18,7 @@
 
 .footer-bg {
   /* background-blend-mode: color; */
-  background: #622f5c;
+  background: #042f9c;
   /* background-image: url('../../assets/images/footer-bg.png'); */
   background-repeat: no-repeat;
   background-size: cover;

@@ -65,7 +65,7 @@ const AccountSecurity = () => {
 
                         <div className='my-auto w-4/12 text-center'>
                             <button 
-                                className='text-[#8652A4] font-semibold'
+                                className='text-[#134FE7] font-semibold'
                                 onClick={() => toggleDisplay()}
                             >
                                 Reset now
@@ -107,7 +107,7 @@ const AccountSecurity = () => {
 
                             <div className='mt-6 flex justify-center'>
                                 <button 
-                                    className='rounded-md bg-[#8652A4] text-white px-6 py-3'
+                                    className='rounded-md bg-[#134FE7] text-white px-6 py-3'
                                     onClick={() => handleUpdatePassword()}
                                 >
                                     { loading ? 'Saving...' : 'Save Change'}

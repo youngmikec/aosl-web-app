@@ -132,7 +132,7 @@ const SellCryptoStepFour = ({ changeStep, changeStatus }: Props) => {
                 
                 <div className='my-4 flex justify-center'>
                     <button 
-                        className='rounded-md bg-[#8652A4] text-white px-6 py-3'
+                        className='rounded-md bg-[#134FE7] text-white px-6 py-3'
                         onClick={() => handleSubmit()}
                     >
                         { loading ? 'Processing...' : 'Finish' }

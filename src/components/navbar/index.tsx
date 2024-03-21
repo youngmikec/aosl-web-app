@@ -42,7 +42,7 @@ const Navbar = () => {
                                         >
                                             <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
                                         </svg>
-                                        <li className="hover:bg-[#8652A4] text-[#8652A4] border-b-2 border-[#f1dbff] hover:cursor-pointer pr-10 p-3 whitespace-no-wrap hover:text-white text-sm md:text-base ">
+                                        <li className="hover:bg-[#134FE7] text-[#134FE7] border-b-2 border-[#f1dbff] hover:cursor-pointer pr-10 p-3 whitespace-no-wrap hover:text-white text-sm md:text-base ">
                                             <Link to="/cryptos"> 
                                                 <div className="flex justify-start">
                                                     <div className='mr-2 my-auto h-3'><CiDollar /></div>
@@ -51,7 +51,7 @@ const Navbar = () => {
                                             </Link>
                                         </li>
 
-                                        <li className="hover:bg-[#8652A4] text-[#8652A4] border-b-2 border-[#f1dbff] hover:cursor-pointer pr-10 p-3 whitespace-no-wrap hover:text-white text-sm md:text-base ">
+                                        <li className="hover:bg-[#134FE7] text-[#134FE7] border-b-2 border-[#f1dbff] hover:cursor-pointer pr-10 p-3 whitespace-no-wrap hover:text-white text-sm md:text-base ">
                                             <Link to="/airtimes"> 
                                                 <div className="flex justify-start">
                                                     <div className='mr-2 my-auto h-3'><CiDollar /></div>
@@ -60,7 +60,7 @@ const Navbar = () => {
                                             </Link>
                                         </li>
 
-                                        <li className="hover:bg-[#8652A4] text-[#8652A4] border-b-2 border-[#f1dbff] hover:cursor-pointer pr-10 p-3 whitespace-no-wrap hover:text-white text-sm md:text-base ">
+                                        <li className="hover:bg-[#134FE7] text-[#134FE7] border-b-2 border-[#f1dbff] hover:cursor-pointer pr-10 p-3 whitespace-no-wrap hover:text-white text-sm md:text-base ">
                                             <Link to="/giftcards"> 
                                                 <div className="flex justify-start">
                                                     <div className='mr-2 my-auto h-3'><MdCardGiftcard /></div>
@@ -79,8 +79,8 @@ const Navbar = () => {
 
                     <div>
                         <ul className='list-none inline-flex'>
-                            <li className='mx-4 text-white font-semibold py-3 px-4 rounded-lg hover:bg-[#FFAB2E]'><Link to="/sign-in">Sign In</Link></li>
-                            <li className='mx-4 text-white font-semibold py-3 px-4 rounded-lg hover:bg-[#FFAB2E]'><Link to="/sign-up">Sign Up</Link></li>
+                            <li className='mx-4 text-white font-semibold py-3 px-4 rounded-lg hover:bg-[#134FE7]'><Link to="/sign-in">Sign In</Link></li>
+                            <li className='mx-4 text-white font-semibold py-3 px-4 rounded-lg hover:bg-[#134FE7]'><Link to="/sign-up">Sign Up</Link></li>
                         </ul>
                     </div>
                 </div>
@@ -104,9 +104,9 @@ const Navbar = () => {
                                         leading-tight
                                         uppercase
                                         rounded
-                                        hover:bg-white hover:shadow-lg hover:text-[#8652A4]
-                                        focus:bg-white focus:text-[#8652A4] focus:shadow-lg focus:outline-none focus:ring-0
-                                        active:bg-white active:shadow-lg active:text-[#8652A4]
+                                        hover:bg-white hover:shadow-lg hover:text-[#134FE7]
+                                        focus:bg-white focus:text-[#134FE7] focus:shadow-lg focus:outline-none focus:ring-0
+                                        active:bg-white active:shadow-lg active:text-[#134FE7]
                                         transition
                                         duration-150
                                         ease-in-out
@@ -138,7 +138,7 @@ const Navbar = () => {
                             </div>
                             <div>
                                 <p onClick={() => toggleShowDrowdown()} className='p-2 rounded-full bg-gray-100'>
-                                    <MdCancel className="text-3xl text-[#8652A4]" />
+                                    <MdCancel className="text-3xl text-[#134FE7]" />
                                 </p>
                             </div>
                         </div>
@@ -158,7 +158,7 @@ const Navbar = () => {
                                 <li className='mx-4 my-8 text-[#7F7F80] font-semibold hover:border-b-2 hover:border-b-white'><Link to="/sign-in">Sign in</Link></li>
                                 <li className='mx-4 my-8 text-[#ffffff] font-semibold hover:border-b-2 hover:border-b-white'>
                                     <Link to="/sign-up">
-                                        <span className='px-7 py-2 bg-[#FFAB2E] rounded-md'>Sign up</span>
+                                        <span className='px-7 py-2 bg-[#134FE7] rounded-md'>Sign up</span>
                                     </Link>
                                 </li>
                             </ul>

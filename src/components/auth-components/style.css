@@ -1,5 +1,5 @@
 .auth-bg {
-  background-image: url("../../assets/svg/auth-bg.svg");
+  background-image: url("../../assets/images/ac-img.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -8,8 +8,8 @@
 }
 
 .input-border {
-  border: 1px solid #8652a4;
-  border-left: 6px solid #8652a4;
+  border: 1px solid #134fe7;
+  border-left: 6px solid #134fe7;
 }
 
 .error-border {

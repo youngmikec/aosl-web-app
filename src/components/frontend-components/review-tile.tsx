@@ -25,7 +25,7 @@ const ReviewTile = ({ fullName, review, stars }: Props) => {
             <span className='mr-2 inline'>{stars}</span>
             {
                 aciveStars.map((item: number) => {
-                    return <AiFillStar key={item} className={`${ item === 1 ? 'text-[#FFAB2E]' : 'text-[#7F7F80]'} text-sm inline`} />
+                    return <AiFillStar key={item} className={`${ item === 1 ? 'text-[#134FE7]' : 'text-[#7F7F80]'} text-sm inline`} />
                 })
             }
         </div>
