@@ -7,6 +7,8 @@ import Cryptos from "../pages/crytops";
 import EmailVerificationPage from "../pages/email-verification";
 import Faq from "../pages/faq";
 import GiftCards from "../pages/giftcards";
+import ServicesPage from "../pages/services";
+import ServicesDetailPage from "../pages/services/servicesDetail";
 
 
 
@@ -33,17 +35,19 @@ const authRoutes: RouteType[] = [
         component: <ContactUs />
     },
     {
-        path: '/cryptos',
-        component: <Cryptos />
+        path: '/services',
+        component: <ServicesPage />
     },
+    {
+        path: '/services/:service',
+        component: <ServicesDetailPage />
+    },
+    
     {
         path: '/faqs',
         component: <Faq />
     },
-    {
-        path: '/giftcards',
-        component: <GiftCards />
-    },
+    
     
     {
         path: '/sign-up',

@@ -22,7 +22,7 @@ const AboutUsComp = () => {
                 <div className='py-12 w-full relative'>
                     <h3 className='text-5xl font-bold my-8 text-white'>Secured And Easy to <br />Use platform</h3>
                     <p className='text-sm font-semibold text-justify w-3/4 my-8 text-white'>We provide you with our best services for Crypto Exchange, Airtime Conversion, Giftcard Redeemtion.</p>
-                    <button className='rounded-lg mt-4 mb-8 text-white bg-[#134FE7] py-4 px-7 hover:bg-white hover:text-[#134FE7]'>
+                    <button className='rounded-lg mt-4 mb-8 text-white bg-[#042f9c] py-4 px-7 hover:bg-white hover:text-[#042f9c]'>
                         <Link to="/sign-in">Let's Trade</Link>
                     </button>
                     <img src={coin} alt="" className=' md:block lg:block absolute right-0 bottom-0 '  />
@@ -74,19 +74,19 @@ const AboutUsComp = () => {
               <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-10 justify-evenly my-10'>
                 <div className='text-center flex justify-center flex-col hover:shadow-lg px-7 hover:bg-white'>
                     <img src={phone} alt="" width='30' className='self-center mx-auto my-2' />
-                    <h3 className='text-[#134FE7]font-bold text-lg my-4'>Trusted and Secured</h3>
+                    <h3 className='text-[#042f9c]font-bold text-lg my-4'>Trusted and Secured</h3>
                     <p className=' text-sm font-light'>Our platform is built on the best data  <br /> security networks with absolute care to <br /> make sure your experience is simple and <br /> seamless</p>
 
                 </div>
                 <div className='text-center flex justify-center flex-col hover:shadow-lg px-7 hover:bg-white'>
                     <img src={icon} alt="" width='30' className='self-center mx-auto my-2' />
-                    <h3  className='text-[#134FE7]font-bold text-lg my-4'>Instant Payment</h3>
+                    <h3  className='text-[#042f9c]font-bold text-lg my-4'>Instant Payment</h3>
                     <p className=' text-sm font-light'>Don’t worry our team are always onboard <br /> to recieve your order and release funds <br /> ASAP to your bank account</p>
 
                 </div>
                 <div className='text-center flex justify-center flex-col hover:shadow-lg px-7 hover:bg-white'>
                     <img src={phone} alt="" width='30' className='self-center mx-auto my-2' />
-                    <h3 className='text-[#134FE7]font-bold text-lg my-4'>24/7 Hours Trade</h3>
+                    <h3 className='text-[#042f9c]font-bold text-lg my-4'>24/7 Hours Trade</h3>
                     <p className=' text-sm font-light'>we understand the need for someone of <br /> our users that would love to trade at <br /> midnight. Our team members are always <br /> available.</p>
 
                 </div>

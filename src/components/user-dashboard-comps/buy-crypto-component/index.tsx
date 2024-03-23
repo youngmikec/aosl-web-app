@@ -131,13 +131,13 @@ const BuyCryptoComp = () => {
                                         <img src={item?.cryptoImage} width="25px" height="25px" className="rounded-full mx-2 inline-flex" alt="crypto" />
                                         <p className='text-[#7F7F80] font-thin inline'><strong>{item?.shortName}</strong></p>
                                     </div>
-                                    <div><p className='text-[#134FE7] font-thin text-sm'><strong>{item?.rate}/$</strong></p></div>
+                                    <div><p className='text-[#042f9c] font-thin text-sm'><strong>{item?.rate}/$</strong></p></div>
                                 </div>
                                 }) :
 
                                 <div className="flex justify-between my-3">
                                     <div><p className='text-[#7F7F80]'><strong>No Record found</strong></p></div>
-                                    <div><p className='text-[#134FE7] font-thin'><strong>0/$</strong></p></div>
+                                    <div><p className='text-[#042f9c] font-thin'><strong>0/$</strong></p></div>
                                 </div>
                             }
                             

@@ -1,6 +1,6 @@
 .input-border {
-  border: 1px solid #134fe7;
-  border-left: 6px solid #134fe7;
+  border: 1px solid #042f9c;
+  border-left: 6px solid #042f9c;
 }
 
 .error-border {
@@ -154,12 +154,12 @@
   color: rgb(253, 253, 253);
 }
 .input-border {
-  border: 1px solid #134fe7;
-  border-left: 6px solid #134fe7;
+  border: 1px solid #042f9c;
+  border-left: 6px solid #042f9c;
 }
 .button {
   cursor: pointer;
-  background-color: #134fe7;
+  background-color: #042f9c;
   color: white;
   padding: 0.5rem 2rem;
 }
@@ -178,5 +178,5 @@
   text-align: left !important;
 }
 .light-purple {
-  background: #134fe740;
+  background: #042f9c40;
 }

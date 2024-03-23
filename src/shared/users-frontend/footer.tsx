@@ -50,7 +50,7 @@ const Footer = () => {
     }
     return (
         <>
-            <div className='w-full footer-bg py-20 bg-[#134fe7cc] text-white'>
+            <div className='w-full footer-bg py-20 bg-[#042f9ccc] text-white'>
                 <div className="mx-auto w-10/12">
                     <div className="grid lg:space-x-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
                         {/* column1 */}
@@ -62,33 +62,33 @@ const Footer = () => {
                             <ul className='list-none'>
                                 <li className='inline-flex mx-3'>
                                     <a 
-                                        href="https://instagram.com/chinos_xchange?igshid=YmMyMTA2M2Y=" 
+                                        href="https://web.facebook.com/profile.php?id=61557766280904&_rdc=1&_rdr" 
                                         target="_blank" 
                                         rel="noreferrer"
                                         className='p-2 bg-white rounded-full'
                                     >
-                                        <GrFacebookOption className="text-[#134FE7]" />
+                                        <GrFacebookOption className="text-[#042f9c]" />
                                     </a>
                                 </li>
                                 <li className='inline-flex mx-3'>
                                     <a 
-                                        href="https://instagram.com/chinos_xchange?igshid=YmMyMTA2M2Y=" 
+                                        href="https://web.facebook.com/profile.php?id=61557766280904&_rdc=1&_rdr" 
                                         target="_blank" 
                                         rel="noreferrer"
                                         className='p-2 bg-white rounded-full'
                                     >
-                                        <CgInstagram className="text-[#134FE7]" />
+                                        <CgInstagram className="text-[#042f9c]" />
                                     </a>
                                 </li>
 
                                 <li className='inline-flex mx-3'>
                                     <a 
-                                        href="https://twitter.com/chinosexchange?s=21&t=4dOwrkpmb6VeRNmlIa0rMQ"
+                                        href="https://web.facebook.com/profile.php?id=61557766280904&_rdc=1&_rdr"
                                         target="_blank"
                                         rel="noreferrer"
                                         className='p-2 bg-white rounded-full'
                                     >
-                                        <GrTwitter className="text-[#134FE7]" />
+                                        <GrTwitter className="text-[#042f9c]" />
                                     </a>
                                 </li>
                             </ul>
@@ -150,7 +150,7 @@ const Footer = () => {
                                     />
                                     <button 
                                         onClick={() => handleSubscribe()}
-                                        className='rounded-r-3xl text-white bg-[#134FE7] py-3 px-6 min-w-max'
+                                        className='rounded-r-3xl text-white bg-[#042f9c] py-3 px-6 min-w-max'
                                     >
                                         {
                                             loading ? 'subscribing...' : <IoIosSend />

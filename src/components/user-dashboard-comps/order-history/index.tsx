@@ -98,7 +98,7 @@ const OrderHistoryComp = () => {
     return (
         <>
             <div className='px-3'>
-                <h3 className='text-[#134FE7] text-4xl font-bold mt-3 mb-8'>Order History</h3>
+                <h3 className='text-[#042f9c] text-4xl font-bold mt-3 mb-8'>Order History</h3>
                 {/* filter section */}
                 <div>
 
@@ -162,7 +162,7 @@ const OrderHistoryComp = () => {
                             </div>
                             <div className='w-full text-center'>
                                 <p className='text-[#7F7F80]'>You currently do not have any transaction yet!</p>
-                                <p className='text-[#134FE7] font-semibold'>Perform your first trade</p>
+                                <p className='text-[#042f9c] font-semibold'>Perform your first trade</p>
                             </div>
                         </Card>
                     }

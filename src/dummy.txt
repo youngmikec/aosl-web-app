@@ -6,7 +6,7 @@
                         </div>
 
                         <div className='my-auto w-4/12 text-center'>
-                            <button className='text-[#134FE7] font-semibold'>
+                            <button className='text-[#042f9c] font-semibold'>
                                 Reset now
                             </button>
                         </div>
@@ -21,7 +21,7 @@
                         </div>
 
                         <div className='my-auto w-4/12 text-center'>
-                            <button className='text-[#134FE7] font-semibold'>
+                            <button className='text-[#042f9c] font-semibold'>
                                 Activate
                             </button>
                             <div className="flex justify-start w-3/12 rounded-2xl mx-auto border-2 border-[#7F7F80]">

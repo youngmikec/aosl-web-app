@@ -1,30 +1,16 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
+import { AxiosResponse } from 'axios';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { AxiosResponse } from 'axios';
 
-// style
-import './style.css';
 
-//icons and images
-import coin from '../../assets/images/hompage_coin.png'
-import { BsTelephoneFill } from "react-icons/bs";
-import { BsWhatsapp } from "react-icons/bs";
-import {BsEnvelopeFill} from "react-icons/bs";
-
-// components
-import HeroSection from '../../shared/users-frontend/hero-section';
-import JoinUs from '../../shared/users-frontend/join-us';
-import Footer from '../../shared/users-frontend/footer';
-import { ApiResponse } from '../../common';
 import { CREATE_MAIL } from '../../services';
-import ContactUsForm from './contact-us-form';
+import { ApiResponse } from '../../common';
+import bgImg from '../../assets/images/ac-img.jpg';
 
-const ContactUsComp = () => {
-    const[toggle,setToggle] = useState(true);
-    const[toggle1,setToggle1] = useState(true);
-    const[toggle2,setToggle2] = useState(true);
-    
+
+const ContactUsForm = () => {
+
     const [loading, setLoading] = useState<boolean>(false);
     const [fullname, setFullname] = useState<{value: string, error: boolean}>({value: '', error: false});
     const [phone, setPhone] = useState<{value: string, error: boolean}>({value: '', error: false});
@@ -118,32 +104,90 @@ const ContactUsComp = () => {
         setLoading(false);
     }
 
-    return (
-        <>
-            <HeroSection>
-                <div className="flex justify-center flex-row">
-                    <div className='py-4 w-full my-8 '>
-                        <div className='mt-8'>
-                            <h3 className='text-5xl font-bold mt-8 mb-4 text-white text-center'>We’re Available 24/7 to Attend <br /> To Our Customer</h3>
-                            <p className='text-sm font-semibold text-center w-3/4 mt-4 mb-6 mx-auto text-white'>Get answers to any question or inquiry you might have</p>
-                            <img src={coin} alt="" className=' my-8 mx-auto animate-pulse duration-75'  />
-                        </div>
-                    </div>
+  return (
+    <>
+      <div className="min-h-[600px] p-8 pb-12">
+
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 mx-auto w-full sm:w-10/12 md:w-9/12 lg:w-8/12">
+          <div className="flex justify-center items-center">
+            <img src={bgImg} className="w-full" alt="" />
+          </div>
+
+          <div className=" bg-[#042f9c] min-h-[500px] py-12 px-8">
+            <div className="mb-10">
+              <p className="text-sm text-white">GET IN TOUCH</p>
+              <h1 className="text-3xl font-semibold text-white">FILL THE FORM BELOW</h1>
+            </div>
+
+            <div>
+              <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4'>
+                <div className="text-white">
+                  <input 
+                    type="text" 
+                    placeholder="Your Name" 
+                    className="w-full py-4 px-2 bg-white text-black rounded-md my-4"
+                    value={fullname.value}
+                    onChange={(e) => setFullname({...fullname, value: e.target.value})}
+                  />
                 </div>
-            </HeroSection>
+                <div className="text-white">
+                  <input 
+                    type="text" 
+                    placeholder="Email" 
+                    className="w-full py-4 px-2 bg-white text-black rounded-md my-4" 
+                    value={email.value} 
+                    onChange={(e) => setEmail({...email, value: e.target.value})}/>
+                </div>
+                <div className="text-white">
+                  <input 
+                    type="text" 
+                    placeholder="Phone Number" 
+                    className="w-full py-4 px-2 bg-white text-black rounded-md my-4" 
+                    value={phone.value}
+                    onChange={(e) => setPhone({...phone, value: e.target.value})}
+                  />
+                </div>
 
-            <div className="my-12">
-                <ContactUsForm />
+                <div className="text-white">
+                  <input 
+                    type="text" 
+                    placeholder="Subject" 
+                    className="w-full py-4 px-2 bg-white text-black rounded-md my-4" 
+                    value={subject.value} 
+                    onChange={(e) => setSubject({...subject, value: e.target.value})}
+                  />
+                </div>
+              </div>
+
+              <div>
+                <input 
+                  type="text" 
+                  placeholder="Message" 
+                  className="w-full py-4 px-2 bg-white text-black rounded-md my-4" 
+                  value={message.value}
+                  onChange={(e) => setMessage({...message, value: e.target.value})}
+                />
+              </div>
+
+              <div>
+                <button 
+                  onClick={handleSendMail} 
+                  className='rounded-lg mt-4 mb-8 text-white bg-[#4575f062] 
+                  py-4 px-7 hover:bg-white hover:text-[#042f9c]'
+                >
+                  {loading ? 'Sending...' : 'Send Message'}
+                </button>
+              </div>
+
             </div>
 
-            <div className='my-4'>
-                <JoinUs />
-            </div>
+          </div>
+        </div>
+      </div>
 
-            <Footer />
-            <ToastContainer />
-        </>
-    )
+      <ToastContainer />
+    </>
+  )
 }
 
-export default ContactUsComp;
+export default ContactUsForm;

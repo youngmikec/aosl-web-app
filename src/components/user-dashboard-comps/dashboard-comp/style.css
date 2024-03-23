@@ -44,7 +44,7 @@ left: 300px;
 top: 163px;
 mix-blend-mode: overlay;
 opacity: 0.76;
-background-color: #134FE7;;
+background-color: #042f9c;;
 mix-blend-mode: overlay;
 opacity: 0.76;
 }
@@ -90,7 +90,7 @@ color: #FFFFFF;
     position: absolute;
     left: 580px;
     top: 180px;
-    color: #134FE7;
+    color: #042f9c;
 }
 
 .orders{
@@ -102,7 +102,7 @@ color: #FFFFFF;
    font-weight: 500;
    font-size: 15px; 
    line-height: 22px;
-   color: #134FE7;
+   color: #042f9c;
 
 }
 
@@ -117,7 +117,7 @@ font-style: normal;
 font-weight: 500;
 font-size: 32px;
 line-height: 48px;
-color: #134FE7;
+color: #042f9c;
 }
 
 .pending-orders{
@@ -180,7 +180,7 @@ font-style: normal;
 font-weight: 500;
 font-size: 15px;
 line-height: 22px;
-color: #134FE7;
+color: #042f9c;
 }
 
 
@@ -195,7 +195,7 @@ color: #134FE7;
     font-weight: 500;
     font-size: 15px;
     line-height: 22px;
-    color: #134FE7;
+    color: #042f9c;
     
 }
 
@@ -210,7 +210,7 @@ font-style: normal;
 font-weight: 500;
 font-size: 32px;
 line-height: 48px;
-color: #134FE7;
+color: #042f9c;
 
 }
 
@@ -225,7 +225,7 @@ font-style: normal;
 font-weight: 600;
 font-size: 24px;
 line-height: 36px;
-color: #134FE7
+color: #042f9c
 }
 
 .customer-table{
@@ -237,7 +237,7 @@ font-style: normal;
 font-weight: 700;
 font-size: 20px;
 line-height: 140%;
-color: #134FE7;
+color: #042f9c;
 }
 
 .displaying{
@@ -268,7 +268,7 @@ position: absolute;
 left: 720px;
 right: 65px;
 top: 2px;
-background-color: #134FE7;
+background-color: #042f9c;
 border-radius: 6px;
 width: 90px;
 height: 38px;

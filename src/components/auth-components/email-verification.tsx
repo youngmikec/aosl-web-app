@@ -88,20 +88,20 @@ const EmailVerificationComp = () => {
                     </div>
 
                     {/* <div className="relative my-8 text-center">
-                        <hr className='border-[#134FE78f] w-full' />
-                        <p className='text-[#134FE7] text-sm px-4 bg-white absolute -top-3 left-56 '>or sign in with</p>
+                        <hr className='border-[#042f9c8f] w-full' />
+                        <p className='text-[#042f9c] text-sm px-4 bg-white absolute -top-3 left-56 '>or sign in with</p>
                         <img src={googleIcon} className="my-4 mx-auto" alt="google" />
                     </div> */}
 
                     <div className="w-8/12 my-4 mx-auto text-center">
                         <button 
                             onClick={() => handleEmailVerification() } 
-                            className='bg-[#134FE7] text-white mb-6 block w-full rounded-lg py-3 sm:py-3 md:py-5 lg:py-6'
+                            className='bg-[#042f9c] text-white mb-6 block w-full rounded-lg py-3 sm:py-3 md:py-5 lg:py-6'
                         >
                             { loading ? 'verifying...' : 'Verify' }
                         </button>
-                        <p className='text-[#134FE78f] text-sm block my-4'>Already have an account?    
-                            <span className='text-[#134FE7] font-bold'><Link to="/sign-in">  Sign In</Link></span>
+                        <p className='text-[#042f9c8f] text-sm block my-4'>Already have an account?    
+                            <span className='text-[#042f9c] font-bold'><Link to="/sign-in">  Sign In</Link></span>
                         </p>
                     </div>
                 </div>

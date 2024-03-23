@@ -104,7 +104,7 @@ const TradeGiftCardsComp = () => {
                     <Card type="lg">
                         {/* Crypto rates */}
                         <div className="my-4 text-center">
-                            <h3 className='text-[#134FE7] font-bold text-xl'>Best Giftcard so far</h3>
+                            <h3 className='text-[#042f9c] font-bold text-xl'>Best Giftcard so far</h3>
                         </div>
                         <div>
                             <div className="flex justify-between my-3">
@@ -117,7 +117,7 @@ const TradeGiftCardsComp = () => {
                                     return (
                                         <div key={idx} className="flex justify-between my-3">
                                             <div><p className='text-[#7F7F80] font-thin text-sm'><strong>{item?.name}</strong></p></div>
-                                            <div><p className='text-[#134FE7] font-thin'><strong>{item?.rate}/$</strong></p></div>
+                                            <div><p className='text-[#042f9c] font-thin'><strong>{item?.rate}/$</strong></p></div>
                                         </div>
                                     )
                                 }):

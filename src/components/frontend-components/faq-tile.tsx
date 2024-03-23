@@ -23,7 +23,7 @@ const FaqTitle = ({ question, answers }: Props) => {
         >
             <div className="flex  mx-auto flex-col  w-full">
                 <div 
-                  className='flex mx-auto justify-between w-full hover:text-[#134FE7]'
+                  className='flex mx-auto justify-between w-full hover:text-[#042f9c]'
                 >
                   <p className='text-gray-800 text-md'>{ question }</p>
                   <BsFillCaretDownFill className={`self-center ${isDisplay && 'rotate-180'}`} />

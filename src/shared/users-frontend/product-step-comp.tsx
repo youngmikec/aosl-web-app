@@ -37,13 +37,13 @@ const ProductStepComp = ({ title, subTitle, imageUrl, steps }: Props) => {
 
                 <div className="ecllipse grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 my-12">
                     <div>
-                        <h3 className="text-[#134FE7] text-xl font-bold my-8">Three easy steps to get started</h3>
+                        <h3 className="text-[#042f9c] text-xl font-bold my-8">Three easy steps to get started</h3>
 
                         {
                             steps.length > 0 &&
                             steps.map((item: Step, key: number) => {
                                 return <div key={key} className="flex justify-start my-9">
-                                    <p className="mr-4 text-[#134FE7]">{key + 1}</p>
+                                    <p className="mr-4 text-[#042f9c]">{key + 1}</p>
                                     <div className='mx-3'>
                                         <h3 className='font-bold mb-2'>{ item.title }</h3>
                                         <p className='text-[#585858]'>{ item.subTitle }</p>
@@ -53,7 +53,7 @@ const ProductStepComp = ({ title, subTitle, imageUrl, steps }: Props) => {
                         }
 
                         <div className='my-8'>
-                            <button className="py-3 px-8 rounded-md bg-[#134FE7] text-white">
+                            <button className="py-3 px-8 rounded-md bg-[#042f9c] text-white">
                                 <Link to="/sign-in">Get Started</Link>
                             </button>
                         </div>

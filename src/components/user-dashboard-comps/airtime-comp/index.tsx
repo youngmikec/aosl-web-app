@@ -99,7 +99,7 @@ const AirtimeComp = () => {
                                                 <img src={item?.networkImage} className="text-center" alt={item?.shortName} width="50px" height="50px" />
                                             {
                                                 selectedAirtime && selectedAirtime.id === item.id && 
-                                                <AiFillCheckCircle className='text-[#134FE7] absolute top-0 right-0' />
+                                                <AiFillCheckCircle className='text-[#042f9c] absolute top-0 right-0' />
                                             }
                                         </div>)
                                 })

@@ -164,7 +164,7 @@ const TradeGiftcardStepOne = ({ changeStep, giftcards }: Props) => {
                 
                 <div className='my-4 flex justify-center'>
                     <button 
-                        className='rounded-md bg-[#134FE7] text-white px-6 py-3'
+                        className='rounded-md bg-[#042f9c] text-white px-6 py-3'
                         onClick={() => handleProcceede()}
                     >Proceed</button>
                 </div>

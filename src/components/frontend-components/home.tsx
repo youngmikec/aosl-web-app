@@ -25,6 +25,9 @@ import { RETREIVE_CRYPTO } from '../../services';
 import ReviewComp from './review';
 import WhatsappButton from '../whatsapp-btn';
 import AppTable, { TableHeader } from '../../shared/app-table';
+import ProductServices from '../../shared/users-frontend/ProductServices';
+import ProcessStep from './process-step';
+import ContactUsForm from './contact-us-form';
 
 const HomeComp = () => {
     const [cryptos, setCryptos] = useState<CryptoCurrency[]>([]);
@@ -75,7 +78,7 @@ const HomeComp = () => {
                         <h3 className='text-5xl font-bold my-8 text-white'>All Occupation Service LTD</h3>
 
                         <div className='my-8 text-center'>
-                            <button className='rounded-lg mt-4 mb-8 text-white bg-[#134FE7] py-4 px-7 hover:bg-white hover:text-[#134FE7]'>
+                            <button className='rounded-lg mt-4 mb-8 text-white bg-[#042f9c] py-4 px-7 hover:bg-white hover:text-[#042f9c]'>
                                 <Link to="/sign-in">Get Started</Link>
                             </button>
                         </div>
@@ -92,36 +95,11 @@ const HomeComp = () => {
                         Our cost is very competitive and we like to negotiate and work together with our clients to agree on the cost. 
                     </p>
                 </div>
+            </div> 
 
-
-                <div className='flex flex-col w-screen mt-16'>
-                    <div className='text-center'>
-                        <h2 className='text-gray-700 font-bold text-xl mb-2 capitalize'>what Makes Us Different</h2>
-                        <p className='text-sm text-gray-600 font-light'>There'are million reasons to use chinos Exchange platform </p>
-                    </div>
-
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-10 justify-evenly my-10'>
-                        <div className='text-center flex justify-center flex-col hover:shadow-lg px-7 hover:bg-white'>
-                            <img src={phone} alt="" width='30' className='self-center mx-auto my-2' />
-                            <h3 className='text-[#134FE7] font-bold text-lg my-4'>Trusted and Secured</h3>
-                            <p className=' text-sm font-light'>Our platform is built on the best data  <br /> security networks with absolute care to <br /> make sure your experience is simple and <br /> seamless</p>
-
-                        </div>
-                        <div className='text-center flex justify-center flex-col hover:shadow-lg px-7 hover:bg-white'>
-                            <img src={icon} alt="" width='30' className='self-center mx-auto my-2' />
-                            <h3  className='text-[#134FE7] font-bold text-lg my-4'>Instant Payment</h3>
-                            <p className=' text-sm font-light'>Don’t worry our team are always onboard <br /> to recieve your order and release funds <br /> ASAP to your bank account</p>
-
-                        </div>
-                        <div className='text-center flex justify-center flex-col hover:shadow-lg px-7 hover:bg-white'>
-                            <img src={phone} alt="" width='30' className='self-center mx-auto my-2' />
-                            <h3 className='text-[#134FE7] font-bold text-lg my-4'>24/7 Hours Trade</h3>
-                            <p className=' text-sm font-light'>we understand the need for someone of <br /> our users that would love to trade at <br /> midnight. Our team members are always <br /> available.</p>
-
-                        </div>
-                    </div>
-                </div>
-            </div>  
+            <div className='my-8'>
+                <ProductServices />
+            </div> 
 
             <div className='my-4'>
                 <JoinUs />
@@ -129,6 +107,14 @@ const HomeComp = () => {
 
             <div className='my-4'>
                 <ReviewComp />
+            </div>
+
+            <div className="my-4">
+                <ProcessStep />
+            </div>
+
+            <div className="my-4">
+                <ContactUsForm />
             </div>
 
             {/* whatsapp */}

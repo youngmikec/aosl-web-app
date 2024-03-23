@@ -40,7 +40,7 @@ const AirtimesComp = () => {
                         <h3 className='text-5xl font-bold my-8 text-white'>Convert your Airtime  <br/> To Cash At Ease </h3>
                         <p className='text-sm font-semibold text-justify w-3/4 my-8 text-white'>Join over 100,000 users across the globe to trade your digital asset on a fast and secured platform</p>
 
-                        <button className='rounded-lg my-4 text-white bg-[#134FE7] py-3 px-6 hover:bg-white hover:text-[#134FE7]'>
+                        <button className='rounded-lg my-4 text-white bg-[#042f9c] py-3 px-6 hover:bg-white hover:text-[#042f9c]'>
                             <Link to="/sign-in">Let's Trade</Link>
                         </button>
                     </div>

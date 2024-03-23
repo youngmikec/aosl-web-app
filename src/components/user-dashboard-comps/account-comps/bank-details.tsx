@@ -30,12 +30,12 @@ const BankDetails = () => {
                                 </div>
 
                                 <div className='flex justify-end'>
-                                    <div className="mx-2 text-[#134FE7]">
+                                    <div className="mx-2 text-[#042f9c]">
                                         <p>
                                             Remove
                                         </p>
                                     </div>
-                                    <div className="mx-2 text-[#134FE7]">
+                                    <div className="mx-2 text-[#042f9c]">
                                         <p>Edit</p>
                                     </div>
                                 </div>
@@ -47,7 +47,7 @@ const BankDetails = () => {
 
             <div className='my-4 py-5 px-10'>
                 <div className='border-2 border-gray-200 rounded-md mt-2 h-40 w-full flex justify-center'>
-                    <button className='text-center text-[#134FE7]'>
+                    <button className='text-center text-[#042f9c]'>
                         + <br /> Choose file
                     </button>
                     <input type="file" className='hidden' />

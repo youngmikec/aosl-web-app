@@ -101,12 +101,13 @@ const JoinUs = () => {
                         <input 
                             type="email" 
                             value={email}
+                            placeholder='your email address'
                             onChange={(e) => setEmail(e.target.value)}
                             className='w-full rounded-lg border-none bg-white py-3 px-5' 
                         />
                         <button 
                             onClick={() => handleSubscribe()}
-                            className='rounded-lg text-white bg-[#134FE7] py-3 px-6 min-w-max'
+                            className='rounded-lg text-white bg-[#042f9c] py-3 px-6 min-w-max'
                         >
                             {/* <Link to="/sign-in"></Link> */}
                             { loading ? 'joining...' : "Join" }

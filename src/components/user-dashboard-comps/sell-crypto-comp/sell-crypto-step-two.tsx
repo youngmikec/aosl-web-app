@@ -81,16 +81,16 @@ const SellCryptoStepTwo = ({ changeStep, cryptos }: Props) => {
 
                 <div className="flex justify-center my-6 mx-auto w-7/12">
                     <div 
-                        className='hover:bg-[#134FE7] hover:text-white py-2 px-3 rounded-full border-2 border-[#134FE7]'
+                        className='hover:bg-[#042f9c] hover:text-white py-2 px-3 rounded-full border-2 border-[#042f9c]'
                     >
                         <button onClick={() => copyWalletAddress() }>
                             <MdContentCopy className="rotate-180 text-lg" />
                         </button>
                     </div>
-                    {/* <div className='hover:bg-[#134FE7] hover:text-white p-2 rounded-full border-2 border-[#134FE7]'>
+                    {/* <div className='hover:bg-[#042f9c] hover:text-white p-2 rounded-full border-2 border-[#042f9c]'>
                         <AiOutlineSave className='text-lg' />
                     </div>
-                    <div className='hover:bg-[#134FE7] hover:text-white p-2 rounded-full border-2 border-[#134FE7]'>
+                    <div className='hover:bg-[#042f9c] hover:text-white p-2 rounded-full border-2 border-[#042f9c]'>
                         <AiOutlineShareAlt className='text-lg' />
                     </div> */}
                 </div>
@@ -103,7 +103,7 @@ const SellCryptoStepTwo = ({ changeStep, cryptos }: Props) => {
 
                 <div className='my-4 flex justify-center'>
                     <button 
-                        className='rounded-md bg-[#134FE7] text-white px-6 py-3'
+                        className='rounded-md bg-[#042f9c] text-white px-6 py-3'
                         onClick={() => handleProceed()}
                     >Proceed</button>
                 </div>

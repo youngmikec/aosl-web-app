@@ -55,7 +55,7 @@ const BuyCryptoStepThree = ({ changeStep, cryptos }: Props) => {
         </div>
 
         <div className='my-8 flex justify-center'>
-            <button className='rounded-md bg-[#134FE7] text-white px-6 py-3' onClick={
+            <button className='rounded-md bg-[#042f9c] text-white px-6 py-3' onClick={
                 () => {
                   handleProcceede();
                 }
@@ -63,7 +63,7 @@ const BuyCryptoStepThree = ({ changeStep, cryptos }: Props) => {
         </div>
 
         <a href={whatsAppUrl} target='_blank'>
-            <div className='flex justify-center gap-3 text-[#134FE7] cursor-pointer'>
+            <div className='flex justify-center gap-3 text-[#042f9c] cursor-pointer'>
                 <span className='my-auto'>
                     <BsWhatsapp />
                 </span>

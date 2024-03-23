@@ -130,8 +130,8 @@ const ForgotPassword3 = ({ changeStep }: Prop) => {
         </div>
 
         <div className='fixed right-8 top-8'>
-            <div className='text-[#134FE7] md:text-white lg:text-white'>
-                <p className='text-[#134FE7] md:text-white lg:text-white text-xl inline-flex cursor-pointer' onClick={() => changeStep(2)}>
+            <div className='text-[#042f9c] md:text-white lg:text-white'>
+                <p className='text-[#042f9c] md:text-white lg:text-white text-xl inline-flex cursor-pointer' onClick={() => changeStep(2)}>
                     <AiFillLeftCircle className='mr-2 my-auto' />
                     <span>Back</span>
                 </p>
@@ -203,14 +203,14 @@ const ForgotPassword3 = ({ changeStep }: Prop) => {
           <div className="w-8/12 my-4 mx-auto text-center">
             <button 
               onClick={() => handleChangePassword()}
-              className="bg-[#134FE7] text-white mb-6 block w-full rounded-lg py-3 sm:py-3 md:py-5 lg:py-6"
+              className="bg-[#042f9c] text-white mb-6 block w-full rounded-lg py-3 sm:py-3 md:py-5 lg:py-6"
             >
               { loading ? 'loading...' : 'Submit' }
             </button>
 
-            <p className="text-[#134FE78f] text-sm block my-4">
+            <p className="text-[#042f9c8f] text-sm block my-4">
               Already have an account?
-              <span className="text-[#134FE7] mx-2 font-bold">
+              <span className="text-[#042f9c] mx-2 font-bold">
                 <Link to="/sign-in">Sign in</Link>
               </span>
             </p>
