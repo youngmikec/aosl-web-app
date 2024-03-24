@@ -19,22 +19,22 @@ const ProcessStep = () => {
             <div className="text-white">
               <h1 className="text-5xl font-bold text-white">1.</h1>
               <p className="text-2xl font-semibold text-white my-2">Discovery</p>
-              <p className="text-md font-normal text-white">Identifying the opportunities in problems and creating solutions to meet those demands.</p>
+              <p className="text-md font-normal text-white">Identifying any of our services which you may need.</p>
             </div>
             <div className="text-white">
               <h1 className="text-5xl font-bold text-white">2.</h1>
-              <p className="text-2xl font-semibold text-white my-2">Planning</p>
-              <p className="text-md font-normal text-white">Identifying the opportunities in problems and creating solutions to meet those demands.</p>
+              <p className="text-2xl font-semibold text-white my-2">Dialog</p>
+              <p className="text-md font-normal text-white">Get a chance to discuss any of our services which you may need with our 24/7 active team.</p>
             </div>
             <div className="text-white">
               <h1 className="text-5xl font-bold text-white">3.</h1>
-              <p className="text-2xl font-semibold text-white my-2">Execute</p>
-              <p className="text-md font-normal text-white">Identifying the opportunities in problems and creating solutions to meet those demands.</p>
+              <p className="text-2xl font-semibold text-white my-2">Payment</p>
+              <p className="text-md font-normal text-white">Invoice is generated and sent to you for payment.</p>
             </div>
             <div className="text-white">
               <h1 className="text-5xl font-bold text-white">4.</h1>
               <p className="text-2xl font-semibold text-white my-2">Deliver</p>
-              <p className="text-md font-normal text-white">Identifying the opportunities in problems and creating solutions to meet those demands.</p>
+              <p className="text-md font-normal text-white">Your order is delivered.</p>
             </div>
           </div>
         </div>

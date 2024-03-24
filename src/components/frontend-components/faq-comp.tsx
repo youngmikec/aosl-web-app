@@ -54,9 +54,6 @@ const FaqComp = () => {
                             </button>
 
                         </div>
-                        <div className="image mx-auto justify-center flex">
-                            <img src={coin} alt=""  />
-                        </div>
                         
                     </div>
                 

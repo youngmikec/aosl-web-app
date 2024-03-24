@@ -58,7 +58,7 @@ const Footer = () => {
                             <div className='mb-6'>
                                 <img src={logo} alt="logo" width="110px" height="110px" />
                             </div>
-                            <p className='text-justify text-white my-4 pr-8'>Fastest platform to trade all your digital asset . fast and reliable</p>
+                            <p className='text-justify text-white my-4 pr-8'>Your one stop solution for all your needs</p>
                             <ul className='list-none'>
                                 <li className='inline-flex mx-3'>
                                     <a 
@@ -103,10 +103,10 @@ const Footer = () => {
                                     <Link to="/">Home</Link>
                                 </li>
                                 <li className='my-4 font-light'>
-                                    <Link to="/cryptos">Buy Crypto</Link>
+                                    <Link to="/about-us">About us</Link>
                                 </li>
                                 <li className='my-4 font-light'>
-                                    <Link to="/cryptos">Sell Crypto</Link>
+                                    <Link to="/services">services</Link>
                                 </li>
                                 <li className='my-4 font-light'>
                                     <Link to="/faqs">FAQS</Link>
@@ -123,10 +123,10 @@ const Footer = () => {
 
                             <ul className='list-none text-white'>
                                 <li className='my-4 font-light'>
-                                    +2347031625759
+                                    (44) 7872 078432
                                 </li>
                                 <li className='my-4 font-light'>
-                                    admin@chinosexchange.com
+                                    info@aosl-online.com
                                 </li>
                                 <li className='my-4 font-light'>
                                     24/7 Hours

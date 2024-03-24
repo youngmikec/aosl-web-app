@@ -1,20 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaArrowRight } from "react-icons/fa";
-
-
 
 // style
 import './style.css';
 
-//icons and images
-import coin from '../../assets/images/hompage_coin.png';
-import userPhone from '../../assets/images/user-phone.png';
-import userDashboard from '../../assets/images/user-dashboard.png';
-import airtimePhone from '../../assets/images/hand-with-phone.png';
-import phone from '../../assets/images/phone.png'
-import icon from '../../assets/images/customer-satisfaction.png'
-import networks from '../../assets/images/networks.svg';
 // components
 import HeroSection from '../../shared/users-frontend/hero-section';
 import JoinUs from '../../shared/users-frontend/join-us';
@@ -24,7 +13,7 @@ import { ApiResponse, CryptoCurrency } from '../../common';
 import { RETREIVE_CRYPTO } from '../../services';
 import ReviewComp from './review';
 import WhatsappButton from '../whatsapp-btn';
-import AppTable, { TableHeader } from '../../shared/app-table';
+import { TableHeader } from '../../shared/app-table';
 import ProductServices from '../../shared/users-frontend/ProductServices';
 import ProcessStep from './process-step';
 import ContactUsForm from './contact-us-form';

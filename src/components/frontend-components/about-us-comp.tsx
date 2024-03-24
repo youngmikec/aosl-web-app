@@ -21,15 +21,10 @@ const AboutUsComp = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 overflow-hidden md:ml-32 lg:ml-36">
                 <div className='py-12 w-full relative'>
                     <h3 className='text-5xl font-bold my-8 text-white'>Secured And Easy to <br />Use platform</h3>
-                    <p className='text-sm font-semibold text-justify w-3/4 my-8 text-white'>We provide you with our best services for Crypto Exchange, Airtime Conversion, Giftcard Redeemtion.</p>
+                    <p className='text-sm font-semibold text-justify w-3/4 my-8 text-white'>We provide you with our best services for Personal Assistant, Transportation, Training and many more.</p>
                     <button className='rounded-lg mt-4 mb-8 text-white bg-[#042f9c] py-4 px-7 hover:bg-white hover:text-[#042f9c]'>
-                        <Link to="/sign-in">Let's Trade</Link>
+                        <Link to="/sign-in">Get Started</Link>
                     </button>
-                    <img src={coin} alt="" className=' md:block lg:block absolute right-0 bottom-0 '  />
-                </div>
-
-                <div className='about-bg hidden sm:hidden md:block lg:block'>
-                    
                 </div>
                 
             </div>
