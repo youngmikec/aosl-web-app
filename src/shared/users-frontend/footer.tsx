@@ -72,7 +72,7 @@ const Footer = () => {
                                 </li>
                                 <li className='inline-flex mx-3'>
                                     <a 
-                                        href="https://web.facebook.com/profile.php?id=61557766280904&_rdc=1&_rdr" 
+                                        href="https://www.instagram.com/alloccupationservicesltd?igsh=MXFhM2ZweHdpdm1naw==" 
                                         target="_blank" 
                                         rel="noreferrer"
                                         className='p-2 bg-white rounded-full'
@@ -83,7 +83,7 @@ const Footer = () => {
 
                                 <li className='inline-flex mx-3'>
                                     <a 
-                                        href="https://web.facebook.com/profile.php?id=61557766280904&_rdc=1&_rdr"
+                                        href="https://twitter.com/AOSL2023"
                                         target="_blank"
                                         rel="noreferrer"
                                         className='p-2 bg-white rounded-full'

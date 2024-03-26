@@ -83,7 +83,7 @@ const ProductServices = () => {
     <>
       <div className="w-full">
         <div className="mx-auto w-full sm:w-10/12 md:w-9/12 lg:w-8/12">
-        <h3 className='text-gray-500 font-extrabold text-3xl mb-4 text-center'>Our Services</h3>
+        <h3 className='text-[#042f9c] font-extrabold text-3xl mb-4 text-center'>Our Services</h3>
 
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
             {

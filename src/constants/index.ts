@@ -1,6 +1,6 @@
 import { Review } from "../common";
 
-export const whatsAppUrl: string = `https://wa.me/2347031625759`;
+export const whatsAppUrl: string = `https://wa.me/447872078432`;
 export type Faq = {
   question: string;
   answers: string[];

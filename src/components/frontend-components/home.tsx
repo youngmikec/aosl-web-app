@@ -77,8 +77,8 @@ const HomeComp = () => {
 
             <div className="overflow-hidden">
                 <div className="text-center mx-auto w-10/12 sm:w-7/12 md:6/12 lg:w-5/12 my-16">
-                    <h3 className='text-gray-500 font-extrabold text-3xl mb-4'>WHAT WE DO</h3>
-                    <p className='text-gray-500 text-lg mx-auto text-center'>
+                    <h3 className='text-[#042f9c] font-extrabold text-3xl mb-4'>WHAT WE DO</h3>
+                    <p className='text-gray-500 text-sm mx-auto text-center'>
                         We offer training to our staff who provides care and cleaning services owever other services will be based on self-training however we will make
                         available the qualifications of our candidates to their prospective employers upon requests.
                         Our cost is very competitive and we like to negotiate and work together with our clients to agree on the cost. 

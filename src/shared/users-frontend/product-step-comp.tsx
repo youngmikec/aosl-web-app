@@ -35,7 +35,7 @@ const ProductStepComp = ({ title, subTitle, imageUrl, steps }: Props) => {
                     <p className=''>{ subTitle }</p>
                 </div>
 
-                <div className="ecllipse grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 my-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 my-12">
                     <div>
                         <h3 className="text-[#042f9c] text-xl font-bold my-8">Three easy steps to get started</h3>
 

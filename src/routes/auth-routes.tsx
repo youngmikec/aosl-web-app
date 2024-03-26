@@ -1,12 +1,9 @@
 import { ReactNode } from "react";
 import { Home, SignUP, SignIn, ForgotPassword } from "../pages";
 import AboutUs from "../pages/about-us";
-import Airtimes from "../pages/airtimes";
 import ContactUs from "../pages/contact-us";
-import Cryptos from "../pages/crytops";
 import EmailVerificationPage from "../pages/email-verification";
 import Faq from "../pages/faq";
-import GiftCards from "../pages/giftcards";
 import ServicesPage from "../pages/services";
 import ServicesDetailPage from "../pages/services/servicesDetail";
 
@@ -25,10 +22,6 @@ const authRoutes: RouteType[] = [
     {
         path: '/about-us',
         component: <AboutUs />
-    },
-    {
-        path: '/airtimes',
-        component: <Airtimes />
     },
     {
         path: '/contact-us',

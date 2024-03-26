@@ -26,8 +26,8 @@
   height: 30rem;
 }
 
-.airtime-bg {
-  background-image: url("../../assets/svg/man-and-rocket-1.svg");
+.pa-bg {
+  background-image: url("../../assets/svg/pa-agent.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;
@@ -116,10 +116,10 @@
 }
 .about-bg2 {
   background-blend-mode: color;
-  background-image: url("../../assets/images/laptop.png");
+  background-image: url("../../assets/images/team-members.png");
   background-color: rgba(0, 0, 0, 0.705);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-position: center center;
   width: 100%;
   min-height: 400px;
