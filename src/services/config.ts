@@ -8,6 +8,7 @@ export const BASE_URL: any = process.env.REACT_APP_BASE_URL;
 
 const axiosInstance = axios.create();
 
+export const url: any = process.env.REACT_APP_BASE_URL;
 const token = getItem('clientToken');
 axiosInstance.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 axiosInstance.defaults.headers.common = {'Authorization': `Bearer ${token}`};

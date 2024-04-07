@@ -5,7 +5,16 @@ import {
     SellGiftcardOrder, 
     BuyCryptoOrder,
     SellCryptoOrder,
-} from "../../common"
+} from "../../common";
+import { Application } from "../../common/application";
+import { Job } from "../../common/job";
+
+export type ApplicationState = {
+    value: Application[];
+  };
+  export type JobState = {
+    value: Job[];
+  };
 
 export type AirtimeState = {
     value: AirtimeOrder | null

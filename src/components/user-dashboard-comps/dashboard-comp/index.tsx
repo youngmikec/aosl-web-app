@@ -122,13 +122,13 @@ const DashboardComp = () => {
                 {/* FIRST SECTION STARTS HERE */}
                 <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8'>
                     <div>
-                        <DashboardCard image={image} loading={loading} status='PENDING' title='Pending transaction' value={pendingOrders} />
+                        <DashboardCard image={image} loading={loading} status='PENDING' title='Pending Applications' value={pendingOrders} />
                     </div>
                     <div>
-                        <DashboardCard image={image} loading={loading} status='FAILED' title='Failed transaction' value={declinedOrders} />
+                        <DashboardCard image={image} loading={loading} status='FAILED' title='Accepted Applications' value={declinedOrders} />
                     </div>
                     <div>
-                        <DashboardCard image={image} loading={loading} status='COMPLETED' title='Completed transaction' value={completedOrders} />
+                        <DashboardCard image={image} loading={loading} status='COMPLETED' title='Total Orders' value={completedOrders} />
                     </div>
 
                     {/* <div className='shadow-sm bg-white lg:h-52'></div>
@@ -142,7 +142,7 @@ const DashboardComp = () => {
                 <section>
 
                     <div>
-                        <h3 className='text-[#7F7F80] text-2xl font-semibold my-12'>What we offer</h3>
+                        <h3 className='text-[#7F7F80] text-2xl font-semibold my-12'>Quick Actions</h3>
 
                         <div className='grid grid-cols-1 gap-4
                             sm:grid-cols-2  

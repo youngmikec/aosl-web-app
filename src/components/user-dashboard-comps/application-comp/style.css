@@ -1,0 +1,26 @@
+.auth-bg {
+  background-image: url("../../../assets/images/laptop.png");
+  background-blend-mode: color;
+  background-color: rgba(133, 82, 163, 0.7);
+  background-position: left;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.input-border {
+  border: 1px solid #042f9c;
+  border-left: 6px solid #042f9c;
+}
+
+.error-border {
+  border: 1px solid #ec0d63;
+  border-left: 6px solid #ec0d63;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}

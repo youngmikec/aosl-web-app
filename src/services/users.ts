@@ -5,6 +5,10 @@ import { BASE_URL } from './config';
 // const url: string | undefined = process.env.REACT_APP_BASE_URL;
 const url: string | undefined = BASE_URL;
 
+export const WELCOME_ROUTE = async () => {
+    return axios.get(`${url}/welcome`);
+};
+
 export const LOGIN_USER = async (data: {[key: string]: any}) => {
     return axios.post(`${url}/users/login`, data);
 };

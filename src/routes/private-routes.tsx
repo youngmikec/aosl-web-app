@@ -8,16 +8,14 @@ import Account from "../users-dashboard/account";
 import OrderHistory from "../users-dashboard/order-history";
 import BuyCrypto from "../pages/users-dashboard/buy-crypto";
 import Airtime from "../users-dashboard/airtime";
+import JobsPage from "../pages/users-dashboard/Jobs";
+import ApplicationPage from "../pages/users-dashboard/application";
 // import NotFoundPage from "../pages/Not-found";
 
 const privateRoutes: RouteType[] = [
     {
         path: '/users-dashboard',
         component:<Dashboard/>
-    },
-    {
-        path: '/airtime',
-        component:<Airtime />
     },
     {
         path: '/account',
@@ -28,17 +26,17 @@ const privateRoutes: RouteType[] = [
         component:<SellCrypto />
     },
     {
-        path: '/trade-giftcard',
-        component:<TradeGiftcard />
-    },
-    {
         path: '/history',
         component:<OrderHistory />
     },
     {
-        path: '/buy-crypto',
-        component:<BuyCrypto />
-    }
+        path: '/jobs',
+        component: <JobsPage />
+    },
+    {
+        path: '/job-application',
+        component: <ApplicationPage />
+    },
     // {
     //     path: '*',
     //     component: <NotFoundPage/>

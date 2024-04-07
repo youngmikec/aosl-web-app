@@ -10,7 +10,7 @@ import JoinUs from '../../shared/users-frontend/join-us';
 import Footer from '../../shared/users-frontend/footer';
 import { AxiosResponse } from 'axios';
 import { ApiResponse, CryptoCurrency } from '../../common';
-import { RETREIVE_CRYPTO } from '../../services';
+import { RETREIVE_CRYPTO, WELCOME_ROUTE } from '../../services';
 import ReviewComp from './review';
 import WhatsappButton from '../whatsapp-btn';
 import { TableHeader } from '../../shared/app-table';
@@ -31,23 +31,10 @@ const HomeComp = () => {
         { key: 'sellingRate', value: 'Selling Rate' },
     ];
 
-    const retrieveCryptos = () => {
-        const query: string = `?sort=-name&status=ACTIVE`;
-        RETREIVE_CRYPTO(query)
+    const sayHi = () => {
+        WELCOME_ROUTE()
         .then((res: AxiosResponse<ApiResponse>) => {
-            const { message, payload } = res.data;
-            setCryptos(payload);
-            const mappedDate = payload.map((item: CryptoCurrency, idx: number) => {
-                return {
-                    sn: idx + 1,
-                    image: <img src={item?.cryptoImage } width="25px" height="25px" alt="crypto" />,
-                    name: item?.name,
-                    shortName: item?.shortName,
-                    rate: item?.rate,
-                    sellingRate: item?.sellingRate,
-                }
-            });
-            setTableRows(mappedDate);
+            console.log('welcome')
         })
         .catch((err: any) => {
             const { message } = err.response.data;
@@ -56,7 +43,7 @@ const HomeComp = () => {
     };
 
     useEffect(() => {
-        retrieveCryptos();
+        sayHi();
     }, []);
 
     return (

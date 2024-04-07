@@ -32,62 +32,38 @@ const Sidebar = ({sidebarMenus}: Props) => {
                     <img src={logo} alt="logo" width="100px" height="100px" />
                 </div>
                 <ul className="list-none text-[#8c8c8c]">
-                    <li 
-                        className={`${ pathname === '/users-dashboard' && 'bg-[#042f9c] text-white' } my-6 py-3 px-4 text-center rounded-md hover:bg-[#042f9c] hover:text-white` } 
-                        title="Dashboard"
-                    >
-                        <Link to="/users-dashboard">
+                    <li className='my-6 py-3 px-4 text-center rounded-md hover:bg-[#042f9c] hover:text-white' title="Dashboard">
+                        <Link to="/dashboard">
                             <div className='flex justify-start'>
-                                <div><span><RiDashboardFill className='text-xl'/></span></div>
+                                <div><span><RiDashboardFill /></span></div>
                                 <div className='mx-2'>Dashboard</div>
-                            </div>     
+                            </div>   
                         </Link>
                     </li>
-            
                     <li 
-                        className={`${ pathname === '/sell-crypto' && 'bg-[#042f9c] text-white' } my-6 py-3 px-4 text-center rounded-md hover:bg-[#042f9c] hover:text-white` }
-                        title="sell crypto"
+                        className={`${ pathname === '/jobs' && 'bg-[#042f9c] text-white' } my-6 py-3 px-4 text-center rounded-md hover:bg-[#042f9c] hover:text-white` }
+                        title="jobs/trainings"
                     >
-                        <Link to="/sell-crypto">
+                        <Link to="/jobs">
                             <div className='flex justify-start'>
                                 <div><span><AiOutlineDollar className='text-xl'/></span></div>
-                                <div className='mx-2'>Sell Crypto</div>
+                                <div className='mx-2'>Jobs & Trainings</div>
                             </div>           
                         </Link>
                     </li>
-                    <li 
-                        className={`${ pathname === '/buy-crypto' && 'bg-[#042f9c] text-white' } my-6 py-3 px-4 text-center rounded-md hover:bg-[#042f9c] hover:text-white` }
-                        title="buy crypto"
+                    
+                    <li
+                        className={`${ pathname === '/job-application' && 'bg-[#042f9c] text-white' } my-6 py-3 px-4 text-center rounded-md hover:bg-[#042f9c] hover:text-white` }
+                        title="job-application"
                     >
-                        <Link to="/buy-crypto">
-                            <div className='flex justify-start'>
-                                <div><span><AiOutlineDollar className='text-xl'/></span></div>
-                                <div className='mx-2'>Buy Crypto</div>
-                            </div>                
-                        </Link>
-                    </li>
-                    <li 
-                        className={`${ pathname === '/trade-giftcard' && 'bg-[#042f9c] text-white' } my-6 py-3 px-4 text-center rounded-md hover:bg-[#042f9c] hover:text-white` }
-                        title="trade giftcard"
-                    >
-                        <Link to="/trade-giftcard">
-                            <div className='flex justify-start'>
-                                <div><span><IoCardOutline  className='text-xl'/></span></div>
-                                <div className='mx-2'>Trade Giftcard</div>
-                            </div>                       
-                        </Link>
-                    </li>
-                    <li 
-                        className={`${ pathname === '/airtime' && 'bg-[#042f9c] text-white' } my-6 py-3 px-4 text-center rounded-md hover:bg-[#042f9c] hover:text-white` }
-                        title="airtime"
-                    >
-                        <Link to="/airtime">
+                        <Link to="/job-application">
                             <div className='flex justify-start'>
                                 <div><span><IoCopyOutline className='text-xl'/></span></div>
-                                <div className='mx-2'>Airtime to cash</div>
-                            </div>                             
+                                <div className='mx-2'>Applications</div>
+                            </div>           
                         </Link>
                     </li>
+
                     <li 
                         className={`${ pathname === '/history' && 'bg-[#042f9c] text-white' } my-6 py-3 px-4 text-center rounded-md hover:bg-[#042f9c] hover:text-white` }
                         title="Order history"
@@ -99,20 +75,9 @@ const Sidebar = ({sidebarMenus}: Props) => {
                             </div>                                   
                         </Link>
                     </li>
-                    <li 
-                        className={`${ pathname === '/account' && 'bg-[#042f9c] text-white' } my-6 py-3 px-4 text-center rounded-md hover:bg-[#042f9c] hover:text-white` }
-                        title="Account setting"
-                    >
-                        <Link to="/account">
-                            <div className='flex justify-start'>
-                                <div><span><AiOutlineSetting className='text-xl'/></span></div>
-                                <div className='mx-2'>Account Settings</div>
-                            </div>                                   
-                        </Link>
-                    </li>
 
                     <li 
-                        className={"cursor-pointer my-6 py-3 px-4 text-center rounded-md hover:bg-[#042f9c] hover:text-white" }
+                        className={`${ pathname === '/account' && 'bg-[#042f9c] text-white' } cursor-pointer my-6 py-3 px-4 text-center rounded-md hover:bg-[#042f9c] hover:text-white` }
                         title="account"
                         onClick={() => openModal()}
                     >
@@ -120,7 +85,7 @@ const Sidebar = ({sidebarMenus}: Props) => {
                             <div><span><CgLogOff className='text-xl'/></span></div>
                             <div className='mx-2'>Log Out</div>
                         </div>           
-                    </li>
+                    </li>       
                     
                 </ul>
             </div>

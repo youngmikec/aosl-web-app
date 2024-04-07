@@ -152,49 +152,29 @@ const Navbar = ({ profile, loading}: Props) => {
                                 </li>
 
                                 <li 
-                                    className={`${ pathname === '/sell-crypto' && 'bg-[#042f9c] text-white' } my-6 py-3 px-4 text-center rounded-md hover:bg-[#042f9c] hover:text-white` }
-                                    title="sell crypto"
+                                    className={`${ pathname === '/jobs' && 'bg-[#042f9c] text-white' } my-6 py-3 px-4 text-center rounded-md hover:bg-[#042f9c] hover:text-white` }
+                                    title="Jobs & Trainings"
                                 >
-                                    <Link to="/sell-crypto">
+                                    <Link to="/jobs">
                                         <div className='flex justify-start'>
                                             <div><span><AiOutlineDollar className='text-xl'/></span></div>
-                                            <div className='mx-2'>Sell Crypto</div>
+                                            <div className='mx-2'>Jobs & Trainings</div>
                                         </div>           
                                     </Link>
                                 </li>
+
                                 <li 
-                                    className={`${ pathname === '/buy-crypto' && 'bg-[#042f9c] text-white' } my-6 py-3 px-4 text-center rounded-md hover:bg-[#042f9c] hover:text-white` }
-                                    title="buy crypto"
+                                    className={`${ pathname === '/applications' && 'bg-[#042f9c] text-white' } my-6 py-3 px-4 text-center rounded-md hover:bg-[#042f9c] hover:text-white` }
+                                    title="Jobs & Trainings Applicationis"
                                 >
-                                    <Link to="/buy-crypto">
+                                    <Link to="/applications">
                                         <div className='flex justify-start'>
                                             <div><span><AiOutlineDollar className='text-xl'/></span></div>
-                                            <div className='mx-2'>Buy Crypto</div>
-                                        </div>                
+                                            <div className='mx-2'>Applications</div>
+                                        </div>           
                                     </Link>
                                 </li>
-                                <li 
-                                    className={`${ pathname === '/trade-giftcard' && 'bg-[#042f9c] text-white' } my-6 py-3 px-4 text-center rounded-md hover:bg-[#042f9c] hover:text-white` }
-                                    title="trade giftcard"
-                                >
-                                    <Link to="/trade-giftcard">
-                                        <div className='flex justify-start'>
-                                            <div><span><IoCardOutline  className='text-xl'/></span></div>
-                                            <div className='mx-2'>Trade Giftcard</div>
-                                        </div>                       
-                                    </Link>
-                                </li>
-                                <li 
-                                    className={`${ pathname === '/airtime' && 'bg-[#042f9c] text-white' } my-6 py-3 px-4 text-center rounded-md hover:bg-[#042f9c] hover:text-white` }
-                                    title="airtime"
-                                >
-                                    <Link to="/airtime">
-                                        <div className='flex justify-start'>
-                                            <div><span><IoCopyOutline className='text-xl'/></span></div>
-                                            <div className='mx-2'>Airtime to cash</div>
-                                        </div>                             
-                                    </Link>
-                                </li>
+                                
                                 <li 
                                     className={`${ pathname === '/history' && 'bg-[#042f9c] text-white' } my-6 py-3 px-4 text-center rounded-md hover:bg-[#042f9c] hover:text-white` }
                                     title="Order history"

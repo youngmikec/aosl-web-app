@@ -6,6 +6,9 @@ import sellCryptoReducer from './orders/sell-crypto-order';
 import userProfileReducer from './user';
 import profileReducer from './profile';
 import logotModalReducer from "./modal/logout-modal";
+import applicationReducer from './application';
+import jobReducer from './jobs-training';
+import appModalReducer from './modal';
 
 
 import ordersReducer from './orders/orders';
@@ -13,6 +16,9 @@ import ordersReducer from './orders/orders';
 
 export const store = configureStore({
     reducer: {
+        appModal: appModalReducer,
+        applicationState: applicationReducer,
+        jobState: jobReducer,
         orderState: ordersReducer,
         AirtimeOrderSlice: airtimeOrderReducer,
         BuyGiftcardOrderSlice: buyGiftcardReducer,
