@@ -6,6 +6,7 @@ import EmailVerificationPage from "../pages/email-verification";
 import Faq from "../pages/faq";
 import ServicesPage from "../pages/services";
 import ServicesDetailPage from "../pages/services/servicesDetail";
+import JobSearchPage from "../pages/job-search";
 
 
 
@@ -36,6 +37,14 @@ const authRoutes: RouteType[] = [
         component: <ServicesDetailPage />
     },
     
+    {
+        path: '/jobs-trainings',
+        component: <JobSearchPage />
+    },
+    {
+        path: '/jobs-trainings/:jobId',
+        component: <JobSearchPage />
+    },
     {
         path: '/faqs',
         component: <Faq />

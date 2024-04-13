@@ -37,7 +37,10 @@ const ProductStepComp = ({ title, subTitle, imageUrl, steps }: Props) => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 my-12">
                     <div>
-                        <h3 className="text-[#042f9c] text-xl font-bold my-8">Three easy steps to get started</h3>
+                        {
+                            subTitle && 
+                            <h3 className="text-[#042f9c] text-xl font-bold my-8">{subTitle}</h3>
+                        }
 
                         {
                             steps.length > 0 &&

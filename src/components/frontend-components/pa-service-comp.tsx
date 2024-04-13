@@ -19,16 +19,32 @@ type Step = {
 const PAserviceComp = () => {
     const steps: Step[] = [
         {
-            title: 'Create account',
-            subTitle: 'Get started by inputing all your required details provided on the form'
+            title: '',
+            subTitle: 'Companionship – keeping the client company, sharing stories, indoor games, ensuring safety at home'
         },
         {
-            title: 'Get Verified',
-            subTitle: 'Your submitted credentials would then be subjected to verification before your account gets approved.'
+            title: '',
+            subTitle: 'Support with booking and attending appointments - doctor’s appointment and all professional/personal appointments'
         },
         {
-            title: 'Convert ASAP',
-            subTitle: 'Select the network you wish to sell and the amount .then proceed..'
+            title: '',
+            subTitle: 'Domestic support - cleaners, support with preparing meals/serving'
+        },
+        {
+            title: '',
+            subTitle: 'Support with shopping – shopping lists, dropping, shopping, picking and support with putting the shopping away '
+        },
+        {
+            title: '',
+            subTitle: 'General Administrative support - support with paying bills, reading formal emails and letters, responding to formal letters/emails'
+        },
+        {
+            title: '',
+            subTitle: 'Family contact supervision – support children and families with social interaction, meet up and sharing love and togetherness '
+        },
+        {
+            title: '',
+            subTitle: 'Childcare – support parent and families with looking after their children to provide respite and in their absence, taking the children out to the park etc. '
         },
     ]
     
@@ -50,10 +66,10 @@ const PAserviceComp = () => {
 
             <div className=''>
                 <ProductStepComp 
-                    title='Personal Account Services'
+                    title='PA SERVICES – PART-TIME, FULL-TIME & SELF-EMPLOYED'
                     imageUrl={paAgentImg}
                     steps={steps}
-                    subTitle=''
+                    subTitle='Our Personal Assistants (PAs) are trained and competent to deliver the following support services;'
                 />
             </div>
 

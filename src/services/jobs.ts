@@ -3,6 +3,10 @@ import axios, { url } from './config';
 
 // const url: string | undefined = process.env.REACT_APP_BASE_URL;
 
+export const RETREIVE_JOBS_PUBLIC = async (query: string = '') => {
+    return axios.get(`${url}/jobs-posts/${query}`);
+};
+
 export const RETREIVE_JOBS = async (query: string = '') => {
     return axios.get(`${url}/jobs/${query}`);
 };

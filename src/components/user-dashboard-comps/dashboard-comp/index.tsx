@@ -202,7 +202,7 @@ const DashboardComp = () => {
 
                 <section>
                     <div className='my-8'>
-                        <h4 className='text-[#7F7F80] text-2xl font-semibold'>Recent Transactions</h4>
+                        <h4 className='text-[#7F7F80] text-2xl font-semibold'>Recent Orders</h4>
                     </div>
 
                     {/* <AppTable 

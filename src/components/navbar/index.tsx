@@ -74,6 +74,7 @@ const Navbar = () => {
                                     </ul>
                                 </div>
                             </li>
+                            <li className='mx-2 sm:mx-2 md:mx-2 lg:mx-4 text-white sm:text-xs font-semibold hover:border-b-2 hover:border-b-white'><Link to="/jobs-trainings">Jobs/Trainings</Link></li>
                             <li className='mx-2 sm:mx-2 md:mx-2 lg:mx-4 text-white sm:text-xs font-semibold hover:border-b-2 hover:border-b-white'><Link to="/about-us">About Us</Link></li>
                             <li className='mx-2 sm:mx-2 md:mx-2 lg:mx-4 text-white sm:text-xs font-semibold hover:border-b-2 hover:border-b-white'><Link to="/contact-us">Contact Us</Link></li>
                             <li className='mx-2 sm:mx-2 md:mx-2 lg:mx-4 text-white sm:text-xs font-semibold hover:border-b-2 hover:border-b-white'><Link to="/faqs">Faqs</Link></li>
@@ -152,6 +153,7 @@ const Navbar = () => {
                                 <li className='mx-4 my-8 text-[#7F7F80] font-semibold hover:border-b-2 hover:border-b-white'><Link to="/services/PA-services">PA Services</Link></li>
                                 <li className='mx-4 my-8 text-[#7F7F80] font-semibold hover:border-b-2 hover:border-b-white'><Link to="/services/transportation-services">Transportation Services</Link></li>
                                 <li className='mx-4 my-8 text-[#7F7F80] font-semibold hover:border-b-2 hover:border-b-white'><Link to="/services/training">Traning/Recruitment</Link></li>
+                                <li className='mx-4 my-8 text-[#7F7F80] font-semibold hover:border-b-2 hover:border-b-white'><Link to="/jobs-trainings">Jobs/Trainings</Link></li>
                                 <li className='mx-4 my-8 text-[#7F7F80] font-semibold hover:border-b-2 hover:border-b-white'><Link to="/about-us">About Us</Link></li>
                                 <li className='mx-4 my-8 text-[#7F7F80] font-semibold hover:border-b-2 hover:border-b-white'><Link to="/contact-us">Contact Us</Link></li>
                                 <li className='mx-4 my-8 text-[#7F7F80] font-semibold hover:border-b-2 hover:border-b-white'><Link to="/faqs">Faqs</Link></li>

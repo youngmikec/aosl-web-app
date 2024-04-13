@@ -1,5 +1,12 @@
+body {
+  font-family: "lato", "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif !important;
+}
+
 .App {
   text-align: center;
+  font-family: "lato", "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif !important;
 }
 
 .App-logo {
