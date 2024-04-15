@@ -1,7 +1,7 @@
 import React from 'react';
+import AboutUsComp from '../../components/frontend-components/about-us-comp'
 
 // components
-import AboutUsComp from '../../components/frontend-components/about-us-comp';
 
 const AboutUs = () => {
     return (

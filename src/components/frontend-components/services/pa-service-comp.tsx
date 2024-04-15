@@ -1,15 +1,16 @@
 import React from 'react';
 
 // style
-import './style.css';
+import '../style.css';
 
 // components
-import HeroSection from '../../shared/users-frontend/hero-section';
+import HeroSection from '../../../shared/users-frontend/hero-section';
 import { Link } from 'react-router-dom';
-import JoinUs from '../../shared/users-frontend/join-us';
-import Footer from '../../shared/users-frontend/footer';
-import ProductStepComp from '../../shared/users-frontend/product-step-comp';
-import paAgentImg from '../../assets/svg/pa-agent.svg';
+import JoinUs from '../../../shared/users-frontend/join-us';
+import Footer from '../../../shared/users-frontend/footer';
+import ProductStepComp from '../../../shared/users-frontend/product-step-comp';
+import paAgentImg from '../../../assets/svg/pa-agent.svg';
+import AppModalComp from '../../../shared/app-modal';
 
 type Step = {
     title: string;
@@ -78,6 +79,8 @@ const PAserviceComp = () => {
             </div>
 
             <Footer />
+
+            
         </>
     )
 }

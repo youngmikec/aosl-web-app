@@ -15,6 +15,7 @@ import { setItem } from '../../utils';
 //icons
 import { FiEyeOff, FiEye } from 'react-icons/fi';
 import { AiFillLeftCircle } from 'react-icons/ai';
+import { COUNTRIES } from '../../constants/countries';
 
 
 const SignUpComp = () => {
@@ -27,8 +28,8 @@ const SignUpComp = () => {
     const [isStrongPassword, setIsStrongPassword] = useState<boolean>(false);
     const [firstName, setFirstName] = useState<{value: string, error: boolean, msg: string}>({value: '', error: false, msg: ''});
     const [lastName, setLastName] = useState<{value: string, error: boolean, msg: string}>({value: '', error: false, msg: ''});
-    const [phone, setPhone] = useState<{value: string, error: boolean, msg: string}>({value: '', error: false, msg: ''});
-    const [country, setCountry] = useState<{value: string, error: boolean, msg: string}>({value: '', error: false, msg: ''});
+    const [phone, setPhone] = useState<{value: string, error: boolean, msg: string}>({value: COUNTRIES[0].code, error: false, msg: ''});
+    const [country, setCountry] = useState<{value: string, error: boolean, msg: string}>({value: COUNTRIES[0].name, error: false, msg: ''});
     const [email, setEmail] = useState<{value: string, error: boolean, msg: string}>({value: '', error: false, msg: ''});
     const [password, setPassword] = useState<{value: string, error: boolean, msg: string}>({value: '', error: false, msg: ''});
     const [confirmPassword, setConfirmPassword] = useState<{value: string, error: boolean, msg: string}>({value: '', error: false, msg: ''});
@@ -125,6 +126,13 @@ const SignUpComp = () => {
         });
       }
   };
+
+  const handleSetPhoneCode = (name: string) => {
+    const country = COUNTRIES.find(country => country.name === name);
+    if(country){
+        setPhone({...phone, value: country.code});
+    }
+  }
     
     const handleSignUp = () => {
         setLoading(true);
@@ -266,11 +274,14 @@ const SignUpComp = () => {
                                     name="country" 
                                     id="country" 
                                     className='w-full border-0 px-4 py-2 text-gray-400'
-                                    onChange={(e) => setCountry({...country, value: e.target.value})}
+                                    onChange={(e) => {
+                                        setCountry({...country, value: e.target.value})
+                                        handleSetPhoneCode(e.target.value)
+                                    }}
                                 >
-                                    <option value="">Select country</option>
-                                    <option value="NG">Nigeria</option>
-                                    <option value="GH">Ghana</option>
+                                    {
+                                        COUNTRIES.map((country, indx: number) => <option key={indx} value={country.name}>{country.name}</option>)
+                                    }
                                 </select>
                             </div>
                             {

@@ -46,7 +46,7 @@ const Navbar = () => {
                                             <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
                                         </svg>
                                         <li className="hover:bg-[#042f9c] text-[#042f9c] border-b-2 border-[#f1dbff] hover:cursor-pointer pr-10 p-3 whitespace-no-wrap hover:text-white text-sm md:text-base ">
-                                            <Link to="/services/PA-services"> 
+                                            <Link to="/services/pa-services"> 
                                                 <div className="flex justify-start">
                                                     <div className='mr-2 my-auto h-3'><HiOutlineBuildingOffice2 /></div>
                                                     <div>PA Services</div>
@@ -150,7 +150,7 @@ const Navbar = () => {
                         <div className='my-3 text-center'>
                             <ul className='list-none'>
                                 <li className='mx-4 my-8 text-[#7F7F80] font-semibold hover:border-b-2 hover:border-b-white'><Link to="/">Home</Link></li>
-                                <li className='mx-4 my-8 text-[#7F7F80] font-semibold hover:border-b-2 hover:border-b-white'><Link to="/services/PA-services">PA Services</Link></li>
+                                <li className='mx-4 my-8 text-[#7F7F80] font-semibold hover:border-b-2 hover:border-b-white'><Link to="/services/pa-services">PA Services</Link></li>
                                 <li className='mx-4 my-8 text-[#7F7F80] font-semibold hover:border-b-2 hover:border-b-white'><Link to="/services/transportation-services">Transportation Services</Link></li>
                                 <li className='mx-4 my-8 text-[#7F7F80] font-semibold hover:border-b-2 hover:border-b-white'><Link to="/services/training">Traning/Recruitment</Link></li>
                                 <li className='mx-4 my-8 text-[#7F7F80] font-semibold hover:border-b-2 hover:border-b-white'><Link to="/jobs-trainings">Jobs/Trainings</Link></li>

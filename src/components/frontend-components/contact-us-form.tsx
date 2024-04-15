@@ -9,7 +9,7 @@ import { ApiResponse } from '../../common';
 import bgImg from '../../assets/images/ac-img.jpg';
 
 
-const ContactUsForm = () => {
+const ContactUsForm = ({showFullForm = true, bg="#042f9c"}) => {
 
     const [loading, setLoading] = useState<boolean>(false);
     const [fullname, setFullname] = useState<{value: string, error: boolean}>({value: '', error: false});
@@ -108,12 +108,18 @@ const ContactUsForm = () => {
     <>
       <div className="min-h-[600px] p-8 pb-12">
 
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 mx-auto w-full sm:w-10/12 md:w-9/12 lg:w-8/12">
-          <div className="flex justify-center items-center">
-            <img src={bgImg} className="w-full" alt="" />
-          </div>
+        <div className={
+          showFullForm ? 'grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 mx-auto w-full sm:w-10/12 md:w-9/12 lg:w-8/12' :
+          'w-11/12 mx-auto'
+        }>
+          {
+            showFullForm &&
+            <div className="flex justify-center items-center">
+              <img src={bgImg} className="w-full" alt="" />
+            </div>
+          }
 
-          <div className=" bg-[#042f9c] min-h-[500px] py-12 px-8">
+          <div className={`bg-[${bg}] min-h-[500px] py-12 px-8`}>
             <div className="mb-10">
               <p className="text-sm text-white">GET IN TOUCH</p>
               <h1 className="text-3xl font-semibold text-white">FILL THE FORM BELOW</h1>

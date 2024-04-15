@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './styles.css';
+import AppModalComp from '../app-modal';
+import ContactUsForm from '../../components/frontend-components/contact-us-form';
+import { useDispatch } from 'react-redux';
+import { OpenAppModal } from '../../store/modal';
 
 export type Step = {
     title: string;
@@ -16,6 +20,12 @@ type Props = {
 
 
 const ProductStepComp = ({ title, subTitle, imageUrl, steps }: Props) => {
+
+    const dispatch = useDispatch();
+
+    const openModal = () => {
+        dispatch(OpenAppModal());
+    }
 
     const style = {
         backgroundImage: `url("${imageUrl}")`,
@@ -46,7 +56,7 @@ const ProductStepComp = ({ title, subTitle, imageUrl, steps }: Props) => {
                             steps.length > 0 &&
                             steps.map((item: Step, key: number) => {
                                 return <div key={key} className="flex justify-start my-9">
-                                    <p className="mr-4 text-[#042f9c]">{key + 1}</p>
+                                    <p className="mr-4 text-[#042f9c] list-disc"></p>
                                     <div className='mx-3'>
                                         <h3 className='font-bold mb-2'>{ item.title }</h3>
                                         <p className='text-[#585858]'>{ item.subTitle }</p>
@@ -56,8 +66,11 @@ const ProductStepComp = ({ title, subTitle, imageUrl, steps }: Props) => {
                         }
 
                         <div className='my-8'>
-                            <button className="py-3 px-8 rounded-md bg-[#042f9c] text-white">
-                                <Link to="/sign-in">Get Started</Link>
+                            <button 
+                                className="py-3 px-8 rounded-md bg-[#042f9c] text-white"
+                                onClick={openModal}
+                            >
+                                Mail Us Now
                             </button>
                         </div>
                     </div>
@@ -68,6 +81,10 @@ const ProductStepComp = ({ title, subTitle, imageUrl, steps }: Props) => {
                 </div>
             </div>
         </div>
+
+        <AppModalComp title='Mail Us Now'>
+            <ContactUsForm showFullForm={false} />
+        </AppModalComp>
     </>
   )
 }
