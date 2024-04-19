@@ -17,11 +17,12 @@ import { CloseAppModal, OpenAppModal } from '../../../store/modal';
 import Card from '../../../shared/card';
 import DeleteComp from '../../../shared/delete-comp/delete-comp';
 import AppModalComp from '../../../shared/app-modal';
-import { sortArray } from '../../../utils';
+import { getItem, sortArray } from '../../../utils';
 
 const ApplicationComp: FC = () => {
     const dispatch = useDispatch();
     const Applications: Application[] = useSelector((state: RootState) => state.applicationState.value);
+    const user = getItem('clientD');
 
     const [deleting, setDeleting] = useState<boolean>(false);
     const [applicationsData, setApplicationsData] = useState<Application[]>([]);
@@ -46,7 +47,7 @@ const ApplicationComp: FC = () => {
 
     const tableHeaders: TableHeader[] = [
         { key: 'sn', value: 'S/N' },
-        { key: 'code', value: 'Airtime Code' },
+        { key: 'code', value: 'Application Code' },
         { key: 'name', value: 'Name' },
         { key: 'role', value: 'Role' },
         { key: 'certLevel', value: 'Qualification' },
@@ -87,7 +88,7 @@ const ApplicationComp: FC = () => {
     }
 
     const retrieveAirtimes = () => {
-        const query: string = `?sort=-title&populate=createdBy`;
+        const query: string = `?email=${user ? user.email : ''}&sort=-title&populate=job,createdBy`;
         RETREIVE_APPLICATION(query)
         .then((res: AxiosResponse<ApiResponse>) => {
             const { message, payload } = res.data;

@@ -1,9 +1,13 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
 import { MdEmojiTransportation } from "react-icons/md";
 import { AiFillRightCircle } from "react-icons/ai";
 import { FaNetworkWired } from "react-icons/fa";
-import { useNavigate } from 'react-router-dom';
+import { BiCabinet } from "react-icons/bi";
+import { BsFillHouseDoorFill } from "react-icons/bs";
+import { TbDatabaseImport } from "react-icons/tb";
 
 
 
@@ -31,7 +35,7 @@ const ProductServiceCard: FC<Props> = ({ title, description, icon }) => {
         </div>
 
         <div 
-          onClick={() => goTo('/services/pa-services')}
+          onClick={() => goTo(`/services/${title.toLowerCase().replace(' ', '-')}`)}
           className="absolute bottom-0 left-0 right-0 px-6 py-2 mt-8 bg-[#042f9c] cursor-pointer"
         >
           <div className="flex justify-between">
@@ -46,7 +50,7 @@ const ProductServiceCard: FC<Props> = ({ title, description, icon }) => {
   )
 }
 
-const ProductServices = () => {
+const ProductServices: FC<{showFullServices?: boolean}> = ({ showFullServices = false }) => {
   const services: Props[] = [
     {
       title: 'PA Service',
@@ -63,22 +67,28 @@ const ProductServices = () => {
       description: 'We offer specialized health training to selected candidates, focusing on skill development.',
       icon: <FaNetworkWired className="text-5xl text-[#042f9c]" />
     },
-    // {
-    //   title: 'PA Service',
-    //   description: 'We provide software licensed on subscription basis to our end users. This software has been developed  by Infinanze technologies gmbH to enhance the day to day routine of our users.',
-    //   icon: <HiOutlineBuildingOffice2 className="text-5xl text-[#042f9c]" />
-    // },
-    // {
-    //   title: 'PA Service',
-    //   description: 'We provide software licensed on subscription basis to our end users. This software has been developed  by Infinanze technologies gmbH to enhance the day to day routine of our users.',
-    //   icon: <HiOutlineBuildingOffice2 className="text-5xl text-[#042f9c]" />
-    // },
-    // {
-    //   title: 'PA Service',
-    //   description: 'We provide software licensed on subscription basis to our end users. This software has been developed  by Infinanze technologies gmbH to enhance the day to day routine of our users.',
-    //   icon: <HiOutlineBuildingOffice2 className="text-5xl text-[#042f9c]" />
-    // },
-  ]
+    {
+      title: 'CONSULTANCY SERVICES',
+      description: 'We provide software licensed on subscription basis to our end users. This software has been developed  by Infinanze technologies gmbH to enhance the day to day routine of our users.',
+      icon: <BiCabinet className="text-5xl text-[#042f9c]" />
+    },
+    {
+      title: 'ACCOMMODATION SUPPORT SERVICE',
+      description: 'We provide software licensed on subscription basis to our end users. This software has been developed  by Infinanze technologies gmbH to enhance the day to day routine of our users.',
+      icon: <BsFillHouseDoorFill className="text-5xl text-[#042f9c]" />
+    },
+    {
+      title: 'IMPORTING AND EXPORTING',
+      description: 'We provide software licensed on subscription basis to our end users. This software has been developed  by Infinanze technologies gmbH to enhance the day to day routine of our users.',
+      icon: <TbDatabaseImport className="text-5xl text-[#042f9c]" />
+    },
+  ];
+
+  const [servicesData, setServicesData] = useState<Props[]>([]);
+
+  useEffect(() => {
+    showFullServices ? setServicesData(services) : setServicesData(services.slice(0, 3))
+  }, [showFullServices])
   return (
     <>
       <div className="w-full">
@@ -87,7 +97,7 @@ const ProductServices = () => {
 
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
             {
-              services.length > 0 && services.map((row: Props, idx: number) => {
+              servicesData.map((row: Props, idx: number) => {
                 return <ProductServiceCard key={idx} {...row} />
               })
             }

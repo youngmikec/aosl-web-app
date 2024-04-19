@@ -71,6 +71,14 @@ const Navbar = () => {
                                                 </div>
                                             </Link>
                                         </li>
+                                        <li className="hover:bg-[#042f9c] text-[#042f9c] border-b-2 border-[#f1dbff] hover:cursor-pointer pr-10 p-3 whitespace-no-wrap hover:text-white text-sm md:text-base ">
+                                            <Link to="/services"> 
+                                                <div className="flex justify-start">
+                                                    <div className='mr-2 my-auto h-3'><FaNetworkWired /></div>
+                                                    <div>Other Services</div>
+                                                </div>
+                                            </Link>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>
@@ -153,6 +161,7 @@ const Navbar = () => {
                                 <li className='mx-4 my-8 text-[#7F7F80] font-semibold hover:border-b-2 hover:border-b-white'><Link to="/services/pa-services">PA Services</Link></li>
                                 <li className='mx-4 my-8 text-[#7F7F80] font-semibold hover:border-b-2 hover:border-b-white'><Link to="/services/transportation-services">Transportation Services</Link></li>
                                 <li className='mx-4 my-8 text-[#7F7F80] font-semibold hover:border-b-2 hover:border-b-white'><Link to="/services/training">Traning/Recruitment</Link></li>
+                                <li className='mx-4 my-8 text-[#7F7F80] font-semibold hover:border-b-2 hover:border-b-white'><Link to="/services">Other Services</Link></li>
                                 <li className='mx-4 my-8 text-[#7F7F80] font-semibold hover:border-b-2 hover:border-b-white'><Link to="/jobs-trainings">Jobs/Trainings</Link></li>
                                 <li className='mx-4 my-8 text-[#7F7F80] font-semibold hover:border-b-2 hover:border-b-white'><Link to="/about-us">About Us</Link></li>
                                 <li className='mx-4 my-8 text-[#7F7F80] font-semibold hover:border-b-2 hover:border-b-white'><Link to="/contact-us">Contact Us</Link></li>

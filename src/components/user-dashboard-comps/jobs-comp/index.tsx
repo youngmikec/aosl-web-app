@@ -51,7 +51,7 @@ const JobsComp: FC = () => {
 
     const tableHeaders: TableHeader[] = [
       { key: 'sn', value: 'S/N' },
-      { key: 'code', value: 'Airtime Code' },
+      { key: 'code', value: 'Unique Code' },
       { key: 'title', value: 'Job Title' },
       { key: 'type', value: 'Type' },
       { key: 'company', value: 'Company' },
@@ -69,22 +69,6 @@ const JobsComp: FC = () => {
                 action: () => {
                     setSelectedRecord(item)
                     openModal('view');
-                }
-            },
-            { 
-                label: 'Update Record', 
-                disabled: false,
-                action: () => {
-                    setSelectedRecord(item)
-                    openModal('update');
-                }
-            },
-            { 
-                label: 'Delete Record', 
-                disabled: false,
-                action: () => {
-                    setSelectedRecord(item);
-                    openModal('delete');
                 }
             },
         ]
@@ -186,15 +170,6 @@ const JobsComp: FC = () => {
                               <p className='text-[#7F7F80] text-sm'>Displaying {jobsData.length} of {jobsData.length} Job/Training Record(s)</p>
                           </div>
 
-                          <div className='mb-8'>
-                              <button 
-                                  className='bg-[#042f9c] text-white py-2 px-4 rounded-md'
-                                  onClick={() => openModal('create')}
-                              >
-                                  Create Job/Training
-                              </button>
-                          </div>
-
                       </div>
                     </div>
                     {/* Title section */}
@@ -210,12 +185,6 @@ const JobsComp: FC = () => {
                 }
                 {
                     modalMode === 'view' && <JobsDetailsComp data={selectedRecord} />
-                }
-                {
-                    modalMode === 'update' && <JobForm mode={modalMode} record={selectedRecord} />
-                }
-                {
-                    modalMode === 'delete' && <DeleteComp id={selectedRecord?.id} action={handleDeleteRecord} deleting={deleting} />
                 }
             </AppModalComp>
 
