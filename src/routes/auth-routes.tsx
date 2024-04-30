@@ -7,6 +7,7 @@ import Faq from "../pages/faq";
 import ServicesPage from "../pages/services";
 import ServicesDetailPage from "../pages/services/servicesDetail";
 import JobSearchPage from "../pages/job-search";
+import JobDetailsPage from "../pages/job-detail-page";
 
 
 
@@ -43,7 +44,7 @@ const authRoutes: RouteType[] = [
     },
     {
         path: '/jobs-trainings/:jobId',
-        component: <JobSearchPage />
+        component: <JobDetailsPage />
     },
     {
         path: '/faqs',

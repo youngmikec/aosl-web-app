@@ -8,7 +8,7 @@ export const RETREIVE_APPLICATION = async (query: string = '') => {
 };
 
 export const CREATE_APPLICATION = async (data: {[key: string]: any}) => {
-    return axios.post(`${url}/applications`, data);
+    return axios.post(`${url}/applications-register`, data);
 };
 
 export const UPDATE_APPLICATION = async (id: string, data: {[key: string]: any}) => {

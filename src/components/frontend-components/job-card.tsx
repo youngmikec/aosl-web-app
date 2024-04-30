@@ -12,7 +12,7 @@ const JobCard: FC<Props> = ({ job }) => {
   const navigate = useNavigate();
 
   const goToJobDetails = () => {
-    navigate(`/jobs-details/${job.id}`);
+    navigate(`/jobs-trainings/${job.id}`);
   }
 
   return (

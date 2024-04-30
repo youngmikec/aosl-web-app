@@ -19,7 +19,7 @@ function App() {
   const getPrivateRoutes = (routes: RouteType[]) => routes.map((route: RouteType, index: number) => {
     const Component = route.component;
     return <Route key={index} path={route.path} element={ <ProtectedRoute>{Component}</ProtectedRoute>} />
-  })
+  });
 
   return (
     <Router>

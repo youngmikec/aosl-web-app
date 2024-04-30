@@ -48,15 +48,15 @@ const JobSearchPage = () => {
   return (
     <>
       <HeroSection>
-            <div className="flex justify-center items-center w-full min-h-[350px]">
-                <div>
-                    <h3 className='text-5xl font-bold my-8 text-white'>AOSL Jobs / Traingings</h3>
-                </div>
-            </div>
-        </HeroSection>
+          <div className="flex justify-center items-center w-full min-h-[350px]">
+              <div>
+                  <h3 className='text-5xl font-bold my-8 text-white'>AOSL Jobs / Traingings</h3>
+              </div>
+          </div>
+      </HeroSection>
 
         {/* Jobs section */}
-        <div className='my-4 mx-auto w-10/12 mb-8'>
+        <div className='mt-4 mx-auto w-10/12 mb-8'>
           <div className="mb-4">
             <p className="text-[#121212d3] text-lg font-semibold">Job opening in ASOL</p>
           </div>

@@ -33,7 +33,7 @@ const Sidebar = ({sidebarMenus}: Props) => {
                 </div>
                 <ul className="list-none text-[#8c8c8c]">
                     <li className='my-6 py-3 px-4 text-center rounded-md hover:bg-[#042f9c] hover:text-white' title="Dashboard">
-                        <Link to="/dashboard">
+                        <Link to="/users-dashboard">
                             <div className='flex justify-start'>
                                 <div><span><RiDashboardFill /></span></div>
                                 <div className='mx-2'>Dashboard</div>
