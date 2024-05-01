@@ -10,6 +10,7 @@ import BuyCrypto from "../pages/users-dashboard/buy-crypto";
 import Airtime from "../users-dashboard/airtime";
 import JobsPage from "../pages/users-dashboard/Jobs";
 import ApplicationPage from "../pages/users-dashboard/application";
+import ChatPage from "../pages/users-dashboard/chat";
 // import NotFoundPage from "../pages/Not-found";
 
 const privateRoutes: RouteType[] = [
@@ -36,6 +37,10 @@ const privateRoutes: RouteType[] = [
     {
         path: '/job-application',
         component: <ApplicationPage />
+    },
+    {
+        path: '/chats',
+        component: <ChatPage />
     },
     // {
     //     path: '*',

@@ -98,7 +98,7 @@ const Navbar = ({ profile, loading}: Props) => {
                     </div> */}
                     <div className="text-[#7F7F80] hover:text-[#042f9c] text-sm font-semibold mx-8">
                         <span>
-                            <a href={whatsAppUrl} target="_blank" rel="noopener noreferrer">Chat</a>
+                            <Link to="/chats">Chat</Link>
                         </span>
                     </div>
                 </div>
