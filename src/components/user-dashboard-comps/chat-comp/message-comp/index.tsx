@@ -7,7 +7,7 @@ type Props = {
   direction?: 'incoming' | 'outgoing';
 }
 
-const MessageComp: FC<Props> = ({ chatMessage, direction = 'incoming' }) => {
+const MessageComp: FC<Props> = ({ chatMessage, direction }) => {
   const incomingMsgStyle: string = 'border-[#afafaf] bg-[#e0e0e0] rounded-b-2xl rounded-tl-none rounded-tr-2xl';
   const outGoingMsgStyle: string = 'border-[#c8ecff] bg-[#e3f5ff] rounded-b-2xl rounded-tr-none rounded-tl-2xl';
 
@@ -20,8 +20,8 @@ const MessageComp: FC<Props> = ({ chatMessage, direction = 'incoming' }) => {
           <div className="flex-grow">
             <p className="text-gray-700 text-sm">{chatMessage.message}</p>
           </div>
-          <div className="flex items-baseline">
-            <p className="text-gray-700 text-[10px]">{moment(chatMessage.createdAt).isoWeekday()}</p>
+          <div className="flex items-baseline w-max">
+            <p className="text-gray-700 text-[10px]">{moment(chatMessage.createdAt).format('hh:mm:a')}</p>
           </div>
         </div>
       </div>

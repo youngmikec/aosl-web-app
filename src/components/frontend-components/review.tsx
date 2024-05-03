@@ -29,7 +29,7 @@ const ReviewComp = () => {
                         {
                             reviews.length > 0 && 
                             reviews.map((item: Review, idx: number) => {
-                                return (<div className='my-3 mx-2' key={idx}>
+                                return (<div className={`my-3 mx-2 animate__animated ${idx % 2 === 0 ? 'animate__fadeInLeft' : 'animate__fadeInRight'}`} key={idx}>
                                             <ReviewTile  
                                                 fullName={item?.fullName}
                                                 review={item?.review}

@@ -17,8 +17,6 @@ import './style.css';
 
 // logo
 import defaultProfileImg from '../../assets/images/arash.png';
-import { whatsAppUrl } from "../../constants";
-import { IoCardOutline, IoCopyOutline } from "react-icons/io5";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { User } from "../../common";
 import { getItem } from "../../utils";

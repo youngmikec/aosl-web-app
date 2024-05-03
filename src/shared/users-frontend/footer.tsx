@@ -7,12 +7,14 @@ import "react-toastify/dist/ReactToastify.css";
 import { IoIosSend } from 'react-icons/io'
 import { CgInstagram } from 'react-icons/cg';
 import { GrFacebookOption, GrTwitter } from 'react-icons/gr';
+import { BsWhatsapp } from "react-icons/bs";
 
 import './styles.css';
 import logo from '../../assets/images/logo-white.png';
 import { CREATE_SUBSCRIBER } from '../../services';
 import { AxiosResponse } from 'axios';
 import { ApiResponse } from '../../common';
+import { whatsAppUrl } from '../../constants';
 
 const Footer = () => {
     const [email, setEmail] = useState<string>('');
@@ -58,7 +60,7 @@ const Footer = () => {
                             <div className='mb-6'>
                                 <img src={logo} alt="logo" width="110px" height="110px" />
                             </div>
-                            <p className='text-justify text-white my-4 pr-8'>Your one stop solution for all your needs</p>
+                            <p className='text-justify text-white my-4 pr-8'>For further inquries contact us on our social handls below.</p>
                             <ul className='list-none'>
                                 <li className='inline-flex mx-3'>
                                     <a 
@@ -89,6 +91,16 @@ const Footer = () => {
                                         className='p-2 bg-white rounded-full'
                                     >
                                         <GrTwitter className="text-[#042f9c]" />
+                                    </a>
+                                </li>
+                                <li className='inline-flex mx-3'>
+                                    <a 
+                                        href={whatsAppUrl}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className='p-2 bg-white rounded-full'
+                                    >
+                                        <BsWhatsapp className="text-[#042f9c]" />
                                     </a>
                                 </li>
                             </ul>
@@ -123,7 +135,7 @@ const Footer = () => {
 
                             <ul className='list-none text-white'>
                                 <li className='my-4 font-light'>
-                                    (44) 7872 078432
+                                    +44 7784 284117
                                 </li>
                                 <li className='my-4 font-light'>
                                     info@aosl-online.com

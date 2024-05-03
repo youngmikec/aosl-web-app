@@ -114,7 +114,7 @@ const JobApplicationForm = ({ jobId }: { jobId: string}) => {
                     <img src={resumeFile?.value} width="30%" className='cursor-pointer' alt="uploaded" onClick={() => openResumeFile()} />
                 </div> :
                 <button className='text-center text-[#7F7F80]' onClick={() => openResumeFile()}>
-                    + <br /> Upload Wallet QR code
+                    + <br /> Upload Resume or CV
                 </button>
             }
             <input 
@@ -302,7 +302,7 @@ const JobApplicationForm = ({ jobId }: { jobId: string}) => {
 
           <div className="my-3">
               <label htmlFor="accountNumber" className="text-[#BFBFBF] text-sm block">
-                Biography*
+                Tell us about you*
               </label>
               <textarea
                 rows={5}

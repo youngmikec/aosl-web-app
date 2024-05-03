@@ -1,7 +1,7 @@
 import { Review } from "../common";
 import { Step } from "../components/frontend-components/services/traing-service-comp";
 
-export const whatsAppUrl: string = `https://wa.me/447872078432`;
+export const whatsAppUrl: string = `https://wa.me/447784284117`;
 export type Faq = {
   question: string;
   answers: string[];

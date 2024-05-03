@@ -46,7 +46,7 @@ const ProductStepComp = ({ title, subTitle, imageUrl, steps }: Props) => {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 my-12">
-                    <div>
+                    <div className="animate__animated animate__fadeInLeft">
                         {
                             subTitle && 
                             <h3 className="text-[#042f9c] text-xl font-bold my-8">{subTitle}</h3>
@@ -75,7 +75,7 @@ const ProductStepComp = ({ title, subTitle, imageUrl, steps }: Props) => {
                         </div>
                     </div>
 
-                    <div style={style}>
+                    <div style={style} className="animate__animated animate__fadeInRight">
                         {/* <img src={imageUrl} alt="illustration" width="100%" className='h-full my-auto w-full' /> */}
                     </div>
                 </div>

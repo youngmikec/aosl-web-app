@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 // style
@@ -9,27 +9,15 @@ import HeroSection from '../../shared/users-frontend/hero-section';
 import JoinUs from '../../shared/users-frontend/join-us';
 import Footer from '../../shared/users-frontend/footer';
 import { AxiosResponse } from 'axios';
-import { ApiResponse, CryptoCurrency } from '../../common';
-import { RETREIVE_CRYPTO, WELCOME_ROUTE } from '../../services';
+import { ApiResponse } from '../../common';
+import { WELCOME_ROUTE } from '../../services';
 import ReviewComp from './review';
 import WhatsappButton from '../whatsapp-btn';
-import { TableHeader } from '../../shared/app-table';
 import ProductServices from '../../shared/users-frontend/ProductServices';
 import ProcessStep from './process-step';
 import ContactUsForm from './contact-us-form';
 
 const HomeComp = () => {
-    const [cryptos, setCryptos] = useState<CryptoCurrency[]>([]);
-    const [tableRows, setTableRows] = useState<any[]>([]);
-
-    const tableHeaders: TableHeader[] = [
-        { key: 'sn', value: 'S/N' },
-        { key: 'image', value: 'Image' },
-        { key: 'name', value: 'Name' },
-        { key: 'shortName', value: 'Short Name' },
-        { key: 'rate', value: 'Buy Rate' },
-        { key: 'sellingRate', value: 'Selling Rate' },
-    ];
 
     const sayHi = () => {
         WELCOME_ROUTE()
@@ -51,7 +39,7 @@ const HomeComp = () => {
             <HeroSection>
                 <div className="flex justify-center items-center w-full min-h-[350px]">
                     <div>
-                        <h3 className='text-5xl font-bold my-8 text-white'>All Occupation Service LTD</h3>
+                        <h3 className='text-5xl font-bold my-8 text-white animate__animated animate__fadeInDown'>All Occupation Service LTD</h3>
 
                         <div className='my-8 text-center'>
                             <button className='rounded-lg mt-4 mb-8 text-white bg-[#042f9c] py-4 px-7 hover:bg-white hover:text-[#042f9c]'>
