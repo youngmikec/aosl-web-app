@@ -18,7 +18,7 @@ const AboutUsComp = () => {
   return (
     <>
         <HeroSection>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 overflow-hidden md:ml-32 lg:ml-36">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 overflow-hidden md:ml-32 lg:ml-36 animate__animated animate__fadeInRight">
                 <div className='py-12 w-full relative'>
                     <h3 className='text-5xl font-bold my-8 text-white'>We deal inComprehensive Services for <br></br> Personal Assistant, Transportation, Training, and More</h3>
                     <p className='text-sm font-semibold text-justify w-3/4 my-8 text-white'>We provide you with our best services for Personal Assistant, Transportation, Training and many more.</p>
@@ -55,15 +55,15 @@ const AboutUsComp = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 py-8 w-11/12 mx-auto mb-32 gap-6">
 
-              <div className="py-4">
+              <div className="py-4 animate__animated animate__fadeInLeft">
                 <div className="about-bg2 w-full flex justify-center items-center py-28 sm:py-20">
                   <img src={logo} alt="" height="200px" className='mt-5 mx-auto small-icon object-fill' />
                 </div>
               </div>
 
-              <div className='text-left w-full'>
+              <div className='text-left w-full animate__animated animate__fadeInRight'>
                 <div>
-                  <h3 className='text-black text-sm sm:text-sm md:text-sm font-bold mt-2 mb-4 px-8'>Our Mission</h3>
+                  <h3 className='text-black text-sm sm:text-sm md:text-lg font-bold mt-2 mb-4 px-8'>Our Mission</h3>
                   <p className='font-light px-4 text-justify text-gray-700 mb-4'>
                     Our mission is to deliver unparalleled services that cater to the specific needs of our clients.
                     We are committed to building lasting relationships based on trust, efficiency, and a deep
@@ -93,23 +93,29 @@ const AboutUsComp = () => {
                   <p className='text-sm text-gray-600 font-light'>There'are million reasons to use chinos Exchange platform </p>
               </div>
 
-              <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-10 justify-evenly my-10'>
-                <div className='text-center flex justify-center flex-col hover:shadow-lg px-7 hover:bg-white'>
+              <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-10 justify-evenly my-10'>
+                <div className='text-center flex-col hover:shadow-xl bg-gray-100 px-7 py-6 shadow-md hover:bg-white animate__animated animate__fadeInLeft'>
                     <img src={phone} alt="" width='30' className='self-center mx-auto my-2' />
-                    <h3 className='text-[#042f9c]font-bold text-sm my-4'>Trusted and Secured</h3>
-                    <p className=' text-sm font-light'>Our platform is built on the best data  <br /> security networks with absolute care to <br /> make sure your experience is simple and <br /> seamless</p>
+                    <h3 className='text-[#042f9c] font-bold text-lg my-4 text-center'>24/7 Availability</h3>
+                    <p className=' text-sm font-light text-center w-full'>
+                      Provide round-the-clock availability for clients, ensuring they can 
+                      access assistance and transportation services whenever they need them.
+                    </p>
 
                 </div>
-                <div className='text-center flex justify-center flex-col hover:shadow-lg px-7 hover:bg-white'>
-                    <img src={icon} alt="" width='30' className='self-center mx-auto my-2' />
-                    <h3  className='text-[#042f9c]font-bold text-sm my-4'>Instant Payment</h3>
-                    <p className=' text-sm font-light'>Don’t worry our team are always onboard <br /> to recieve your order and release funds <br /> ASAP to your bank account</p>
-
+                <div className='text-center flex-col hover:shadow-xl bg-gray-100 px-7 py-6 shadow-md hover:bg-white animate__animated animate__fadeInDown'>
+                  <img src={icon} alt="" width='30' className='self-center mx-auto my-2' />
+                  <h3  className='text-[#042f9c] font-bold text-lg my-4 text-center'>Flexible Payment Options</h3>
+                  <p className=' text-sm font-light text-center w-full'>
+                    Provide flexible payment options including invoicing, and price negotiation with admin to accommodate different client preferences.  
+                  </p>
                 </div>
-                <div className='text-center flex justify-center flex-col hover:shadow-lg px-7 hover:bg-white'>
+                <div className='text-center flex-col hover:shadow-xl bg-gray-100 px-7 py-6 shadow-md hover:bg-white animate__animated animate__fadeInRight'>
                     <img src={phone} alt="" width='30' className='self-center mx-auto my-2' />
-                    <h3 className='text-[#042f9c]font-bold text-sm my-4'>24/7 Hours Trade</h3>
-                    <p className=' text-sm font-light'>we understand the need for someone of <br /> our users that would love to trade at <br /> midnight. Our team members are always <br /> available.</p>
+                    <h3 className='text-[#042f9c] font-bold text-lg my-4 text-center'>Professional and Reliable Personels</h3>
+                    <p className=' text-sm font-light text-center w-full'>
+                      Employ professional, well-trained drivers who prioritize safety, punctuality, and excellent customer service.
+                    </p>
 
                 </div>
               </div>
