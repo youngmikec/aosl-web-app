@@ -14,6 +14,10 @@ export const CREATE_APPLICATION = async (data: {[key: string]: any}) => {
 export const UPDATE_APPLICATION = async (id: string, data: {[key: string]: any}) => {
     return axios.put(`${url}/applications/${id}`, data);
 };
+
+export const UPDATE_USER_APPLICATION = async (id: string, data: {[key: string]: any}) => {
+    return axios.put(`${url}/applications-user/${id}`, data);
+};
 export const DELETE_APPLICATION = async (id: string) => {
     return axios.delete(`${url}/applications/${id}`);
 };

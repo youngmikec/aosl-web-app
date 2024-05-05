@@ -1,33 +1,47 @@
-import { useState, useRef } from 'react';
+import { useState, useEffect, useRef, FC } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { CREATE_APPLICATION } from '../../services/applications';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const JobApplicationForm = ({ jobId }: { jobId: string}) => {
+import { Application } from '../../common/application';
+import { CREATE_APPLICATION, UPDATE_USER_APPLICATION } from '../../services/applications';
+import { useDispatch } from 'react-redux';
+import { ADD_TO_APPLICATIONS, UPDATE_APPLICATION_STATE } from '../../store/application';
+
+type Props = { 
+  jobId: string;
+  mode: 'create' | 'update'
+  record: Application | null
+}
+
+const JobApplicationForm: FC<Props> = ({ jobId, mode = 'create', record }) => {
+
+  const dispatch = useDispatch();
 
   const resumeRef = useRef<HTMLInputElement>(null);
   const [resumeFile, setResumeFile] = useState<{value: string, error: boolean, errMsg: string}>({value: '', error: false, errMsg: ''});
   const [loading, setLoading] = useState<boolean>(false);
   const certLevels: string[] = ["MSC", "PHD", "HIGHSCHOOL", "BSC", "DEGREE", "DOCTORATE"];
 
-  const [formData, setFormData] = useState(
-    {
-      job: "",
-      firstName: "",
-      lastName: "",
-      email: "",
-      phoneNumber: "",
-      state: "",
-      nationality: "",
-      role: "",
-      certLevel: "",
-      address: "",
-      experienceYears: 1,
-      biography: "",
-      skills: "",
-      resume: "",
-      status: "APPLIED"
-  });
+  const initialFormState = {
+    job: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
+    state: "",
+    nationality: "",
+    role: "",
+    certLevel: "",
+    address: "",
+    experienceYears: 1,
+    biography: "",
+    skills: "",
+    resume: "",
+}
+
+  const [formData, setFormData] = useState(initialFormState);
 
   const openResumeFile = () => {
     return resumeRef.current?.click();
@@ -69,7 +83,21 @@ const JobApplicationForm = ({ jobId }: { jobId: string}) => {
     experienceYears: Yup.number().required('Required'),
     biography: Yup.string().required('Required'),
     skills: Yup.string().required('Required'),
-  })
+  });
+
+  const notify = (type: string, msg: string) => {
+    if (type === "success") {
+      toast.success(msg, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
+
+    if (type === "error") {
+      toast.error(msg, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
+};
 
   const { values, errors, touched, handleSubmit, handleChange } = useFormik({
     initialValues: formData,
@@ -77,17 +105,20 @@ const JobApplicationForm = ({ jobId }: { jobId: string}) => {
     validationSchema: formValidationSchema(),
     onSubmit: (values) => {
       setLoading(true);
-      const payload = {
+      const data = {
         ...values,
         job: jobId || '',
         resume: resumeFile.value
       };
-      CREATE_APPLICATION(payload).then(res => {
+
+      const response = mode === 'create' ? CREATE_APPLICATION(data) : UPDATE_USER_APPLICATION(record ? record.id : '', data);
+      response.then(res => {
         setLoading(false);
         const { message, success, payload } = res.data;
         if(success) {
-          // notify('success', message);
-          // resetForm();
+          notify('success', message);
+          mode === 'create' ? dispatch(ADD_TO_APPLICATIONS(payload)) : dispatch(UPDATE_APPLICATION_STATE(payload));
+          setFormData(initialFormState);
           setResumeFile({value: '', error: false, errMsg: ''});
         }
       })
@@ -96,7 +127,29 @@ const JobApplicationForm = ({ jobId }: { jobId: string}) => {
         console.log('error =>', err);
       })
     }
-  })
+  });
+
+  useEffect(() => {
+    if(mode === 'update' && record) {
+      setResumeFile({value: record.resume || '', error: false, errMsg: ''});
+      setFormData({
+        job: record.job.id || '',
+        firstName: record.firstName || "",
+        lastName: record.lastName || "",
+        email: record.email || "",
+        phoneNumber: record.phoneNumber || "",
+        state: record.state || "",
+        nationality: record.nationality || "",
+        role: record.role || "",
+        certLevel: record.certLevel || "",
+        address: record.address || "",
+        experienceYears: record.experienceYears || 1,
+        biography: record.biography || "",
+        skills: record.skills || "",
+        resume: record.resume || "",
+      })
+    }
+  }, [mode, record])
 
   return (
     <>
@@ -114,7 +167,7 @@ const JobApplicationForm = ({ jobId }: { jobId: string}) => {
                     <img src={resumeFile?.value} width="30%" className='cursor-pointer' alt="uploaded" onClick={() => openResumeFile()} />
                 </div> :
                 <button className='text-center text-[#7F7F80]' onClick={() => openResumeFile()}>
-                    + <br /> Upload Resume or CV
+                    + <br /> Upload Resume or CV (.png, .jpg, .jpeg)
                 </button>
             }
             <input 
@@ -323,11 +376,13 @@ const JobApplicationForm = ({ jobId }: { jobId: string}) => {
                 type="submit"
                 className="bg-[#042f9c] text-white py-1 px-10 rounded-2xl"
               >
-                  {loading ? "Processing..." : "Apply"}
+                  {loading ? "Processing..." : mode === 'create' ? "Apply" : "Update"}
               </button>
           </div>
         </form>
       </div>
+
+      <ToastContainer />
     </>
   )
 }

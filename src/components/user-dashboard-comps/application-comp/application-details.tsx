@@ -6,7 +6,7 @@ import { getFullName } from '../../../utils';
 
 
 type Props = {
-    data?: Application
+    data?: Application | null
 }
 const ApplicationDetailComp: FC<Props> = ({ data }) => {
 

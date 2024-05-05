@@ -18,6 +18,7 @@ import Card from '../../../shared/card';
 import DeleteComp from '../../../shared/delete-comp/delete-comp';
 import AppModalComp from '../../../shared/app-modal';
 import { getItem, sortArray } from '../../../utils';
+import JobApplicationForm from '../../../pages/job-detail-page/JobApplicationForm';
 
 const ApplicationComp: FC = () => {
     const dispatch = useDispatch();
@@ -26,7 +27,7 @@ const ApplicationComp: FC = () => {
 
     const [deleting, setDeleting] = useState<boolean>(false);
     const [applicationsData, setApplicationsData] = useState<Application[]>([]);
-    const [selectedRecord, setSelectedRecord] = useState<Application | undefined>();
+    const [selectedRecord, setSelectedRecord] = useState<Application | null>(null);
     const [modalMode, setModalMode] = useState<string>('');
     const [tableRows, setTableRows] = useState<any[]>([]);
 
@@ -87,31 +88,35 @@ const ApplicationComp: FC = () => {
         return tableActions;
     }
 
-    const retrieveAirtimes = () => {
+    const mapResponseData = (data: Application[]) => {
+        const mappedData = data.map((item: Application, idx: number) => {
+            const actions = populateActions(item);
+            return {
+                sn: idx + 1,
+                code: item?.code,
+                name: `${item?.firstName} ${item?.lastName}`,
+                certLeve: item?.certLevel,
+                role: item?.role || '--',
+                certLevel: item?.certLevel || '--',
+                status: item.status === 'ACCEPTED' ? 
+                <button className='bg-[#71DD37] text-white text-sm py-1 px-4 rounded-md'>{item.status}</button>
+                :
+                <button className='bg-[#7F7F80] text-white text-sm py-1 px-4 rounded-md'>{item.status}</button>,
+                date: moment(item?.createdAt).format("MM-DD-YYYY"),
+                actions: <DropdownComp dropdownList={actions} />
+            }
+        });
+        return mappedData;
+    }
+
+    const retrieveApplications = () => {
         const query: string = `?email=${user ? user.email : ''}&sort=-title&populate=job,createdBy`;
         RETREIVE_APPLICATION(query)
         .then((res: AxiosResponse<ApiResponse>) => {
             const { message, payload } = res.data;
             notify("success", message);
             setApplicationsData(payload);
-            const mappedDate = payload.map((item: Application, idx: number) => {
-                const actions = populateActions(item);
-                return {
-                    sn: idx + 1,
-                    code: item?.code,
-                    name: `${item?.firstName} ${item?.lastName}`,
-                    certLeve: item?.certLevel,
-                    role: item?.role || '--',
-                    certLevel: item?.certLevel || '--',
-                    status: item.status === 'ACCEPTED' ? 
-                    <button className='bg-[#71DD37] text-white text-sm py-1 px-4 rounded-md'>{item.status}</button>
-                    :
-                    <button className='bg-[#7F7F80] text-white text-sm py-1 px-4 rounded-md'>{item.status}</button>,
-                    date: moment(item?.createdAt).format("MM-DD-YYYY"),
-                    actions: <DropdownComp dropdownList={actions} />
-                }
-            });
-            setTableRows(mappedDate);
+            setTableRows(mapResponseData(payload));
             dispatch(INITIALIZE_APPLICATIONS(payload));
         })
         .catch((err: any) => {
@@ -152,11 +157,12 @@ const ApplicationComp: FC = () => {
     }
     
     useEffect(() => {
-        retrieveAirtimes();
+        retrieveApplications();
     }, []);
 
     useEffect(() => {
-        setApplicationsData(applicationsData);
+        setApplicationsData(Applications);
+        setTableRows(mapResponseData(Applications));
     }, [Applications]);
 
     return (
@@ -171,14 +177,14 @@ const ApplicationComp: FC = () => {
                                 <p className='text-[#7F7F80] text-sm'>Displaying {applicationsData.length} of {applicationsData.length} Airtime Record(s)</p>
                             </div>
 
-                            <div className='mb-8'>
+                            {/* <div className='mb-8'>
                                 <button 
                                     className='bg-[#042f9c] text-white py-2 px-4 rounded-md'
                                     onClick={() => openModal('create')}
                                 >
                                     Create Application
                                 </button>
-                            </div>
+                            </div> */}
 
                         </div>
 
@@ -197,9 +203,9 @@ const ApplicationComp: FC = () => {
                 {
                     modalMode === 'view' && <ApplicationDetailsComp data={selectedRecord} />
                 }
-                {/* {
-                    modalMode === 'update' && <ApplicationForm mode={modalMode} record={selectedRecord}  />
-                } */}
+                {
+                    modalMode === 'update' && <JobApplicationForm mode={modalMode} jobId={selectedRecord ? selectedRecord.job.id : ''} record={selectedRecord}  />
+                }
                 {
                     modalMode === 'delete' && <DeleteComp id={selectedRecord?.id} action={handleDeleteRecord} deleting={deleting} />
                 }

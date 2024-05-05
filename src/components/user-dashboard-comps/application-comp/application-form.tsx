@@ -191,7 +191,7 @@ const ApplicationForm: FC<Props> = ({ mode, record }) => {
                             jobImage.value ? 
                             <img src={jobImage?.value} width="30%" className='cursor-pointer' alt="uploaded" onClick={() => openFile()} /> :
                             <button className='text-center text-[#7F7F80]' onClick={() => openFile()}>
-                                + <br /> Choose file
+                                + <br /> Choose file (jpg, jpeg, png)
                             </button>
                         }
                         <input 

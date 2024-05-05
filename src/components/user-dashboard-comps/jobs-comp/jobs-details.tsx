@@ -4,6 +4,7 @@ import { Job } from '../../../common/job';
 import CustomDetailField from '../../CustomDetailField';
 import { getFullName } from '../../../utils';
 import ApplicationForm from '../application-comp/application-form';
+import JobApplicationForm from '../../../pages/job-detail-page/JobApplicationForm';
 
 
 
@@ -23,7 +24,7 @@ const JobsDetailComp: FC<Props> = ({ data }) => {
         <>
             <div className='w-full py-4 text-[#7F7F80]'>
                 {
-                    applyForJob ? <ApplicationForm mode="create" /> :
+                    applyForJob ? <JobApplicationForm jobId={data ? data.id : ''} mode={'create'} record={null} /> :
                     <div>
 
                         <div className='text-center my-3'>

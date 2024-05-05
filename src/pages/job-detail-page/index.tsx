@@ -69,7 +69,7 @@ const JobDetailsPage: FC = () => {
           {
             showForm && (
               <div className="flex-1 flex-grow">
-                <JobApplicationForm jobId={JobTrainingId} />
+                <JobApplicationForm jobId={JobTrainingId} mode={'create'} record={null} />
               </div>
             )
           }

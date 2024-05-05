@@ -1,7 +1,4 @@
 import { User } from "./user";
-import { Airtime } from "./airtime";
-import { GiftCard } from "./giftcard";
-import { CryptoCurrency } from "./cryptocurrency";
 import { ORDER_PAYMENT_METHOD, ORDER_STATUS, ORDER_TYPE } from "./enums";
 
 export type Order = {
@@ -21,9 +18,6 @@ export type Order = {
     accountNumber: string;
     walletAddress: string;
     platform: string;
-    airtime: Airtime;
-    cryptocurrency: CryptoCurrency;
-    giftcard: GiftCard;
     createdBy: User;
     createdAt: Date;
     approvedBy: User;

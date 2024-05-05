@@ -131,15 +131,10 @@ const DashboardComp = () => {
                         <DashboardCard image={image} loading={loading} status='COMPLETED' title='Total Orders' value={completedOrders} />
                     </div>
 
-                    {/* <div className='shadow-sm bg-white lg:h-52'></div>
-
-                    <div className=''>
-                        <img src={image} alt=""  className=' bg-[#042f9c] lg:h-52' id='bg'/>
-                    </div> */}
                 </div>
 
                 {/* service card */}
-                <section>
+                {/* <section>
 
                     <div>
                         <h3 className='text-[#7F7F80] text-2xl font-semibold my-12'>Quick Actions</h3>
@@ -197,19 +192,13 @@ const DashboardComp = () => {
                         </div>
 
                     </div>
-                </section>
+                </section> */}
                 {/* service card */}
 
                 <section>
                     <div className='my-8'>
                         <h4 className='text-[#7F7F80] text-2xl font-semibold'>Recent Orders</h4>
                     </div>
-
-                    {/* <AppTable 
-                        tableHeaders={tableHeaders} 
-                        tableRows={tableRows} 
-                        showSearch={false} 
-                    /> */}
                     <div>
                     <Card type='sm'>
                         <div className='overflow-x-scroll p-4'>
