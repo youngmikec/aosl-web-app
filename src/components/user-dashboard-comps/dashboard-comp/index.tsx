@@ -218,7 +218,7 @@ const DashboardComp = () => {
                                             return <tr key={idx} className='my-4'>
                                             <td className="text-left border-spacing-y-4">{ idx + 1 }</td>
                                             <td className="text-left py-3">{ moment(item?.createdAt).format("DD-MM-YYYY") }</td>
-                                            <td className="text-left py-3">{ item?.orderType }</td>
+                                            {/* <td className="text-left py-3">{ item?.orderType }</td> */}
                                             <td className="text-left py-3"><span className='line-through'>N</span>{ item?.amountReceivable } </td>
                                             <td className="text-left py-3">
                                                 <span className={

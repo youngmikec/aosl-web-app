@@ -1,5 +1,5 @@
 import { User } from "./user";
-import { ORDER_PAYMENT_METHOD, ORDER_STATUS, ORDER_TYPE } from "./enums";
+import { PAYMENT_METHOD, ORDER_STATUS } from "./enums";
 
 export type Order = {
     id: string;
@@ -8,10 +8,9 @@ export type Order = {
     amount: number;
     amountReceivable: number;
     user: User;
-    orderType: ORDER_TYPE;
     status: ORDER_STATUS
     proofImage: string;
-    paymentMethod: ORDER_PAYMENT_METHOD,
+    paymentMethod: PAYMENT_METHOD,
     network: string;
     bankName: string;
     accountName: string;

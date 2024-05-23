@@ -4,22 +4,6 @@ export enum UserType {
     USER = 'USER'
 }
 
-export enum GIFTCARD_TYPE {
-    PHYSICAL ='PHYSICAL',
-    ECODE ='ECODE'
-}
-export enum GIFTCARD_STATUS {
-    ACTIVE = 'ACTIVE',
-    DEACTIVATED = 'DEACTIVATED'
-}
-
-export enum ORDER_TYPE {
-    AIRTIME = 'AIRTIME',
-    GIFTCARD = 'GIFTCARD',
-    BUY_CRYPTO = 'BUY_CRYPTO',
-    SELL_CRYPTO = 'SELL_CRYPTO'
-}
-
 export enum ORDER_STATUS {
     PENDING = 'PENDING',
     PROOFED = 'PROOFED',
@@ -29,12 +13,32 @@ export enum ORDER_STATUS {
     CANCLED = 'CANCLED'
 }
 
-export enum  ORDER_PAYMENT_METHOD {
-    BANK = 'BANK',
-    WALLET = 'WALLET'
+export enum INVOICE_STATUS {
+    PENDING = "PENDING",
+    APPROVED = "APPROVED",
+    BLOCKED = "BLOCKED",
+    DELETED = "DELETED",
+};
+
+export enum INVOICE_CURRENCY {
+  USD = "USD",
+  NGN = "NGN",
+  GBP = "GBP",
 }
 
-export enum  AIRTIME_STATUS {
-    ACTIVE = 'ACTIVE',
-    DEACTIVATED = 'DEACTIVATED'
+export enum PAYMETN_GATEWAY {
+    PAYSTACK = "PAYSTACK",
+    STRIPE = "STRIPE",
+    PAYPAL = "PAYPAL",
+    GOOGLE_WALLET = "GOOGLE_WALLET",
+    FREEXIT_WALLET = "FREEXIT_WALLET",
 }
+
+export enum PAYMENT_METHOD {
+    CASH = "CASH",
+    GATEWAY = "GATEWAY",
+    TRANSFER = "TRANSFER",
+    WALLET = "WALLET",
+}
+  
+  

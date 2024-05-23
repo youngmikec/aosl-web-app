@@ -8,6 +8,7 @@ import ServicesPage from "../pages/services";
 import ServicesDetailPage from "../pages/services/servicesDetail";
 import JobSearchPage from "../pages/job-search";
 import JobDetailsPage from "../pages/job-detail-page";
+import InvoicePage from "../pages/InvoicePage";
 
 
 
@@ -38,6 +39,10 @@ const authRoutes: RouteType[] = [
         component: <ServicesDetailPage />
     },
     
+    {
+        path: '/invoice/:invoiceId',
+        component: <InvoicePage />
+    },
     {
         path: '/jobs-trainings',
         component: <JobSearchPage />
