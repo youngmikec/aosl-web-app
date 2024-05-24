@@ -1,14 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Bars, SpinningCircles, Circles, Rings } from 'react-loading-icons'
 
 
-
-import { Job } from '../../common/job';
-import { RETREIVE_JOBS_PUBLIC } from '../../services/jobs';
 import HeroSection from '../../shared/users-frontend/hero-section';
-import JobCard from '../../components/frontend-components/job-card';
-import { RETREIVE_INVOICE_BY_ID } from '../../services/invoice';
+import { RETREIVE_INVOICE_BY_CODE } from '../../services/invoice';
 import { Invoice } from '../../common/invoice';
 import InvoiceForm from './InvoiceData';
 import AppLoader from '../../components/app-loader';
@@ -23,7 +18,7 @@ const InvoicePage = () => {
 
   const retreiveInvoiceDetail = () => {
     setLoading(true);
-    RETREIVE_INVOICE_BY_ID(invoiceId).then(res => {
+    RETREIVE_INVOICE_BY_CODE(invoiceId).then(res => {
       setLoading(false);
       const { success, message, payload } = res.data;
       if(success){

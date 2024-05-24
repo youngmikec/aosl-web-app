@@ -6,8 +6,8 @@ export const RETREIVE_INVOICES = async (query: string = '') => {
     return axios.get(`${url}/invoice/publicRoute/${query}`);
 };
 
-export const RETREIVE_INVOICE_BY_ID = async (id: string = '', query: string = '') => {
-    return axios.get(`${url}/invoice/publiceRoute/?_id=${id}${query}`);
+export const RETREIVE_INVOICE_BY_CODE = async (code: string = '', query: string = '') => {
+    return axios.get(`${url}/invoice/publiceRoute/?invoiceCode=${code}${query}`);
 };
 
 export const CREATE_INVOICE = async (data: {[key: string]: any}) => {
