@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { store } from './store/index';
 import { Provider } from 'react-redux';
+import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 
 import './index.css';
 import App from './App';
+import { PayPal_CONFIG_OPTIONS } from './configs';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
@@ -13,7 +15,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <PayPalScriptProvider deferLoading={true} options={PayPal_CONFIG_OPTIONS}>
+        <App />
+      </PayPalScriptProvider>
     </Provider>
   </React.StrictMode>
 );

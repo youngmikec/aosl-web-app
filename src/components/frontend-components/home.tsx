@@ -1,6 +1,9 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Carousel } from "@material-tailwind/react";
+
+import ReadingCouncelImg from '../../assets/images/reading-council-img.jpeg';
+import WestBrekshireImg from '../../assets/images/west-berkshire-img.jpeg';
+import WorkinghamImg from '../../assets/images/workingham-img.jpeg';
 
 // style
 import './style.css';
@@ -20,6 +23,12 @@ import ContactUsForm from './contact-us-form';
 import MarqueeComp from './Marquee-comp';
 
 const HomeComp = () => {
+
+    const marqueeImages: any = [
+        ReadingCouncelImg,
+        WestBrekshireImg,
+        WorkinghamImg
+    ]
 
     const sayHi = () => {
         WELCOME_ROUTE()
@@ -75,34 +84,9 @@ const HomeComp = () => {
                 <ReviewComp />
             </div>
 
-            <div className="my-4">
-                {/* <Carousel 
-                    translate='yes'
-                    title='companies'
-                    slot={"slider"}  
-                    transition={{ duration: 2 }} 
-                    className="rounded-xl"
-                    autoplay={true}
-                    loop={true}
-                    style={{ height: "300px" }}
-                    onChange={() => console.log('changed')}
-                >
-                    <img
-                        src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80"
-                        alt="image 1"
-                        className="h-full w-full object-cover"
-                    />
-                    <img
-                        src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
-                        alt="image 2"
-                        className="h-full w-full object-cover"
-                    />
-                    <img
-                        src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80"
-                        alt="image 3"
-                        className="h-full w-full object-cover"
-                    />
-                </Carousel> */}
+            <div className="my-4 mb-12">
+                <h3 className='text-[#042f9c] font-extrabold text-3xl mb-8 text-center'>We are Trusted by</h3>
+                <MarqueeComp images={marqueeImages} />
             </div>
 
             <div className="my-4">

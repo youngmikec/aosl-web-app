@@ -3,17 +3,22 @@ import { FC, ReactNode } from 'react';
 import './style.css';
 
 type Props = {
-  children: ReactNode
+  images: any[]
 }
 
-const MarqueeComp: FC<Props> = ({ children }) => {
+const MarqueeComp: FC<Props> = ({ images }) => {
   return (
-    <div className="marquee-container">
-      <div className="marquee">
-        <div>{children}</div>
+    <div className="overflow-hidden whitespace-nowrap">
+      <div className="flex animate-marquee">
+        {images.map((image, index) => (
+          <div key={index} className="mx-2">
+            <img src={image} alt={`Marquee Image ${index}`} className="h-16" />
+          </div>
+        ))}
       </div>
     </div>
   );
 };
 
 export default MarqueeComp;
+
