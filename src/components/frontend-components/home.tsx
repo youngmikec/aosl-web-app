@@ -64,10 +64,15 @@ const HomeComp = () => {
             <div className="overflow-hidden">
                 <div className="text-center mx-auto w-10/12 sm:w-7/12 md:6/12 lg:w-5/12 my-16">
                     <h3 className='text-[#042f9c] font-extrabold text-3xl mb-4'>WHAT WE DO</h3>
-                    <p className='text-gray-500 text-sm mx-auto text-center'>
+                    {/* <p className='text-gray-500 text-sm mx-auto text-center'>
                         We offer training to our staff who provides care and cleaning services however other services will be based on self-training however we will make
                         available the qualifications of our candidates to their prospective employers upon requests.
                         Our cost is very competitive and we like to negotiate and work together with our clients to agree on the cost. 
+                    </p> */}
+                    <p className='text-gray-500 text-sm mx-auto text-center'>
+                        We provide comprehensive training for our staff who deliver care and cleaning services. For other services, we ensure that our candidates undergo self-training. 
+                        Upon request, we will provide the qualifications of our candidates to prospective employers.
+                        Our pricing is highly competitive, and we are committed to negotiating and collaborating with our clients to reach mutually agreeable terms.
                     </p>
                 </div>
             </div> 
