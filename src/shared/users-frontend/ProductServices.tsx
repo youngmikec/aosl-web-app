@@ -95,7 +95,8 @@ const ProductServices: FC<{showFullServices?: boolean}> = ({ showFullServices = 
 
   useEffect(() => {
     showFullServices ? setServicesData(services) : setServicesData(services.slice(0, 3))
-  }, [showFullServices])
+  }, [showFullServices]);
+  
   return (
     <>
       <div className="w-full">
