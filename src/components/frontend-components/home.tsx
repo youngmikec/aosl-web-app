@@ -70,9 +70,9 @@ const HomeComp = () => {
                         Our cost is very competitive and we like to negotiate and work together with our clients to agree on the cost. 
                     </p> */}
                     <p className='text-gray-500 text-sm mx-auto text-center'>
-                        We provide comprehensive training for our staff who deliver care and cleaning services. For other services, we ensure that our candidates undergo self-training. 
-                        Upon request, we will provide the qualifications of our candidates to prospective employers.
-                        Our pricing is highly competitive, and we are committed to negotiating and collaborating with our clients to reach mutually agreeable terms.
+                        We provide care and support services tailored to the needs of our clients. Our support staff are well vetted, trained, 
+                        and competent to deliver the support our clients need. 
+                        We offer competitive rates and are committed to negotiating and collaborating with our clients to reach mutually agreeable terms.
                     </p>
                 </div>
             </div> 
