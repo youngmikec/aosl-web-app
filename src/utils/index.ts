@@ -30,3 +30,18 @@ export const sortArray = (unsortedArray: any[], field: string): Array<any> => {
     }
     return sortedArray;
 }
+
+export const formatCurrency = (amount: number | undefined, currency: string | undefined, locale: string = 'en-US'): string => {
+    if(amount && currency){
+        return new Intl.NumberFormat(locale, {
+            style: 'currency',
+            currency: currency,
+          }).format(amount);
+    }else {
+        // return new Intl.NumberFormat(locale, {
+        //     style: 'currency',
+        //     currency: currency,
+        //   }).format(0);
+        return '0'
+    }
+};

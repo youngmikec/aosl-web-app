@@ -26,3 +26,9 @@ export type Order = {
     deletedAt: Date;
     deletedBy: User;
 }
+
+export interface ICheckOutLink { 
+    href: string, 
+    rel: string, 
+    method: string 
+} 

@@ -9,6 +9,7 @@ import ServicesDetailPage from "../pages/services/servicesDetail";
 import JobSearchPage from "../pages/job-search";
 import JobDetailsPage from "../pages/job-detail-page";
 import InvoicePage from "../pages/InvoicePage";
+import PaypalCheckoutPage from '../pages/PaypalCheckoutPage';
 
 
 
@@ -42,6 +43,10 @@ const authRoutes: RouteType[] = [
     {
         path: '/invoice/:invoiceId',
         component: <InvoicePage />
+    },
+    {
+        path: '/paypal',
+        component: <PaypalCheckoutPage />
     },
     {
         path: '/jobs-trainings',

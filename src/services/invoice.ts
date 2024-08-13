@@ -10,8 +10,16 @@ export const RETREIVE_INVOICE_BY_CODE = async (code: string = '', query: string 
     return axios.get(`${url}/invoice/publiceRoute/?invoiceCode=${code}${query}`);
 };
 
+export const CONFIRM_AND_CAPTURE_INVOICE_ORDER = async (id: string): Promise<any> => {
+    return axios.get(`${url}/invoice/confirmAndCaptureOrder?orderId=${id}`);
+}
+
 export const CREATE_INVOICE = async (data: {[key: string]: any}) => {
     return axios.post(`${url}/invoice/createInvoice`, data);
+};
+
+export const INITIATE_INVOICE_PAYMENT = async (data: {[key: string]: any}) => {
+    return axios.post(`${url}/invoice/create-order`, data);
 };
 
 export const UPDATE_INVOICE_USER_DETAILS = async (id: string, data: {[key: string]: any}) => {

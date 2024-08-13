@@ -1,10 +1,18 @@
 import { FC, useState, useEffect, useCallback, useRef } from 'react';
 import { toPng } from 'html-to-image';
 import moment from 'moment';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+
 import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 
 import logo from '../../assets/images/logo-white.png';
-import { Invoice } from "../../common/invoice";
+import { IService, Invoice } from "../../common/invoice";
+import { INITIATE_INVOICE_PAYMENT } from '../../services/invoice';
+import { ApiResponse, ICheckOutLink } from '../../common';
+import { AxiosError, AxiosResponse } from 'axios';
+import { formatCurrency } from '../../utils';
 
 
 
@@ -35,6 +43,21 @@ const InvoiceForm: FC<Props> = ({ invoiceData }) => {
   const calculateTaxAmount = (amount?: number, tax?: number) => {
     return (tax && amount) ? (tax / 100) * amount : 0;
   }
+
+  const notify = (type: string, msg: string) => {
+    if (type === "success") {
+      toast.success(msg, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
+
+    if (type === "error") {
+      toast.error(msg, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
+};
+
 
   const inputCheck = (): boolean => {
     let isValid: boolean = true;
@@ -80,9 +103,44 @@ const InvoiceForm: FC<Props> = ({ invoiceData }) => {
   }
 
   const handleMakePayment = () => {
-    if(paypalBtnRef.current === null) return;
-    setLoading(true);
-    paypalBtnRef.current.click();
+    if(invoiceData){
+      setLoading(true);
+      const purchaseItems = invoiceData?.services.map((item: IService) => ({
+        name: item.name,
+        description: item.name,
+        quantity: item.quantity.toString(),
+        unit_amount: item.amount.toString()
+      }));
+
+      console.log('purchaseItems =>', purchaseItems);
+  
+      const payload = {
+        purchaseItems,
+        invoiceCode: invoiceData?.invoiceCode,
+        totalAmount: invoiceData?.totalAmount.toString(),
+        currency_code: invoiceData?.currency
+    }
+    console.log(payload);
+  
+      INITIATE_INVOICE_PAYMENT(payload).then((res: AxiosResponse<ApiResponse>) => {
+        const { data } = res;
+        if(data.success){
+          setLoading(false);
+          notify('success', `${data.message}! Redirecting to Checkout`);
+          console.log('Order response =>', data.payload);
+          const orderApprovalLink: ICheckOutLink = data.payload.links.find((item: ICheckOutLink) => item.rel === 'approve');
+          if(orderApprovalLink){
+            window.location.href = orderApprovalLink.href;
+          }else {
+            notify('error', 'Error occurred while loading checkout page');
+          }
+        }
+      })
+      .catch((error: AxiosError) => {
+        setLoading(false);
+        notify('error', error.message);
+      })
+    }
     
   }
 
@@ -105,6 +163,7 @@ const InvoiceForm: FC<Props> = ({ invoiceData }) => {
 
   useEffect(() => {
     if(invoiceData){
+      console.log('invoiceData', invoiceData);
       populateClientFields(invoiceData)
     }
   }, [invoiceData]);
@@ -186,19 +245,19 @@ const InvoiceForm: FC<Props> = ({ invoiceData }) => {
             <div>
               <table className="border-separate border-spacing-1">
                 <tr className="table-row">
-                  <th className="bg-[#042f9c33] text-gray-700 text-left mr-4 table-cell px-2 ">Invoice No:</th>
+                  <th className="bg-[#042f9c33] text-gray-700 text-left mr-4 table-cell px-2 py-2">Invoice No:</th>
                   <td className="bg-gray-100 text-right text-gray-600 text-[13px]">{invoiceData?.invoiceCode}</td>
                 </tr>
                 <tr>
-                  <th className="bg-[#042f9c33] text-gray-700 text-left mr-4 table-cell px-2 ">Invoice Date</th>
+                  <th className="bg-[#042f9c33] text-gray-700 text-left mr-4 table-cell px-2 py-2">Invoice Date</th>
                   <td className="bg-gray-100 text-right text-gray-600 text-[13px]">{moment(invoiceData?.issueDate).format('DD MMM YYYY')}</td>
                 </tr>
                 <tr>
-                  <th className="bg-[#042f9c33] text-gray-700 text-left mr-4 table-cell px-2 ">Payment terms</th>
+                  <th className="bg-[#042f9c33] text-gray-700 text-left mr-4 table-cell px-2 py-2">Payment terms</th>
                   <td className="bg-gray-100 text-right text-gray-600 text-[13px]">Due on receipt</td>
                 </tr>
                 <tr>
-                  <th className="bg-[#042f9c33] text-gray-700 text-left mr-4 table-cell px-2 ">Due Date</th>
+                  <th className="bg-[#042f9c33] text-gray-700 text-left mr-4 table-cell px-2 py-2">Due Date</th>
                   <td className="bg-gray-100 text-right text-gray-600 text-[13px]">{moment(invoiceData?.dueDate).format('DD MMM YYYY')}</td>
                 </tr>
                 {/* <tr>
@@ -220,15 +279,19 @@ const InvoiceForm: FC<Props> = ({ invoiceData }) => {
             )
           }
 
+          <div className="w-full flex justify-center my-4">
+            <h1 className="text-[#042f9c] text-xl font-bold">AOSL Invoice</h1>
+          </div>
+
           {/* product description */}
           <div className="my-4 pb-12 border-b-2 border-[#BFBFBF]">
             <table className="w-full">
               <thead className='bg-[#042f9c] text-white'>
                 <tr className="table-row">
-                  <th className="text-left text-cell">Description</th>
-                  <th className="text-left">Quantity</th>
-                  <th className="text-left">Unit Price</th>
-                  <th className="text-right">Total</th>
+                  <th className="text-left text-cell py-3 px-2">Description</th>
+                  <th className="text-left py-3 px-2">Quantity</th>
+                  <th className="text-left py-3 px-2">Unit Price</th>
+                  <th className="text-right py-3 px-2">Total</th>
                 </tr>
               </thead>
               <tbody>
@@ -236,10 +299,10 @@ const InvoiceForm: FC<Props> = ({ invoiceData }) => {
                   invoiceData?.services?.map((item, index) => {
                     return (
                       <tr key={index} className={`table-row ${index % 2 === 0 ? 'bg-gray-100' : 'bg-white'} py-4`}>
-                        <td className="text-left">{item?.name}</td>
-                        <td className="text-left">{item?.quantity}</td>
-                        <td className="text-left">${item?.amount}</td>
-                        <td className="text-right">${(item?.totalAmount)}</td>
+                        <td className="text-left py-3 px-2">{item?.name}</td>
+                        <td className="text-left py-3 px-2">{item?.quantity}</td>
+                        <td className="text-left py-3 px-2">${formatCurrency(item?.amount, invoiceData?.currency, 'en-GB')}</td>
+                        <td className="text-right py-3 px-2">${formatCurrency(item?.totalAmount, invoiceData?.currency, 'en-GB')}</td>
                       </tr>
                     )
                   })
@@ -247,27 +310,40 @@ const InvoiceForm: FC<Props> = ({ invoiceData }) => {
                 
               </tbody>
             </table>
-          </div>,
+          </div>
 
           <div className="my-4">
             <table className="w-full">
               <thead className=''>
                 <tr className="table-row">
-                  <th className="text-left">Note to recipient(s)</th>
-                  <th className="text-left">Sub Total</th>
-                  <th className="text-right">${invoiceData?.subTotal || 0}</th>
+                  <th className="text-left py-2">Note to recipient(s)</th>
+                  <th className="text-left py-2">Sub Total</th>
+                  <th className="text-right py-2">{formatCurrency((invoiceData?.subTotal || 0), invoiceData?.currency, 'en-GB')}</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className={`table-row py-4`}>
-                  <td className="text-left"></td>
-                  <td className="text-left">Tax({invoiceData?.tax})%</td>
-                  <td className="text-right">${calculateTaxAmount(invoiceData?.subTotal, invoiceData?.tax)}</td>
+                  <td className="text-left py-3 px-2"></td>
+                  <td className="text-left py-3 px-2">Tax({invoiceData?.tax})%</td>
+                  <td className="text-right py-3 px-2">{
+                      formatCurrency(
+                        calculateTaxAmount(invoiceData?.subTotal, invoiceData?.tax),
+                        invoiceData?.currency,
+                        'en-GB'
+                      )
+                    }
+                  </td>
                 </tr>
                 <tr className={`table-row py-4 bg-[#042f9c33]`}>
-                  <td className="text-left"></td>
-                  <td className="text-left">Total</td>
-                  <td className="text-right">${invoiceData?.totalAmount || 0}</td>
+                  <td className="text-left py-3 px-2"></td>
+                  <td className="text-left py-3 px-2 font-bold">Total</td>
+                  <td className="text-right py-3 px-2 font-bold">{
+                    formatCurrency(
+                      (invoiceData?.totalAmount || 0),
+                      invoiceData?.currency,
+                      'en-GB'
+                    )
+                  }</td>
                 </tr>
                 
                 
@@ -296,11 +372,13 @@ const InvoiceForm: FC<Props> = ({ invoiceData }) => {
               onClick={() => handlePrintInvoice() } 
               className='bg-[#042f9c33] text-gray-500 mb-6 block w-full px-6 rounded-md py-2 sm:py-2 md:py-3 lg:py-3'
             >
-                { printing ? 'processing' : 'Print' }
+                { printing ? 'processing' : 'Download' }
             </button>
           </div>
         </div>
       </div>
+
+      <ToastContainer />
     </>
   )
 }
