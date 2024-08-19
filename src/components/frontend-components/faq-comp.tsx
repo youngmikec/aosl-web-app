@@ -3,8 +3,6 @@ import React, { useState } from 'react';
 // style
 import './style.css';
 
-//  images and icons
-import coin from '../../assets/images/hompage_coin.png'
 
 // components
 import HeroSection from '../../shared/users-frontend/hero-section';

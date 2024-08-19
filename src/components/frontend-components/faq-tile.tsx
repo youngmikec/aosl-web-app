@@ -18,7 +18,7 @@ const FaqTitle = ({ question, answers }: Props) => {
   return (
     <>
         <div 
-          className="mx-auto w-full sm:w-9/12 md:w-6/12 lg:w-5/12 shadow-md px-8 my-4 py-8 cursor-pointer"
+          className="mx-auto w-full sm:w-9/12 md:w-7/12 lg:w-7/12 shadow-md px-8 my-4 py-8 cursor-pointer"
           onClick={() => toggleDisplay()}
         >
             <div className="flex  mx-auto flex-col  w-full">

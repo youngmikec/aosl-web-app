@@ -9,21 +9,75 @@ export type Faq = {
 
 export const faqs: Faq[] = [
   {
-    question: "How long does it take to get paid?",
+    question: "What is AOSL and what services does it offer?",
     answers: [
-      "It all depends on the time we receive your order and as well as if your receiving bank is not having a temporary downtime. Please exercise patient.",
+      `AOSL provides you with a lot of services ranging from Personal Assistant service (PA),`,
+      `Driving and transportation service, quality health care services`,
+      `Accomodation guidelines, jobs and job trainings in compliance with the UK govt standards.`
     ],
   },
   {
-    question: "Why haven’t i received my cryptocurrency?",
+    question: "How does ASOL ensure that all services follow UK government standards?",
     answers: [
-      "Your wallet will be successfully credited once the transaction meets the minimum required network confirmation specified by the our system. Please note that the minimum requirement is different for each cryptocurrency",
+        `ASOL adheres strictly to the guidelines set by the UK government, as outlined on www.gov.uk/working-for-yourself. We ensure that all our services, 
+        from healthcare to transportation and training, meet the required standards for safety, quality, and professionalism.`
     ],
   },
   {
-    question: "What happens if i paste  the wrong address?",
+    question: "What kind of healthcare services do you provide?",
     answers: [
-      "If you mistakenly withdraw funds to a wrong address chinos exchange is unable to locate the receiver of your funds and provide you any further assistance. As we initiates the withdrawal process as soon as you click [Submit]",
+      `We employ qualified healthcare professionals to take care of patients in various settings, including homes and healthcare facilities.`,
+      `Our personnel are trained to provide high-quality care, ensuring the well-being and comfort of patients.`
+    ],
+  },
+  {
+    question: "Can ASOL help with accommodation guidelines?",
+    answers: [
+        `Yes, ASOL offers guidance on finding and securing accommodation. 
+        We provide advice on the best practices for renting or purchasing property, ensuring that clients make informed decisions.`
+    ],
+  },
+  {
+    question: "What types of job training does ASOL offer?",
+    answers: [
+      `ASOL offers both paid and unpaid job training opportunities. Our training programs are designed to equip individuals with the skills they need to excel in their chosen occupations, 
+      with a strong emphasis on meeting UK standards.`
+    ],
+  },
+  {
+    question: "How can I apply for job training with ASOL?",
+    answers: [
+      `To apply for job training, you can visit our website and fill out the application form under the "Job Training" section.`, 
+      `Our team will review your application and get in touch with you regarding the next steps.`
+    ],
+  },
+  {
+    question: "Does ASOL provide services for businesses as well as individuals?",
+    answers: [
+      `Yes, ASOL provides services to both businesses and individuals. 
+      Whether you need PA services for personal use or healthcare services for a business, we tailor our services to meet your specific needs.`
+    ],
+  },
+  {
+    question: "How do I book a service with ASOL?",
+    answers: [
+      `You can book a service by visiting our website, contacting us via phone, Whatsapp or sending an email through our contact us page.`, 
+      `Our customer service team is available to assist you in scheduling and customizing the services you need.`,
+      `To ensure you get the best of services, ensure you create an account with us`
+    ],
+  },
+  {
+    question: "How much does it cost to book a service with AOSL",
+    answers: [
+      `All our services are very affordable and pocket friendly. However, we also give you the opportunity to negotiate with us for the best price and best service.`
+    ],
+  },
+  {
+    question: "How Can I make payment for my service?",
+    answers: [
+      `After your negotiation with us, we generate an invoice tailored to your request and price which you can proceed to make payment through our automated Paypal gateway
+      which allows you to make payment however and whenever you want to within the due date of the invoice.
+      `
     ],
   },
 ];
