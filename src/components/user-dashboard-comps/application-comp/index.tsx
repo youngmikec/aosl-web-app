@@ -110,7 +110,7 @@ const ApplicationComp: FC = () => {
     }
 
     const retrieveApplications = () => {
-        const query: string = `?email=${user ? user.email : ''}&sort=-title&populate=job,createdBy`;
+        const query: string = `?email=${user ? user.email : ''}&sort=-createdAt&populate=job,createdBy`;
         RETREIVE_APPLICATION(query)
         .then((res: AxiosResponse<ApiResponse>) => {
             const { message, payload } = res.data;

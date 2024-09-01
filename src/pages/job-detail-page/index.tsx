@@ -6,14 +6,24 @@ import { RETREIVE_JOBS_PUBLIC } from '../../services/jobs';
 import JobTrainingDetailComp from './JobTrainingDetailComp';
 import HeroSection from '../../shared/users-frontend/hero-section';
 import JobApplicationForm from './JobApplicationForm';
+import AppModalComp from '../../shared/app-modal';
+import { useDispatch } from 'react-redux';
+import { CloseAppModal, OpenAppModal } from '../../store/modal';
 
 const JobDetailsPage: FC = () => {
   const params = useParams();
   const JobTrainingId: string = params['jobId'] || '';
+  const modalMode = 'create';
+  const dispatch = useDispatch();
 
   const [loading, setLoading] = useState<boolean>(false);
   const [showForm, setShowForm] = useState<boolean>(false);
   const [detailsData, setDetailsData] = useState<Job | null>(null);
+
+  const handleToggleForm = () => {
+    setShowForm(!showForm);
+    dispatch(showForm ? OpenAppModal() : CloseAppModal());
+  }
 
   const retrieveJobTrainingDetails = (id: string) => {
     const searchQuery: string = `?_id=${id}`
@@ -55,7 +65,7 @@ const JobDetailsPage: FC = () => {
 
                 <div className="my-3 text-center">
                   <button
-                    onClick={() => setShowForm(prev => !prev)}
+                    onClick={handleToggleForm}
                     type="submit"
                     className="bg-[#042f9c] text-white py-1 px-10 rounded-2xl"
                   >
@@ -66,15 +76,21 @@ const JobDetailsPage: FC = () => {
             }
           </div>
 
-          {
+          {/* {
             showForm && (
               <div className="flex-1 flex-grow">
                 <JobApplicationForm jobId={JobTrainingId} mode={'create'} record={null} />
               </div>
             )
-          }
+          } */}
         </div>
       </div>
+
+      <AppModalComp title='Application Form'>
+        {
+            modalMode === 'create' && <JobApplicationForm jobId={JobTrainingId} mode={'create'} record={null} />
+        }
+      </AppModalComp>
     </>
   )
 }

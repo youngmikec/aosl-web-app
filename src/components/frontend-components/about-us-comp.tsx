@@ -20,7 +20,7 @@ const AboutUsComp = () => {
         <HeroSection>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 overflow-hidden md:ml-32 lg:ml-36 animate__animated animate__fadeInRight">
                 <div className='py-12 w-full relative'>
-                    <h3 className='text-5xl font-bold my-8 text-white'>We deal inComprehensive Services for <br></br> Personal Assistant, Transportation, Training, and More</h3>
+                    <h3 className='text-5xl font-bold my-8 text-white'>We Provide Comprehensive Services for <br></br> Personal Assistant, Transportation, Training, and More</h3>
                     <p className='text-sm font-semibold text-justify w-3/4 my-8 text-white'>We provide you with our best services for Personal Assistant, Transportation, Training and many more.</p>
                     <button className='rounded-lg mt-4 mb-8 text-white bg-[#042f9c] py-4 px-7 hover:bg-white hover:text-[#042f9c]'>
                         <Link to="/sign-in">Get Started</Link>
@@ -90,7 +90,7 @@ const AboutUsComp = () => {
             <div className='flex flex-col w-screen'>
               <div className='text-center'>
                   <h2 className=' font-bold text-black text-xl mb-2 capitalize '>what Makes Us Different</h2>
-                  <p className='text-sm text-gray-600 font-light'>There'are million reasons to use chinos Exchange platform </p>
+                  <p className='text-sm text-gray-600 font-light'>There'are million reasons to use AOSL platform </p>
               </div>
 
               <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-10 justify-evenly my-10'>

@@ -70,7 +70,7 @@ const ProductStepComp = ({ title, subTitle, imageUrl, steps }: Props) => {
                                 className="py-3 px-8 rounded-md bg-[#042f9c] text-white"
                                 onClick={openModal}
                             >
-                                Mail Us Now
+                                Contact Us
                             </button>
                         </div>
                     </div>
