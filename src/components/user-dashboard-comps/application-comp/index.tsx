@@ -114,7 +114,7 @@ const ApplicationComp: FC = () => {
         RETREIVE_APPLICATION(query)
         .then((res: AxiosResponse<ApiResponse>) => {
             const { message, payload } = res.data;
-            notify("success", message);
+            // notify("success", message);
             setApplicationsData(payload);
             setTableRows(mapResponseData(payload));
             dispatch(INITIALIZE_APPLICATIONS(payload));

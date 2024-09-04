@@ -94,12 +94,10 @@ const InvoiceForm: FC<Props> = ({ invoiceData }) => {
 
   const populateClientFields = (data: Invoice | null) => {
     if(!data) return
-    setClientName({ value: data?.clientName || '--', error: false, errMsg: '' });
-    setClientEmail({ value: data?.clientEmail || '--', error: false, errMsg: '' });
-    setClientPhone({ value: data?.clientPhone || '--', error: false, errMsg: '' });
-    setClientAddress({ value: data?.clientAddress || '--', error: false, errMsg: '' });
-
-    inputCheck();
+    setClientName({ value: data?.clientName || '', error: false, errMsg: '' });
+    setClientEmail({ value: data?.clientEmail || '', error: false, errMsg: '' });
+    setClientPhone({ value: data?.clientPhone || '', error: false, errMsg: '' });
+    setClientAddress({ value: data?.clientAddress || '', error: false, errMsg: '' });
   }
 
   const handleMakePayment = () => {
@@ -112,7 +110,6 @@ const InvoiceForm: FC<Props> = ({ invoiceData }) => {
         unit_amount: item.amount.toString()
       }));
 
-      console.log('purchaseItems =>', purchaseItems);
   
       const payload = {
         purchaseItems,
@@ -120,14 +117,12 @@ const InvoiceForm: FC<Props> = ({ invoiceData }) => {
         totalAmount: invoiceData?.totalAmount.toString(),
         currency_code: invoiceData?.currency
     }
-    console.log(payload);
   
       INITIATE_INVOICE_PAYMENT(payload).then((res: AxiosResponse<ApiResponse>) => {
         const { data } = res;
         if(data.success){
           setLoading(false);
           notify('success', `${data.message}! Redirecting to Checkout`);
-          console.log('Order response =>', data.payload);
           const orderApprovalLink: ICheckOutLink = data.payload.links.find((item: ICheckOutLink) => item.rel === 'approve');
           if(orderApprovalLink){
             window.location.href = orderApprovalLink.href;
@@ -163,7 +158,6 @@ const InvoiceForm: FC<Props> = ({ invoiceData }) => {
 
   useEffect(() => {
     if(invoiceData){
-      console.log('invoiceData', invoiceData);
       populateClientFields(invoiceData)
     }
   }, [invoiceData]);
@@ -301,8 +295,8 @@ const InvoiceForm: FC<Props> = ({ invoiceData }) => {
                       <tr key={index} className={`table-row ${index % 2 === 0 ? 'bg-gray-100' : 'bg-white'} py-4`}>
                         <td className="text-left py-3 px-2">{item?.name}</td>
                         <td className="text-left py-3 px-2">{item?.quantity}</td>
-                        <td className="text-left py-3 px-2">${formatCurrency(item?.amount, invoiceData?.currency, 'en-GB')}</td>
-                        <td className="text-right py-3 px-2">${formatCurrency(item?.totalAmount, invoiceData?.currency, 'en-GB')}</td>
+                        <td className="text-left py-3 px-2">{formatCurrency(item?.amount, invoiceData?.currency, 'en-GB')}</td>
+                        <td className="text-right py-3 px-2">{formatCurrency(item?.totalAmount, invoiceData?.currency, 'en-GB')}</td>
                       </tr>
                     )
                   })

@@ -1,6 +1,9 @@
-import axios, { url } from './config';
+import axios from './config';
+import { BASE_URL } from './config';
+
 
 // const url: string | undefined = process.env.REACT_APP_BASE_URL;
+const url: string | undefined = BASE_URL;
 
 export const RETREIVE_INVOICES = async (query: string = '') => {
     return axios.get(`${url}/invoice/publicRoute/${query}`);

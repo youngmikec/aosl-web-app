@@ -22,8 +22,8 @@ const InvoicePage = () => {
       setLoading(false);
       const { success, message, payload } = res.data;
       if(success){
+        console.log(payload);
         setInvoiceData(payload[0]);
-        console.log('message', message);
       }
     })
     .catch(err => {

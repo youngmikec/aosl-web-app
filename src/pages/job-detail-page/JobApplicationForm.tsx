@@ -11,11 +11,12 @@ import { ADD_TO_APPLICATIONS, UPDATE_APPLICATION_STATE } from '../../store/appli
 
 type Props = { 
   jobId: string;
-  mode: 'create' | 'update'
+  mode: 'create' | 'update';
+  role?: string;
   record: Application | null
 }
 
-const JobApplicationForm: FC<Props> = ({ jobId, mode = 'create', record }) => {
+const JobApplicationForm: FC<Props> = ({ jobId, mode = 'create', record , role = ''}) => {
 
   const dispatch = useDispatch();
 
@@ -32,7 +33,7 @@ const JobApplicationForm: FC<Props> = ({ jobId, mode = 'create', record }) => {
     phoneNumber: "",
     state: "",
     nationality: "",
-    role: "",
+    role: role,
     certLevel: "",
     address: "",
     experienceYears: 1,
@@ -81,7 +82,7 @@ const JobApplicationForm: FC<Props> = ({ jobId, mode = 'create', record }) => {
     certLevel: Yup.string().required('Required'),
     address: Yup.string().required('Required'),
     experienceYears: Yup.number().required('Required'),
-    biography: Yup.string().required('Required'),
+    biography: Yup.string().optional(),
     skills: Yup.string().required('Required'),
   });
 
