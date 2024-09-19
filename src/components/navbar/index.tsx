@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, FC } from 'react';
 import { Link } from 'react-router-dom';
 
 // icons
@@ -13,7 +13,11 @@ import { FaNetworkWired } from "react-icons/fa";
 import logo from '../../assets/images/logo-white.png';
 import logoDark from '../../assets/images/logo.png';
 
-const Navbar = () => {
+type Props = {
+    template?: 'dark' | 'light'
+}
+
+const Navbar: FC<Props> = ({ template = 'light' }) => {
     const [show, setShow] = useState(false);
     const toggleShowDrowdown = () => {
         setShow(!show);
@@ -30,8 +34,8 @@ const Navbar = () => {
                     </div>
                     <div className='pt-3'>
                         <ul className='list-none inline-flex'>
-                            <li className='mx-2 sm:mx-2 md:mx-2 lg:mx-4 text-white sm:text-xs font-semibold hover:border-b-2 hover:border-b-white'><Link to="/">Home</Link></li>
-                            <li className='mx-2 sm:mx-2 md:mx-2 lg:mx-4 text-white sm:text-xs font-semibold hover:border-b-2 hover:border-b-white'>
+                            <li className={`mx-2 sm:mx-2 md:mx-2 lg:mx-4 ${ template === 'light' ? 'text-white hover:border-b-white' : 'text-black hover:border-b-black'} sm:text-xs font-semibold hover:border-b-2`}><Link to="/">Home</Link></li>
+                            <li className={`mx-2 sm:mx-2 md:mx-2 lg:mx-4 ${ template === 'light' ? 'text-white hover:border-b-white' : 'text-black hover:border-b-black'} sm:text-xs font-semibold hover:border-b-2`}>
                                 <div
                                     className="relative mx-1 pt-0 pb-2 group  mb-1 md:mb-0"
                                     id="button_pm">
@@ -82,17 +86,18 @@ const Navbar = () => {
                                     </ul>
                                 </div>
                             </li>
-                            <li className='mx-2 sm:mx-2 md:mx-2 lg:mx-4 text-white sm:text-xs font-semibold hover:border-b-2 hover:border-b-white'><Link to="/jobs-trainings">Jobs/Trainings</Link></li>
-                            <li className='mx-2 sm:mx-2 md:mx-2 lg:mx-4 text-white sm:text-xs font-semibold hover:border-b-2 hover:border-b-white'><Link to="/about-us">About Us</Link></li>
-                            <li className='mx-2 sm:mx-2 md:mx-2 lg:mx-4 text-white sm:text-xs font-semibold hover:border-b-2 hover:border-b-white'><Link to="/contact-us">Contact Us</Link></li>
-                            <li className='mx-2 sm:mx-2 md:mx-2 lg:mx-4 text-white sm:text-xs font-semibold hover:border-b-2 hover:border-b-white'><Link to="/faqs">Faqs</Link></li>
+                            <li className={`mx-2 sm:mx-2 md:mx-2 lg:mx-4 ${ template === 'light' ? 'text-white hover:border-b-white' : 'text-black hover:border-b-black'} sm:text-xs font-semibold hover:border-b-2`}><Link to="/jobs-trainings">Jobs/Trainings</Link></li>
+                            <li className={`mx-2 sm:mx-2 md:mx-2 lg:mx-4 ${ template === 'light' ? 'text-white hover:border-b-white' : 'text-black hover:border-b-black'} sm:text-xs font-semibold hover:border-b-2`}><Link to="/blogs">Blogs</Link></li>
+                            <li className={`mx-2 sm:mx-2 md:mx-2 lg:mx-4 ${ template === 'light' ? 'text-white hover:border-b-white' : 'text-black hover:border-b-black'} sm:text-xs font-semibold hover:border-b-2`}><Link to="/about-us">About Us</Link></li>
+                            <li className={`mx-2 sm:mx-2 md:mx-2 lg:mx-4 ${ template === 'light' ? 'text-white hover:border-b-white' : 'text-black hover:border-b-black'} sm:text-xs font-semibold hover:border-b-2`}><Link to="/contact-us">Contact Us</Link></li>
+                            <li className={`mx-2 sm:mx-2 md:mx-2 lg:mx-4 ${ template === 'light' ? 'text-white hover:border-b-white' : 'text-black hover:border-b-black'} sm:text-xs font-semibold hover:border-b-2`}><Link to="/faqs">Faqs</Link></li>
                         </ul>
                     </div>
 
                     <div>
                         <ul className='list-none inline-flex'>
-                            <li className='mx-4 text-white font-semibold py-3 px-4 rounded-lg hover:bg-[#042f9c]'><Link to="/sign-in">Sign In</Link></li>
-                            <li className='mx-4 text-white font-semibold py-3 px-4 rounded-lg hover:bg-[#042f9c]'><Link to="/sign-up">Sign Up</Link></li>
+                            <li className={`mx-4 ${ template === 'light' ? 'text-white' : 'text-black hover:text-white'} font-semibold py-3 px-4 rounded-lg hover:bg-[#042f9c]`}><Link to="/sign-in">Sign In</Link></li>
+                            <li className={`mx-4 ${ template === 'light' ? 'text-white' : 'text-black hover:text-white'} font-semibold py-3 px-4 rounded-lg hover:bg-[#042f9c]`}><Link to="/sign-up">Sign Up</Link></li>
                         </ul>
                     </div>
                 </div>
@@ -163,6 +168,7 @@ const Navbar = () => {
                                 <li className='mx-4 my-8 text-[#7F7F80] font-semibold hover:border-b-2 hover:border-b-white'><Link to="/services/training">Traning/Recruitment</Link></li>
                                 <li className='mx-4 my-8 text-[#7F7F80] font-semibold hover:border-b-2 hover:border-b-white'><Link to="/services">Other Services</Link></li>
                                 <li className='mx-4 my-8 text-[#7F7F80] font-semibold hover:border-b-2 hover:border-b-white'><Link to="/jobs-trainings">Jobs/Trainings</Link></li>
+                                <li className='mx-4 my-8 text-[#7F7F80] font-semibold hover:border-b-2 hover:border-b-white'><Link to="/blogs">Blogs</Link></li>
                                 <li className='mx-4 my-8 text-[#7F7F80] font-semibold hover:border-b-2 hover:border-b-white'><Link to="/about-us">About Us</Link></li>
                                 <li className='mx-4 my-8 text-[#7F7F80] font-semibold hover:border-b-2 hover:border-b-white'><Link to="/contact-us">Contact Us</Link></li>
                                 <li className='mx-4 my-8 text-[#7F7F80] font-semibold hover:border-b-2 hover:border-b-white'><Link to="/faqs">Faqs</Link></li>

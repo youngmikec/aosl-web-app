@@ -10,6 +10,8 @@ import JobSearchPage from "../pages/job-search";
 import JobDetailsPage from "../pages/job-detail-page";
 import InvoicePage from "../pages/InvoicePage";
 import PaypalCheckoutPage from '../pages/PaypalCheckoutPage';
+import BlogsPage from '../pages/BlogsPage';
+import BlogsDetailsPage from '../pages/BlogsDetailsPage';
 
 
 
@@ -30,6 +32,14 @@ const authRoutes: RouteType[] = [
     {
         path: '/contact-us',
         component: <ContactUs />
+    },
+    {
+        path: '/blogs',
+        component: <BlogsPage />
+    },
+    {
+        path: '/blogs/view/:slug',
+        component: <BlogsDetailsPage />
     },
     {
         path: '/services',
