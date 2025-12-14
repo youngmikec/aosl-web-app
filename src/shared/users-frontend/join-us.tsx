@@ -121,10 +121,10 @@ const JoinUs = () => {
 
 
             {/* Market Numbers */}
-            <div className="w-full">
+            {/* <div className="w-full">
                 <div className="mx-auto w-9/12 my-12">
                     <p className="text-[#7F7F80] text-xl text-center font-semibold my-8">Our Market Growth Numbers</p>
-                    {/* market Cards */}
+                    market Cards
                     <div className="grid grid-cols-3 flex-wrap sm:grid-cols-3 mg:grid-cols-3 lg:grid-cols-3">
                         {
                             marketNumbers.length > 0 &&
@@ -134,7 +134,7 @@ const JoinUs = () => {
                         }
                     </div>
                 </div>
-            </div>
+            </div> */}
             <ToastContainer />
             {/* Market Numbers */}
         </>
