@@ -15,7 +15,7 @@ import Footer from '../../shared/users-frontend/footer';
 import { AxiosResponse } from 'axios';
 import { ApiResponse } from '../../common';
 import { WELCOME_ROUTE } from '../../services';
-import ReviewComp from './review';
+// import ReviewComp from './review';
 import WhatsappButton from '../whatsapp-btn';
 import ProductServices from '../../shared/users-frontend/ProductServices';
 import ProcessStep from './process-step';
@@ -85,9 +85,9 @@ const HomeComp = () => {
                 <JoinUs />
             </div>
 
-            <div className='my-4'>
+            {/* <div className='my-4'>
                 <ReviewComp />
-            </div>
+            </div> */}
 
             <div className="my-4 mb-12">
                 <h3 className='text-[#042f9c] font-extrabold text-3xl mb-8 text-center'>We are Trusted by</h3>
