@@ -10,7 +10,6 @@ import JoinUs from '../../../shared/users-frontend/join-us';
 import Footer from '../../../shared/users-frontend/footer';
 import ProductStepComp from '../../../shared/users-frontend/product-step-comp';
 import paAgentImg from '../../../assets/svg/pa-agent.svg';
-import AppModalComp from '../../../shared/app-modal';
 
 type Step = {
     title: string;

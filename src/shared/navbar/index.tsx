@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
@@ -19,7 +19,6 @@ import './style.css';
 import defaultProfileImg from '../../assets/images/arash.png';
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { User } from "../../common";
-import { getItem } from "../../utils";
 import AppLoader from "../../components/app-loader";
 import { OpenLogoutModal } from "../../store/modal/logout-modal";
 
@@ -38,8 +37,6 @@ const Navbar = ({ profile, loading}: Props) => {
     const headPadding: string = 'pt-0';
 
     const [search, setSearch] = useState('');
-    const[ toggle, setToggle] = useState<boolean>(true);
-    const [userProfile, setUserProfile] = useState<User | null>(null);
     const [showSideBar, setShowSidebar] = useState<boolean>(false);
 
     const openSidebar = () => {
@@ -57,19 +54,19 @@ const Navbar = ({ profile, loading}: Props) => {
 
 
 
-    useEffect(()=>{
-        if(!search){
-            setToggle(false);
-        }else{
-            setToggle(true);
-        }
+    // useEffect(()=>{
+    //     if(!search){
+    //         setToggle(false);
+    //     }else{
+    //         setToggle(true);
+    //     }
 
-    },[search])
+    // },[search])
 
-    useEffect(() => {
-        let client = getItem('clientD');
-        client && setUserProfile(client);
-    }, [])
+    // useEffect(() => {
+    //     let client = getItem('clientD');
+    //     client && setUserProfile(client);
+    // }, [])
 
     return (
         <>
@@ -104,7 +101,7 @@ const Navbar = ({ profile, loading}: Props) => {
                 <div className='flex justify-end ml-4'>
                     <div className="hidden md:flex lg:flex justify-start border-2 border-[#f0f0f0] rounded-md">
                         <CiSearch className="text-xl my-auto text-[#7F7F80] ml-2 mr-4" />
-                        <input type="text" placeholder='Search.....' className='w-80' onChange={(e)=>setSearch(e.target.value)}/>
+                        <input type="text" value={search} placeholder='Search.....' className='w-80' onChange={(e)=>setSearch(e.target.value)}/>
                     </div>
                     <div className="mx-4 my-auto">
                         <CiBellOn className='inline-flex text-xl font-semibold my-auto text-[#7F7F80]'/>

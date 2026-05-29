@@ -30,10 +30,9 @@ type FormControl = {
 const InvoiceForm: FC<Props> = ({ invoiceData }) => {
 
   const invoiceRef = useRef<HTMLDivElement>(null);
-  const paypalBtnRef = useRef<HTMLButtonElement>(null);
-  const [{ isPending, isResolved, isRejected }] = usePayPalScriptReducer();
+  const [{ isPending }] = usePayPalScriptReducer();
 
-  const [loading, setLoading] = useState<boolean>(false);
+  // const [loading, setLoading] = useState<boolean>(false);
   const [printing, setPrinting] = useState<boolean>(false);
   const [clientName, setClientName] = useState<FormControl>({ value: '', error: true, errMsg: '' });
   const [clientEmail, setClientEmail] = useState<FormControl>({ value: '', error: true, errMsg: '' });
@@ -102,7 +101,7 @@ const InvoiceForm: FC<Props> = ({ invoiceData }) => {
 
   const handleMakePayment = () => {
     if(invoiceData){
-      setLoading(true);
+      // setLoading(true);
       const purchaseItems = invoiceData?.services.map((item: IService) => ({
         name: item.name,
         description: item.name,
@@ -121,7 +120,7 @@ const InvoiceForm: FC<Props> = ({ invoiceData }) => {
       INITIATE_INVOICE_PAYMENT(payload).then((res: AxiosResponse<ApiResponse>) => {
         const { data } = res;
         if(data.success){
-          setLoading(false);
+          // setLoading(false);
           notify('success', `${data.message}! Redirecting to Checkout`);
           const orderApprovalLink: ICheckOutLink = data.payload.links.find((item: ICheckOutLink) => item.rel === 'approve');
           if(orderApprovalLink){
@@ -132,7 +131,7 @@ const InvoiceForm: FC<Props> = ({ invoiceData }) => {
         }
       })
       .catch((error: AxiosError) => {
-        setLoading(false);
+        // setLoading(false);
         notify('error', error.message);
       })
     }

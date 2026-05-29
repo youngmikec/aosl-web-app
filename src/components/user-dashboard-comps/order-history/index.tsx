@@ -12,25 +12,13 @@ import { RETREIVE_ORDERS } from '../../../services';
 import { ApiResponse, Order, User } from '../../../common';
 import transaction from '../../../assets/images/transaction.png';
 import { INITIALIZE_ORDERS } from '../../../store/orders/orders';
-import AppTable, { TableHeader } from '../../../shared/app-table';
 
 const OrderHistoryComp = () => {
     const dispatch = useDispatch();
     // const ordersState = useSelector((state: RootState) => state.orderState.value);
     
-    const [loading, setLoading] = useState<boolean>(false);
     const [orderRecords, setOrderRecords] = useState<Order[] | []>([]);
-    const [tableRows, setTableRows] = useState<any[]>([]);
 
-    const tableHeaders: TableHeader[] = [
-        { key: 'sn', value: 'S/N' },
-        // { key: 'date', value: 'Date' },
-        { key: 'crypto', value: 'Crypto' },
-        { key: 'type', value: 'Order Type' },
-        { key: 'amount', value: 'Amount' },
-        { key: 'receivable', value: 'Receivable Amount' },
-        { key: 'status', value: 'Status' },
-    ];
 
     const notify = (type: string, msg: string) => {
         if (type === "success") {
@@ -47,11 +35,9 @@ const OrderHistoryComp = () => {
     };
 
     const retreiveOrders = () => {
-        setLoading(true);
         const userDetail: User = getItem('clientD');
         const queryString: string = `?createdBy=${userDetail.id}&sort=-createdAt&populate=airtime,cryptocurrency,giftcard`;        RETREIVE_ORDERS(queryString).then((res: AxiosResponse<ApiResponse>) => {
-            setLoading(false);
-            const { success, message, payload } = res.data;
+            const { success, payload } = res.data;
             if(success){
                 // notify('success', `${message} ${payload.length} records found!`);
                 setOrderRecords(payload);
@@ -85,7 +71,6 @@ const OrderHistoryComp = () => {
                 // setTableRows(mappedDate);
             }
         }).catch((err: any) => {
-            setLoading(false);
             const { message } = err.response.data;
             notify('error', message);
         })

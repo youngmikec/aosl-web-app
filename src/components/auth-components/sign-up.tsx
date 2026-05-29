@@ -19,7 +19,6 @@ import { COUNTRIES } from '../../constants/countries';
 
 
 const SignUpComp = () => {
-    const url: any = process.env.REACT_APP_BASE_URL || '';
     const [loading, setLoading] = useState<boolean>(false);
 
     const [pDisplay, setPDisplay] = useState<boolean>(false);

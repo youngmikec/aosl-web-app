@@ -4,7 +4,6 @@ import React from 'react';
 import './style.css';
 
 //images and icons
-import coin from '../../assets/images/hompage_coin.png'
 import logo from '../../assets/images/logo-white.png'
 import phone from '../../assets/images/phone.png'
 import icon from '../../assets/images/customer-satisfaction.png'

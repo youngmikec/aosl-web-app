@@ -11,16 +11,16 @@ import { CONFIRM_AND_CAPTURE_INVOICE_ORDER } from "../../services/invoice";
 
 const PaypalCheckoutPage: FC = () => {
     const navigate = useNavigate();
-    const [params, setParams] = useSearchParams();
+    const [params] = useSearchParams();
 
 
-    const [status, setStatus] = useState<string | null>(null);
-    const [orderId, setOrderId] = useState<string | null>(null);
-    const [payerId, setPayerId] = useState<string | null>(null);
+    // const [status, setStatus] = useState<string | null>(null);
+    // const [orderId, setOrderId] = useState<string | null>(null);
+    // const [payerId, setPayerId] = useState<string | null>(null);
+    // const [errorMessage, setErrorMessage] = useState<string>('');
     const [loading, setLoading] = useState<boolean>(false);
     const [isError, setIsError] = useState<boolean>(false);
     const [message, setMessage] = useState<any>('');
-    const [errorMessage, setErrorMessage] = useState<string>('');
 
     const confirmAndCheckoutOrder = (orderId: string | null) => {
         if(orderId){
@@ -35,7 +35,7 @@ const PaypalCheckoutPage: FC = () => {
             .catch(err => {
                 setLoading(false);
                 setIsError(true);
-                setErrorMessage(err.response.message);
+                // setErrorMessage(err.response.message);
             })
 
         }
@@ -49,15 +49,15 @@ const PaypalCheckoutPage: FC = () => {
         if(params){
             const status = params.get('status');
             const token = params.get('token');
-            setStatus(status);
-            setOrderId(token);
-            setPayerId(params.get('PayerID'));
+            // setStatus(status);
+            // setOrderId(token);
+            // setPayerId(params.get('PayerID'));
 
             if(status === 'suceess'){
                 confirmAndCheckoutOrder(token)
             }
         }
-    }, []);
+    }, [params]);
 
 
     return loading 

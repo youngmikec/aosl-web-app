@@ -1,10 +1,10 @@
 import React from 'react';
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link, useLocation } from 'react-router-dom';
-import { AiOutlineSetting, AiOutlineDollar } from 'react-icons/ai';
+import { AiOutlineDollar } from 'react-icons/ai';
 import { RiDashboardFill } from 'react-icons/ri';
-import { IoCardOutline, IoCopyOutline } from 'react-icons/io5';
+import { IoCopyOutline } from 'react-icons/io5';
 import { MdOutlineDashboardCustomize } from 'react-icons/md';
 
 import logo from '../../assets/images/logo.png';

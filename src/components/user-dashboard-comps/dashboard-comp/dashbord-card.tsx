@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bars, SpinningCircles, Circles, Rings } from 'react-loading-icons'
+import { SpinningCircles } from 'react-loading-icons'
 
 import './style.css';
 

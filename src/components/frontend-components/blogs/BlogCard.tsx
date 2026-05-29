@@ -38,7 +38,7 @@ const BlogCard: FC<Props> = ({ blog }) => {
                     <div className="flex justify-start gap-2">
                         {/* author img */}
                         <div>
-                            <img src={blog?.author?.profileImage ? blog.author.profileImage : authorImg} className="rounded-full w-[30px] h-[30px]" alt="author Image" />
+                            <img src={blog?.author?.profileImage ? blog.author.profileImage : authorImg} className="rounded-full w-[30px] h-[30px]" alt="author" />
                         </div>
                         <div>
                             <p>{blog?.author?.firstName} {blog?.author?.lastName}</p>

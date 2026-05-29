@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import logo from "../../../assets/images/logo-white.png";
 import logoBlack from "../../../assets/images/logo.png";
 import success from '../../../assets/images/high_five.png'
-import googleIcon from "../../../assets/icons/google-icon.png";
 
 type Prop = {
   changeStep: (data: number) => any

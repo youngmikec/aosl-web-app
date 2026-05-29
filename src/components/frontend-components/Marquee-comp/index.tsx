@@ -1,5 +1,5 @@
 // src/Marquee.js
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 import './style.css';
 
 type Props = {
@@ -12,7 +12,7 @@ const MarqueeComp: FC<Props> = ({ images }) => {
       <div className="flex animate-marquee">
         {images.map((image, index) => (
           <div key={index} className="mx-2">
-            <img src={image} alt={`Marquee Image ${index}`} className="h-16" />
+            <img src={image} alt={`Marquee ${index}`} className="h-16" />
           </div>
         ))}
       </div>

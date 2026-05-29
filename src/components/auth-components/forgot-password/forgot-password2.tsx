@@ -12,7 +12,6 @@ import { VERIFY_RESET_CODE } from '../../../services';
 import { AiFillLeftCircle } from 'react-icons/ai';
 import logo from "../../../assets/images/logo-white.png";
 import logoBlack from "../../../assets/images/logo.png";
-import googleIcon from "../../../assets/icons/google-icon.png";
  
   type inputProps={
     type:string,
@@ -37,7 +36,6 @@ const ForgotPassword2 = ( { changeStep }: Props) => {
       {type:'text', placeholder:'0', focus: false, value:'', id: 3},
       {type:'text', placeholder:'0', focus: false, value:'', id: 4}
     ])
-    const [codes, setCodes] = useState<string[] | any>([]);
     let code: string = '';
 
     const changeFocus = () => {
@@ -50,7 +48,6 @@ const ForgotPassword2 = ( { changeStep }: Props) => {
         if(e.id === id){
           if(value !== ''){
             e.value = value;
-            setCodes((prev: string[]) => [...prev, value]);
             e.focus = false;
             if(i < 4){
               a[i + 1].focus = true

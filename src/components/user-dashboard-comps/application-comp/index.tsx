@@ -113,7 +113,7 @@ const ApplicationComp: FC = () => {
         const query: string = `?email=${user ? user.email : ''}&sort=-createdAt&populate=job,createdBy`;
         RETREIVE_APPLICATION(query)
         .then((res: AxiosResponse<ApiResponse>) => {
-            const { message, payload } = res.data;
+            const { payload } = res.data;
             // notify("success", message);
             setApplicationsData(payload);
             setTableRows(mapResponseData(payload));
@@ -123,13 +123,6 @@ const ApplicationComp: FC = () => {
             const { message } = err.response.data;
             notify("error", message);
         });
-    };
-
-    const sortData = (field: string) => {
-        const sortedArray: any[] = sortArray(applicationsData, field);
-        if (sortedArray.length > 0) {
-          setApplicationsData(sortedArray);
-        }
     };
 
     const openModal = (mode: string = 'create', id: string = '') => {

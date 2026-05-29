@@ -1,26 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import moment from "moment";
 
 // image
 import image from '../../../assets/images/account-balance-bg.png';
-import airtime from '../../../assets/images/aitime_to_cash.png';
-import crypto from '../../../assets/images/buy_crypto.png';
-import trade from '../../../assets/images/trade-giftcard.png';
-import sell from '../../../assets/images/sell_crypto.png'
 
 
 // style
 import "./style.css";
-import ServiceCard from '../../service-card';
 import DashboardCard from './dashbord-card';
-import { ApiResponse, Order, User } from '../../../common';
-import { RETREIVE_ORDERS } from '../../../services';
+import { Order } from '../../../common';
 import { getItem } from '../../../utils';
 import Card from '../../../shared/card';
 import { RETRIEVE_APP_REPORTS } from '../../../services/reports';
-import AppTable, { TableHeader } from '../../../shared/app-table';
+import { TableHeader } from '../../../shared/app-table';
 
 const DashboardComp = () => {
     // const ordersState = useSelector((state: RootState) => state.orderState.value);
@@ -30,7 +24,6 @@ const DashboardComp = () => {
     const [completedOrders, setCompletedOrders] = useState<number>(0);
     const [declinedOrders, setDeclinedOrders] = useState<number>(0);
     const [orderRecords, setOrderRecords] = useState<Order[] | []>([]);
-    const [tableRows, setTableRows] = useState<any[]>([]);
 
     const tableHeaders: TableHeader[] = [
         { key: 'sn', value: 'S/N' },
@@ -41,19 +34,19 @@ const DashboardComp = () => {
         { key: 'status', value: 'Status' },
     ];
 
-    const notify = (type: string, msg: string) => {
-        if (type === "success") {
-          toast.success(msg, {
-            position: toast.POSITION.TOP_RIGHT,
-          });
-        }
+    // const notify = (type: string, msg: string) => {
+    //     if (type === "success") {
+    //       toast.success(msg, {
+    //         position: toast.POSITION.TOP_RIGHT,
+    //       });
+    //     }
     
-        if (type === "error") {
-          toast.error(msg, {
-            position: toast.POSITION.TOP_RIGHT,
-          });
-        }
-    };
+    //     if (type === "error") {
+    //       toast.error(msg, {
+    //         position: toast.POSITION.TOP_RIGHT,
+    //       });
+    //     }
+    // };
 
     // const retreiveOrders = () => {
     //     setLoading(true);
@@ -77,7 +70,7 @@ const DashboardComp = () => {
         setLoading(true);
         const user = getItem('clientD');
         RETRIEVE_APP_REPORTS(user?.id).then(res => {
-            const { message, payload } = res.data;
+            const { payload } = res.data;
             setLoading(false);
             // notify('success', message);
             setPendingOrders(payload.pendingOrders);
@@ -101,7 +94,7 @@ const DashboardComp = () => {
             
         }).catch(err => {
             setLoading(false);
-            const { message } = err.response.data;
+            // const { message } = err.response.data;
             // notify('error', message);
         });
         

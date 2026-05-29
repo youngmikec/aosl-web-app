@@ -53,49 +53,48 @@ const ProductServiceCard: FC<Props> = ({ title, description, icon }) => {
 }
 
 const ProductServices: FC<{showFullServices?: boolean}> = ({ showFullServices = false }) => {
-  const services: Props[] = [
-    {
-      title: 'PA Services',
-      description: 'We offer part-time, full time and self employment personal assistant services',
-      icon: <HiOutlineBuildingOffice2 className="text-5xl text-[#042f9c] animate__animated animate__rubberBand" />
-    },
-    {
-      title: 'Transportation Services',
-      description: 'We offer transportation services to various destinations, ensuring safe and timely arrivals..',
-      icon: <MdEmojiTransportation className="text-5xl text-[#042f9c] animate__animated animate__rubberBand" />
-    },
-    {
-      title: 'Training Services',
-      description: 'We offer specialized health and social care training to selected candidates, focusing on skill development.',
-      icon: <FaNetworkWired className="text-5xl text-[#042f9c] animate__animated animate__rubberBand" />
-    },
-    {
-      title: 'Consultancy Services',
-      description: 'We provide comprehensive support for coordinating audits, government tendering, and registration with regulatory bodies. Additionally, we offer robust support for HR personnel, ensuring streamlined operations and enhanced productivity.',
-      icon: <BiCabinet className="text-5xl text-[#042f9c] animate__animated animate__rubberBand" />
-    },
-    {
-      title: 'Accommodation Support Services',
-      description: 'We specialize in providing exceptional accommodation support services. We assist clients in finding suitable housing options that meet their specific needs and preferences, whether for short-term stays or long-term arrangements.',
-      icon: <BsFillHouseDoorFill className="text-5xl text-[#042f9c] animate__animated animate__rubberBand" />
-    },
-    {
-      title: 'Importing and Exporting',
-      description: 'We specialize in providing comprehensive importing and exporting services to businesses worldwide. Our expertise encompasses the entire supply chain, from sourcing high-quality products from trusted international suppliers to managing the logistics of shipping and customs clearance.',
-      icon: <TbDatabaseImport className="text-5xl text-[#042f9c] animate__animated animate__rubberBand" />
-    },
-    {
-      title: 'Media and Publication Services',
-      description: 'we offer a wide range of media and publication services designed to enhance your brand’s visibility and impact. We produce high-quality publications, from magazines and newsletters to digital content and social media campaigns.',
-      icon: <TbDatabaseImport className="text-5xl text-[#042f9c] animate__animated animate__rubberBand" />
-    },
-  ];
-
   const [servicesData, setServicesData] = useState<Props[]>([]);
-
+  
   useEffect(() => {
+    const services: Props[] = [
+      {
+        title: 'PA Services',
+        description: 'We offer part-time, full time and self employment personal assistant services',
+        icon: <HiOutlineBuildingOffice2 className="text-5xl text-[#042f9c] animate__animated animate__rubberBand" />
+      },
+      {
+        title: 'Transportation Services',
+        description: 'We offer transportation services to various destinations, ensuring safe and timely arrivals..',
+        icon: <MdEmojiTransportation className="text-5xl text-[#042f9c] animate__animated animate__rubberBand" />
+      },
+      {
+        title: 'Training Services',
+        description: 'We offer specialized health and social care training to selected candidates, focusing on skill development.',
+        icon: <FaNetworkWired className="text-5xl text-[#042f9c] animate__animated animate__rubberBand" />
+      },
+      {
+        title: 'Consultancy Services',
+        description: 'We provide comprehensive support for coordinating audits, government tendering, and registration with regulatory bodies. Additionally, we offer robust support for HR personnel, ensuring streamlined operations and enhanced productivity.',
+        icon: <BiCabinet className="text-5xl text-[#042f9c] animate__animated animate__rubberBand" />
+      },
+      {
+        title: 'Accommodation Support Services',
+        description: 'We specialize in providing exceptional accommodation support services. We assist clients in finding suitable housing options that meet their specific needs and preferences, whether for short-term stays or long-term arrangements.',
+        icon: <BsFillHouseDoorFill className="text-5xl text-[#042f9c] animate__animated animate__rubberBand" />
+      },
+      {
+        title: 'Importing and Exporting',
+        description: 'We specialize in providing comprehensive importing and exporting services to businesses worldwide. Our expertise encompasses the entire supply chain, from sourcing high-quality products from trusted international suppliers to managing the logistics of shipping and customs clearance.',
+        icon: <TbDatabaseImport className="text-5xl text-[#042f9c] animate__animated animate__rubberBand" />
+      },
+      {
+        title: 'Media and Publication Services',
+        description: 'we offer a wide range of media and publication services designed to enhance your brand’s visibility and impact. We produce high-quality publications, from magazines and newsletters to digital content and social media campaigns.',
+        icon: <TbDatabaseImport className="text-5xl text-[#042f9c] animate__animated animate__rubberBand" />
+      },
+    ];
     showFullServices ? setServicesData(services) : setServicesData(services.slice(0, 3))
-  }, [showFullServices]);
+  }, [showFullServices,]);
   
   return (
     <>

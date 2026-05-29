@@ -16,7 +16,7 @@ const JobDetailsPage: FC = () => {
   const modalMode = 'create';
   const dispatch = useDispatch();
 
-  const [loading, setLoading] = useState<boolean>(false);
+  // const [loading, setLoading] = useState<boolean>(false);
   const [showForm, setShowForm] = useState<boolean>(false);
   const [detailsData, setDetailsData] = useState<Job | null>(null);
 
@@ -27,14 +27,11 @@ const JobDetailsPage: FC = () => {
 
   const retrieveJobTrainingDetails = (id: string) => {
     const searchQuery: string = `?_id=${id}`
-    setLoading(true);
     RETREIVE_JOBS_PUBLIC(searchQuery).then(res => {
-      setLoading(false);
       const { payload } = res.data;
       setDetailsData(payload[0]);
     })
     .catch(err => {
-      setLoading(false);
       const { message } = err.response.data;
       console.log('error', message);
     });
@@ -51,7 +48,7 @@ const JobDetailsPage: FC = () => {
       <HeroSection>
           <div className="flex justify-center items-center w-full min-h-[350px]">
               <div>
-                  <h3 className='text-5xl font-bold my-8 text-white'>AOSL Jobs / Traingings Details</h3>
+                <h3 className='text-5xl font-bold my-8 text-white'>AOSL Jobs / Traingings Details</h3>
               </div>
           </div>
       </HeroSection>

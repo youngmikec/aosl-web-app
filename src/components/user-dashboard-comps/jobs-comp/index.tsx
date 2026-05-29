@@ -10,25 +10,22 @@ import { Job, JobStatus } from '../../../common/job';
 import { RootState } from '../../../store';
 import AppTable, { TableHeader } from '../../../shared/app-table';
 import DropdownComp, { DropdownList } from '../../../shared/dropdown';
-import { DELETE_JOBS, RETREIVE_JOBS } from '../../../services/jobs';
+import { RETREIVE_JOBS } from '../../../services/jobs';
 import { ApiResponse } from '../../../common';
-import { INITIALIZE_JOBS, REMOVE_JOB } from '../../../store/jobs-training';
-import { sortArray } from '../../../utils';
-import { CloseAppModal, OpenAppModal } from '../../../store/modal';
+import { INITIALIZE_JOBS } from '../../../store/jobs-training';
+import { OpenAppModal } from '../../../store/modal';
 import Card from '../../../shared/card';
 import AppModalComp from '../../../shared/app-modal';
 import JobForm from './job-form';
 import JobsDetailsComp from './jobs-details';
-import DeleteComp from '../../../shared/delete-comp/delete-comp';
 
 
 const JobsComp: FC = () => {
     const dispatch = useDispatch();
     const Jobs: Job[] = useSelector((state: RootState) => state.jobState.value);
 
-    const [deleting, setDeleting] = useState<boolean>(false);
-    const [searching, setSearching] = useState<boolean>(false);
-    const [searchQuery, setSearchQuery] = useState<string>('');
+    // const [deleting, setDeleting] = useState<boolean>(false);
+    // const [searching, setSearching] = useState<boolean>(false);
     const [jobsData, setJobssData] = useState<Job[]>([]);
     const [selectedRecord, setSelectedRecord] = useState<Job | undefined>();
     const [modalMode, setModalMode] = useState<string>('');
@@ -107,56 +104,16 @@ const JobsComp: FC = () => {
         });
     };
 
-    const sortData = (field: string) => {
-        const sortedArray: any[] = sortArray(jobsData, field);
-        if (sortedArray.length > 0) {
-          setJobssData(sortedArray);
-        }
-    };
-
     const openModal = (mode: string = 'create', id: string = '') => {
         setModalMode(mode);
         dispatch(OpenAppModal());
     }
 
-    const handleDeleteRecord = (id: string) => {
-        setDeleting(true);
-        DELETE_JOBS(id)
-        .then((res: AxiosResponse<ApiResponse>) => {
-            const { message, payload, success } = res.data;
-            if(success){
-                setDeleting(false);
-                notify("success", message);
-                dispatch(REMOVE_JOB(payload.id));
-                dispatch(CloseAppModal());
-            }
-        })
-        .catch((err: any) => {
-            setDeleting(false);
-            const { message } = err.response.data;
-            notify("error", message);
-        });
-    }
-
-    const handleSearchQuery = () => {
-        setSearching(true);
-        if(searchQuery !== '') {
-            const filteredResults: Job[] = jobsData.filter((item: Job) => Object.values(item).includes(searchQuery));
-            setJobssData(filteredResults);
-            setSearching(false);
-        }else {
-            setJobssData(jobsData);
-            setSearching(false);
-        }
-    }
     
     useEffect(() => {
         retrieveJobs();
-    }, []);
-
-    useEffect(() => {
         setJobssData(jobsData);
-    }, [Jobs]);
+    }, [jobsData]);
 
     return (
         <>

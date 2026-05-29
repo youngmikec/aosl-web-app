@@ -1,9 +1,8 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 import moment from 'moment';
 import { Job } from '../../../common/job';
 import CustomDetailField from '../../CustomDetailField';
 import { getFullName } from '../../../utils';
-import ApplicationForm from '../application-comp/application-form';
 import JobApplicationForm from '../../../pages/job-detail-page/JobApplicationForm';
 
 
@@ -13,10 +12,10 @@ type Props = {
 }
 const JobsDetailComp: FC<Props> = ({ data }) => {
     const [applyForJob, setApplyForJob] = useState<boolean>(false);
-    const [jobId, setJobId] = useState<string>('');
+    // const [jobId, setJobId] = useState<string>('');
 
     const handleApplyForJob = (jobId?: string) => {
-        setJobId(jobId ? jobId : '')
+        // setJobId(jobId ? jobId : '')
         setApplyForJob(true);
     }
 
@@ -32,7 +31,7 @@ const JobsDetailComp: FC<Props> = ({ data }) => {
                         </div>
 
                         <div >
-                            <img src={data?.jobImage} className='mx-auto w-2/12' alt="job image" />
+                            <img src={data?.jobImage} className='mx-auto w-2/12' alt="job" />
                         </div>
 
                         <div className='px-4 my-6'>

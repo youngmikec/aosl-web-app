@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AxiosResponse } from 'axios';
@@ -7,27 +7,22 @@ import { AxiosResponse } from 'axios';
 import './styles.css';
 import { ApiResponse } from '../../common';
 import { CREATE_SUBSCRIBER } from '../../services';
-import ClientsCard from './clients-card';
 
-type MarketNumber = {
-    title: string;
-    value: string;
-}
+// type MarketNumber = {
+//     title: string;
+//     value: string;
+// }
 
 const JoinUs = () => {
-    const marketNumbers: MarketNumber[] = [
-        { title: "Happy Customers", value: "+60k"},
-        { title: "Daily Transactions", value: "+500"},
-        { title: "Ticket Resolved", value: "+99%"},
-    ];
+    // const marketNumbers: MarketNumber[] = [
+    //     { title: "Happy Customers", value: "+60k"},
+    //     { title: "Daily Transactions", value: "+500"},
+    //     { title: "Ticket Resolved", value: "+99%"},
+    // ];
 
     const navigate = useNavigate();
     const [loading, setLoading] = useState<boolean>(false);
     const [email, setEmail] = useState<string>('');
-    const [projectsCount, setProjectsCount] = useState<number>(0);
-    const [clientsCount, setClientsCount] = useState<number>(0);
-    const [supportCount, setSupportCount] = useState<number>(0);
-    const [experienceCount, setExperienceCount] = useState<number>(0);
 
     const notify = (type: string, msg: string) => {
         if (type === "success") {
@@ -69,16 +64,16 @@ const JoinUs = () => {
         let count = 0;
         const intervalId = setInterval(() => {
             count += 2;
-            if(count <= 10){
-                setExperienceCount(count);
-            }
-            if(count <= 500){
-                setSupportCount(count);
-            }
-            if(count <= 800){
-                setClientsCount(count);
-            }
-            setProjectsCount(count);
+            // if(count <= 10){
+            //     setExperienceCount(count);
+            // }
+            // if(count <= 500){
+            //     setSupportCount(count);
+            // }
+            // if(count <= 800){
+            //     setClientsCount(count);
+            // }
+            // setProjectsCount(count);
             if(count === 1000){
                 clearInterval(intervalId);
             }

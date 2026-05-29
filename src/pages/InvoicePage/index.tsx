@@ -20,7 +20,7 @@ const InvoicePage = () => {
     setLoading(true);
     RETREIVE_INVOICE_BY_CODE(invoiceId).then(res => {
       setLoading(false);
-      const { success, message, payload } = res.data;
+      const { success, payload } = res.data;
       if(success){
         console.log(payload);
         setInvoiceData(payload[0]);
@@ -49,7 +49,7 @@ const InvoicePage = () => {
       <HeroSection>
           <div className="flex justify-center items-center w-full min-h-[350px]">
               <div>
-                  <h3 className='text-5xl font-bold my-8 text-white'>Invoice</h3>
+                <h3 className='text-5xl font-bold my-8 text-white'>Invoice</h3>
               </div>
           </div>
       </HeroSection>

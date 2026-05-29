@@ -25,20 +25,20 @@ const UserLayout = ({children}: Props) =>  {
     setLoadingProfile(true);
     RETRIEVE_PROFILE().then((res: AxiosResponse<ApiResponse>) => {
         setLoadingProfile(false);
-        const { success, message, payload } = res.data;
+        const { success, payload } = res.data;
         if(success){
             setProfile(payload);
             dispatch(SET_PROFILE_DATA(payload))
         }
     }).catch((err: any) => {
         setLoadingProfile(false);
-        const { message } = err.response.data;
+        // const { message } = err.response.data;
     })
 }
 
   useEffect(() => {
     userProfile ? setProfile(userProfile) : retreiveProfile()
-  }, []);
+  }, [userProfile]);
 
   return (
     <>

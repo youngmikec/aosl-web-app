@@ -17,7 +17,7 @@ const JobTrainingDetailComp: FC<Props> = ({ data }) => {
                 src={data.jobImage} 
                 width={300} 
                 height={300} 
-                alt="job/traing image"
+                alt="job/traing"
                 className='rounded-md'
               />
             </div>

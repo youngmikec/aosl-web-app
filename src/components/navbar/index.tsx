@@ -4,10 +4,9 @@ import { Link } from 'react-router-dom';
 // icons
 import { FiMenu } from 'react-icons/fi';
 import { IoMdArrowDropdown } from 'react-icons/io';
-import { MdCancel, MdCardGiftcard } from 'react-icons/md';
+import { MdCancel } from 'react-icons/md';
 import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
 import { MdEmojiTransportation } from "react-icons/md";
-import { AiFillRightCircle } from "react-icons/ai";
 import { FaNetworkWired } from "react-icons/fa";
 
 import logo from '../../assets/images/logo-white.png';

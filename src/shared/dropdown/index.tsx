@@ -33,17 +33,14 @@ const DropdownComp = ({ dropdownList }: Props) => {
                     <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                         {
                             dropdownList &&  dropdownList.map((item: DropdownList, idx: number) => {
-                                if(!item.disabled){
-                                    return(
-                                        <li key={idx}>
-                                            <span className="block rounded-md cursor-pointer hover:bg-[#042f9c] hover:text-white px-4 py-2  dark:hover:bg-[#042f9c] dark:hover:text-white" onClick={() => {
-                                                if(item.action){
-                                                    item.action()
-                                                }
-                                            }}>{ item?.label }</span>
-                                        </li>
-                                    )
-                                }
+                                return(
+                                    !item.disabled && <li key={idx}>
+                                        <span 
+                                            className="block rounded-md cursor-pointer hover:bg-[#042f9c] hover:text-white px-4 py-2  
+                                            dark:hover:bg-[#042f9c] dark:hover:text-white" 
+                                            onClick={() =>  item.action && item.action()}>{ item?.label }</span>
+                                    </li>
+                                )
                             })
                         }
                         

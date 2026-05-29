@@ -30,10 +30,10 @@ const EmailVerificationComp = () => {
         }
     };
 
+    
     const handleEmailVerification = () => {
         setLoading(true)
         const data = code ? { code } : { code: vCode.value };
-        console.log('payload', data);
 
         VERIFY_EMAIL(data).then((res: AxiosResponse<ApiResponse>) => {
             setLoading(false);
@@ -54,7 +54,7 @@ const EmailVerificationComp = () => {
             setVCode({value: code, error: false});
             handleEmailVerification();
         }
-    }, [code])
+    }, []);
 
     return (
         <>

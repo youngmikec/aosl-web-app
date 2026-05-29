@@ -113,7 +113,7 @@ const ForgotPassword3 = ({ changeStep }: Prop) => {
         setPassword({...password, error: false})
     }
     setIsStrongPassword(validatePassword(password.value))
-  }, [password.value]);
+  }, []);
 
   return (
     <>

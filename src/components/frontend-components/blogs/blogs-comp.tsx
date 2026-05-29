@@ -8,21 +8,17 @@ import { AxiosError, AxiosResponse } from 'axios';
 
 
 const BlogsComp = () => {
-    const [loading, setLoading] = useState<boolean>(false);
     const [blogs, setBlogs] = useState<BlogPost[]>([]);
 
     const retrieveBlogs = () => {
-        setLoading(true);
         const query: string = `?sort=-createdAt&status=PUBLISHED&populate=author,comments,comment.replies`
         RETREIVE_BLOGS(query).then((res: AxiosResponse<ApiResponse>) => {
             const { success, payload } = res.data;
             if(success){
-                setLoading(false);
                 setBlogs(payload);
             }
         })
         .catch((err: AxiosError<ApiResponse>) => {
-            setLoading(false);
             if(err?.response?.data){
                 console.log(err.response?.data.message)
             }

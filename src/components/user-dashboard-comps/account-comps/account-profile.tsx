@@ -7,7 +7,7 @@ import { AxiosResponse } from 'axios';
 import './style.css';
 import { ApiResponse } from '../../../common';
 import profile from '../../../assets/images/arash.png';
-import { RETRIEVE_PROFILE, UPDATE_PROFILE } from '../../../services';
+import { UPDATE_PROFILE } from '../../../services';
 import { setItem } from '../../../utils';
 import { RootState } from '../../../store';
 import { SET_PROFILE_DATA } from '../../../store/profile';
@@ -22,7 +22,6 @@ const AccountProfile = () => {
     const [profileImage, setProfileImage] = useState<string>('');
     const [lastName, setLastName] = useState<string>('');
     const [firstName, setFirstName] = useState<string>('');
-    const [loading, setLoading] = useState<boolean>(false);
     const [updating, setUpdating] = useState<boolean>(false);
 
     const notify = (type: string, msg: string) => {
@@ -111,7 +110,7 @@ const AccountProfile = () => {
                     <div className='flex justify-start'>
                         <div className='mx-3'>
                             <div className="rounded-full bg-[#b1bbdf] p-1">
-                                <img src={profileImage || profile} className="circular-image"  />
+                                <img src={profileImage || profile} className="circular-image" alt="profile" />
                             </div>
                         </div>
 

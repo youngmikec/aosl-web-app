@@ -23,7 +23,7 @@ const JobCard: FC<Props> = ({ job }) => {
         onClick={goToJobDetails}
       >
         <div className="w-full min-h-fit mb-4 flex justify-center items-center">
-          <img src={job ? job.jobImage : defaultJobImage} className="object-contain rounded-lg" alt="job image" />
+          <img src={job ? job.jobImage : defaultJobImage} className="object-contain rounded-lg" alt="job" />
         </div>
 
         <div>

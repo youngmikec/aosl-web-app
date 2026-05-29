@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './styles.css';
 import AppModalComp from '../app-modal';
 import ContactUsForm from '../../components/frontend-components/contact-us-form';

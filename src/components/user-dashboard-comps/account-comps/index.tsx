@@ -40,7 +40,7 @@ const AccountComp = () => {
 
     useEffect(() => {
         reformatSteps(step);
-    }, [step])
+    }, []);
 
     return (
         <>

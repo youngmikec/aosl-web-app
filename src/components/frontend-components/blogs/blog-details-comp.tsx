@@ -14,21 +14,17 @@ const BlogDetailsComp = () => {
     const params = useParams();
     const blogSlug: string | undefined = params['slug'];
 
-    const [loading, setLoading] = useState<boolean>(false);
     const [blog, setBlog] = useState<BlogPost | null>(null);
 
     const retrieveBlogs = (slug: string) => {
-        setLoading(true);
         const query: string = `?slug=${slug}&status=PUBLISHED&populate=author,comments,comment.replies`
         RETREIVE_BLOGS(query).then((res: AxiosResponse<ApiResponse>) => {
             const { success, payload } = res.data;
             if(success){
-                setLoading(false);
                 setBlog(payload[0]);
             }
         })
         .catch((err: AxiosError<ApiResponse>) => {
-            setLoading(false);
             if(err?.response?.data){
                 console.log(err.response?.data.message)
             }
@@ -67,7 +63,7 @@ const BlogDetailsComp = () => {
                     <div className="flex justify-start gap-2">
                         {/* author img */}
                         <div>
-                            <img src={blog?.author?.profileImage ? blog.author.profileImage : authorImg} className="rounded-full w-[30px] h-[30px]" alt="author Image" />
+                            <img src={blog?.author?.profileImage ? blog.author.profileImage : authorImg} className="rounded-full w-[30px] h-[30px]" alt="author" />
                         </div>
                         <div>
                             <p className="text-black">{blog?.author?.firstName} {blog?.author?.lastName}</p>
