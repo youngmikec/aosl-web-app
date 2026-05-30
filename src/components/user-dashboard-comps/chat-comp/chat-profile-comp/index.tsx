@@ -11,7 +11,13 @@ const ChatProfileComp: FC<Props> = ({data}: any) => {
     <>
       <div className="w-full flex justify-start bg-white z-10 gap-4 p-4 border-b-[1px] border-[#e0e0e0] absolute top-0 left-0 right-0">
         <div>
-          <img src={data?.roomImage || 'https://picsum.photos/200'} width={'40px'} height={"40px"} className="rounded-lg" alt="profile" />
+          <img 
+            src={data?.roomImage || 'https://picsum.photos/200'} 
+            width={'40px'} 
+            height={"40px"} 
+            className="rounded-lg" 
+            alt="chat" 
+          />
         </div>
 
         <div className="my-auto">

@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useDispatch } from "react-redux";
 
 import MessageComp from "./message-comp"
 import { getItem } from "../../../utils";
-// import { RootState } from "../../../store";
 import ChatInputComp from "./chat-input-comp";
 import ChatProfileComp from "./chat-profile-comp"
 import { ChatMessage, ChatRoom } from "../../../common";
@@ -13,13 +12,9 @@ import { RETREIVE_CHAT_ROOMS } from "../../../services/chat-rooms";
 
 
 const ChatComp = () => {
-  // const ChatMessages: ChatMessage[] = useSelector((state: RootState) => state.chatState.value.chatMessages);
-
   const dispatch = useDispatch();
 
   const sender = getItem('clientD');
-  // const [loadingRoom, setLoadingRoom] = useState<boolean>(false);
-  // const [loadingMessages, setLoadingMessages] = useState<boolean>(false);
   const [senderId, setSenderId] = useState<string>('');
   const [recipientId, setRecipientId] = useState<string>('');
   const [roomId, setRoomId] = useState<string>('');
@@ -27,85 +22,74 @@ const ChatComp = () => {
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
   const [message, setMessage] = useState<string>('');
 
-  const retrieveChatMessages = () => {
-    // setLoadingMessages(true)
-    const queryString: string = `?room=${roomId}&populate=sender,recipient,room`
+  const retrieveChatMessages = useCallback(() => {
+    const queryString: string = `?room=${roomId}&populate=sender,recipient,room`;
     RETREIVE_CHAT_MESSAGES(queryString).then(res => {
-      // setLoadingMessages(false);
       const { payload } = res.data;
       setChatMessages(payload);
       dispatch(SET_CHAT_MESSAGES(payload));
     }).catch(err => {
-      // setLoadingMessages(false);
       console.log('error', err);
-    })
-  }
+    });
+  }, [roomId, dispatch]);
 
-  const retrieveChatRooms = (roomId: string) => {
-    // setLoadingRoom(true);
+  const retrieveChatRooms = useCallback((roomId: string) => {
     const query: string = `?_id=${roomId}&sort=-createdAt&populate=members,createdBy`;
     RETREIVE_CHAT_ROOMS(query).then(res => {
-      // setLoadingRoom(false)
       const { payload } = res.data;
       setChatRoom(payload[0]);
       dispatch(SET_ACTIVE_CHAT_ROOM(payload[0]));
     }).catch(err => {
-      // setLoadingRoom(false)
       console.log('error', err);
-    })
-  }
+    });
+  }, [dispatch]);
 
-
-  const sendMessage = () => {
+  const sendMessage = useCallback(() => {
     const data = {
       message,
       room: roomId,
       sender: senderId,
       recipient: recipientId
-    }
-    if(message !== ''){
+    };
+    if (message !== '') {
       SEND_CHAT_MESSAGE(data).then(res => {
         const { payload } = res.data;
-        dispatch(ADD_CHAT_MESSAGE(payload))
+        dispatch(ADD_CHAT_MESSAGE(payload));
         setMessage('');
       }).catch(err => {
         console.log('error', err);
       });
     }
-  }
+  }, [message, roomId, senderId, recipientId, dispatch]);
 
-    useEffect(() => {
-      if(sender){
-        setSenderId(sender.id);
-        setRoomId(sender.chatRoom);
-        retrieveChatRooms(sender.chatRoom);
+  useEffect(() => {
+    if (sender) {
+      setSenderId(sender.id);
+      setRoomId(sender.chatRoom);
+      retrieveChatRooms(sender.chatRoom);
+    }
+  }, [sender, retrieveChatRooms]);
+
+  useEffect(() => {
+    if (chatRoom) {
+      setRoomId(chatRoom.id);
+      if (chatRoom.members.length > 0) {
+        setRecipientId(chatRoom.members.filter((member: any) => (member.id !== senderId))[0].id);
       }
-    }, [sender]);
+    }
+  }, [chatRoom, senderId]);
 
-    useEffect(() => {
-      if(chatRoom) {
-        setRoomId(chatRoom.id);
-        if(chatRoom.members.length > 0){
-          setRecipientId(chatRoom.members.filter((member: any) => (member.id !== senderId))[0].id);
-        }
-      }
-    }, [chatRoom]);
-
-    useEffect(() => {
-      if(roomId){
-        if(chatMessages.length < 1) {
-          setInterval(() => {
-            retrieveChatMessages();
-          }, 7000);
-        }else {
+  useEffect(() => {
+    if (roomId) {
+      if (chatMessages.length < 1) {
+        setInterval(() => {
           retrieveChatMessages();
-        }
+        }, 7000);
+      } else {
+        retrieveChatMessages();
       }
-    }, [roomId]);
-
-    // useEffect(() => {
-    //   setChatMessages(ChatMessages);
-    // }, [ChatMessages]);
+    }
+  }, [roomId, chatMessages.length, retrieveChatMessages]);
 
 
   return (
@@ -124,11 +108,11 @@ const ChatComp = () => {
         {/* chats */}
 
         <div className="w-full p-4 absolute bottom-0 left-0 right-0 z-10">
-          <ChatInputComp value={message} onChannge={(e) => setMessage(e.target.value)} onSubmit={sendMessage}/>
+          <ChatInputComp value={message} onChannge={(e) => setMessage(e.target.value)} onSubmit={sendMessage} />
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default ChatComp
+export default ChatComp;

@@ -1,5 +1,5 @@
-import React, { useState, useEffect, FC } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState, useEffect, FC, useCallback } from 'react';
+import { useDispatch } from 'react-redux';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AxiosResponse } from 'axios';
@@ -7,7 +7,6 @@ import moment from 'moment';
 
 
 import { Job, JobStatus } from '../../../common/job';
-import { RootState } from '../../../store';
 import AppTable, { TableHeader } from '../../../shared/app-table';
 import DropdownComp, { DropdownList } from '../../../shared/dropdown';
 import { RETREIVE_JOBS } from '../../../services/jobs';
@@ -22,7 +21,6 @@ import JobsDetailsComp from './jobs-details';
 
 const JobsComp: FC = () => {
     const dispatch = useDispatch();
-    const Jobs: Job[] = useSelector((state: RootState) => state.jobState.value);
 
     // const [deleting, setDeleting] = useState<boolean>(false);
     // const [searching, setSearching] = useState<boolean>(false);
@@ -57,7 +55,12 @@ const JobsComp: FC = () => {
       { key: 'actions', value: 'Actions' },
     ];
 
-    const populateActions = (item: Job): DropdownList[] => {
+    
+    const populateActions = useCallback((item: Job): DropdownList[] => {
+        const openModal = (mode: string = 'create', id: string = '') => {
+            setModalMode(mode);
+            dispatch(OpenAppModal());
+        }
         
         const tableActions: DropdownList[] = [
             { 
@@ -70,9 +73,9 @@ const JobsComp: FC = () => {
             },
         ]
         return tableActions;
-    }
+    }, [dispatch]);
 
-    const retrieveJobs = () => {
+    const retrieveJobs = useCallback(() => {
         const query: string = `?sort=-createdAt&populate=createdBy`;
         RETREIVE_JOBS(query)
         .then((res: AxiosResponse<ApiResponse>) => {
@@ -102,18 +105,13 @@ const JobsComp: FC = () => {
             const { message } = err.response.data;
             notify("error", message);
         });
-    };
-
-    const openModal = (mode: string = 'create', id: string = '') => {
-        setModalMode(mode);
-        dispatch(OpenAppModal());
-    }
+    }, [dispatch, populateActions]);
 
     
     useEffect(() => {
         retrieveJobs();
         setJobssData(jobsData);
-    }, [jobsData]);
+    }, [jobsData, retrieveJobs]);
 
     return (
         <>

@@ -4,9 +4,6 @@ import "react-toastify/dist/ReactToastify.css";
 import moment from "moment";
 
 // image
-import image from '../../../assets/images/account-balance-bg.png';
-
-
 // style
 import "./style.css";
 import DashboardCard from './dashbord-card';
@@ -14,57 +11,14 @@ import { Order } from '../../../common';
 import { getItem } from '../../../utils';
 import Card from '../../../shared/card';
 import { RETRIEVE_APP_REPORTS } from '../../../services/reports';
-import { TableHeader } from '../../../shared/app-table';
+import image from '../../../assets/images/account-balance-bg.png';
 
-const DashboardComp = () => {
-    // const ordersState = useSelector((state: RootState) => state.orderState.value);
-    
+const DashboardComp = () => {    
     const [loading, setLoading] = useState<boolean>(false);
     const [pendingOrders, setPendingOrders] = useState<number>(0);
     const [completedOrders, setCompletedOrders] = useState<number>(0);
     const [declinedOrders, setDeclinedOrders] = useState<number>(0);
     const [orderRecords, setOrderRecords] = useState<Order[] | []>([]);
-
-    const tableHeaders: TableHeader[] = [
-        { key: 'sn', value: 'S/N' },
-        { key: 'date', value: 'Date' },
-        { key: 'type', value: 'Order Type' },
-        { key: 'amount', value: 'Amount' },
-        { key: 'receivable', value: 'Receivable Amount' },
-        { key: 'status', value: 'Status' },
-    ];
-
-    // const notify = (type: string, msg: string) => {
-    //     if (type === "success") {
-    //       toast.success(msg, {
-    //         position: toast.POSITION.TOP_RIGHT,
-    //       });
-    //     }
-    
-    //     if (type === "error") {
-    //       toast.error(msg, {
-    //         position: toast.POSITION.TOP_RIGHT,
-    //       });
-    //     }
-    // };
-
-    // const retreiveOrders = () => {
-    //     setLoading(true);
-    //     const userDetail: User = getItem('clientD');
-    //     const queryString: string = `?createdBy=${userDetail.id}&sort=-createdAt&limit=10&populate=airtime,cryptocurrency,giftcard`;        
-    //     RETREIVE_ORDERS(queryString).then((res: AxiosResponse<ApiResponse>) => {
-    //         setLoading(false);
-    //         const { success, message, payload } = res.data;
-    //         if(success){
-    //             notify('success', `${message} ${payload.length} records found!`);
-    //             setOrderRecords(payload);
-    //         }
-    //     }).catch((err: any) => {
-    //         setLoading(false);
-    //         const { message } = err.response.data;
-    //         notify('error', message);
-    //     })
-    // }
 
     const retrieveAppReports = () => {
         setLoading(true);
@@ -72,30 +26,14 @@ const DashboardComp = () => {
         RETRIEVE_APP_REPORTS(user?.id).then(res => {
             const { payload } = res.data;
             setLoading(false);
-            // notify('success', message);
             setPendingOrders(payload.pendingOrders);
             setCompletedOrders(payload.completedOrders);
             setDeclinedOrders(payload.declinedOrders);
             setOrderRecords(payload.recentOrders);
-            // const mappedDate = payload.recentOrders.map((item: Order, idx: number) => {
-            //     return {
-            //         sn: idx + 1,
-            //         date: moment(item?.createdAt).format("MM-DD-YYYY"),
-            //         type: item?.orderType,
-            //         amount: item?.amount,
-            //         receivable: item?.amountReceivable,
-            //         status: <span className={
-            //             (item.status === "COMPLETED") ? 'text-[#2CE71C]' : 'text-[#1cd9e7]'
-                    
-            //         }>{ item.status }</span>,
-            //     }
-            // });
-            // setTableRows(mappedDate);
             
         }).catch(err => {
             setLoading(false);
-            // const { message } = err.response.data;
-            // notify('error', message);
+            console.log(err);
         });
         
     }
@@ -103,10 +41,6 @@ const DashboardComp = () => {
     useEffect(() => {
         retrieveAppReports();
     }, []);
-
-    // useEffect(() => {
-    //     retreiveOrders();
-    // }, [])
 
 
     return (

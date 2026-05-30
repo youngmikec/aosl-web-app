@@ -166,20 +166,20 @@ const SignUpComp = () => {
     }
 
     useEffect(() => {
-        if(password.value === '' || undefined || null){
-            setPassword({...password, error: true, msg: 'password field is empty'});
-        }else{
-            setPassword({...password, error: false})
-        }
-        setIsStrongPassword(validatePassword(password.value))
+        setPassword(prev => 
+            prev.value === ''
+                ? { ...prev, error: true, msg: 'password field is empty' }
+                : { ...prev, error: false }
+        );
+        setIsStrongPassword(validatePassword(password.value));
     }, [password.value]);
 
     useEffect(() => {
-        if(confirmPassword.value === '' || undefined || null){
-            setConfirmPassword({...confirmPassword, error: true, msg: 'confirm password field is empty'});
-        }else{
-            setConfirmPassword({...confirmPassword, error: false})
-        }
+        setConfirmPassword(prev => 
+            prev.value === ''
+                ? { ...prev, error: true, msg: 'confirm password field is empty' }
+                : { ...prev, error: false }
+        );
     }, [confirmPassword.value]);
 
     return (

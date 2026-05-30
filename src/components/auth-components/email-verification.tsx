@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AxiosResponse } from 'axios';
@@ -31,13 +31,13 @@ const EmailVerificationComp = () => {
     };
 
     
-    const handleEmailVerification = () => {
-        setLoading(true)
+    const handleEmailVerification = useCallback(() => {
+        setLoading(true);
         const data = code ? { code } : { code: vCode.value };
-
+ 
         VERIFY_EMAIL(data).then((res: AxiosResponse<ApiResponse>) => {
             setLoading(false);
-            const { message } = res.data
+            const { message } = res.data;
             notify('success', message);
             setTimeout(() => {
                 window.location.href = '/sign-in';
@@ -46,15 +46,15 @@ const EmailVerificationComp = () => {
             setLoading(false);
             const { message } = err.response.data;
             notify('error', message);
-        })
-    }
-
+        });
+    }, [code, vCode.value]);
+ 
     useEffect(() => {
-        if(code){
-            setVCode({value: code, error: false});
+        if (code) {
+            setVCode({ value: code, error: false });
             handleEmailVerification();
         }
-    }, []);
+    }, [code, handleEmailVerification]);
 
     return (
         <>

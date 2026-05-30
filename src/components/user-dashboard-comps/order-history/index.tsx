@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -15,7 +15,6 @@ import { INITIALIZE_ORDERS } from '../../../store/orders/orders';
 
 const OrderHistoryComp = () => {
     const dispatch = useDispatch();
-    // const ordersState = useSelector((state: RootState) => state.orderState.value);
     
     const [orderRecords, setOrderRecords] = useState<Order[] | []>([]);
 
@@ -34,51 +33,23 @@ const OrderHistoryComp = () => {
         }
     };
 
-    const retreiveOrders = () => {
+    const retreiveOrders = useCallback(() => {
         const userDetail: User = getItem('clientD');
         const queryString: string = `?createdBy=${userDetail.id}&sort=-createdAt&populate=airtime,cryptocurrency,giftcard`;        RETREIVE_ORDERS(queryString).then((res: AxiosResponse<ApiResponse>) => {
             const { success, payload } = res.data;
             if(success){
-                // notify('success', `${message} ${payload.length} records found!`);
                 setOrderRecords(payload);
                 dispatch(INITIALIZE_ORDERS(payload));
-                // const mappedDate = payload.map((item: Order, idx: number) => {
-                //     return {
-                //         sn: idx + 1,
-                //         // date: moment(item?.createdAt).format("MM-DD-YYYY"),
-                //         crypto: item?.cryptocurrency?.shortName,
-                //         type: item?.orderType,
-                //         amount: `
-                //             ${item.orderType === 'SELL_CRYPTO' ? '$' : ''}
-                //             ${item.orderType === 'BUY_CRYPTO' ? 'NGN' : ''}
-                //             ${item.orderType === 'AIRTIME' ? 'NGN' : ''}
-                //             ${item.orderType === 'GIFTCARD' ? '$' : ''}
-                //             ${item?.amount}`,
-                //             receivable: `
-                //             ${item.orderType === 'AIRTIME' ? 'NGN' : ''}
-                //             ${item.orderType === 'SELL_CRYPTO' ? 'NGN' : ''} 
-                //             ${item.orderType === 'GIFTCARD' ? 'NGN' : ''}
-                //             ${item.orderType === 'BUY_CRYPTO' ? '$' : ''}
-                //             ${item?.amountReceivable}
-                //             ${item.orderType === 'BUY_CRYPTO' ? item?.cryptocurrency?.shortName : ''}
-                //             `,
-                //         status: <span className={
-                //             (item.status === "COMPLETED") ? 'text-[#2CE71C]' : 'text-[#1cd9e7]'
-                        
-                //         }>{ item.status }</span>,
-                //     }
-                // });
-                // setTableRows(mappedDate);
             }
         }).catch((err: any) => {
             const { message } = err.response.data;
             notify('error', message);
         })
-    }
+    }, [dispatch]);
 
     useEffect(() => {
         retreiveOrders();
-    }, [])
+    }, [retreiveOrders]);
 
     return (
         <>

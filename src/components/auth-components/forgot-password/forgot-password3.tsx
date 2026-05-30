@@ -105,15 +105,15 @@ const ForgotPassword3 = ({ changeStep }: Prop) => {
       }
   }
 
-
   useEffect(() => {
-    if(password.value === '' || undefined || null){
-        setPassword({...password, error: true, msg: 'password field is empty'});
-    }else{
-        setPassword({...password, error: false})
-    }
-    setIsStrongPassword(validatePassword(password.value))
-  }, []);
+      setPassword(prev => 
+          prev.value === ''
+              ? { ...prev, error: true, msg: 'password field is empty' }
+              : { ...prev, error: false }
+      );
+      setIsStrongPassword(validatePassword(password.value));
+  }, [password.value]);
+
 
   return (
     <>

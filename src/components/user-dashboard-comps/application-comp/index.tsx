@@ -1,4 +1,4 @@
-import React, { useState, useEffect, FC } from 'react';
+import React, { useState, useEffect, FC, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -17,7 +17,7 @@ import { CloseAppModal, OpenAppModal } from '../../../store/modal';
 import Card from '../../../shared/card';
 import DeleteComp from '../../../shared/delete-comp/delete-comp';
 import AppModalComp from '../../../shared/app-modal';
-import { getItem, sortArray } from '../../../utils';
+import { getItem } from '../../../utils';
 import JobApplicationForm from '../../../pages/job-detail-page/JobApplicationForm';
 
 const ApplicationComp: FC = () => {
@@ -57,14 +57,18 @@ const ApplicationComp: FC = () => {
         { key: 'actions', value: 'Actions' },
     ];
 
-    const populateActions = (item: Application): DropdownList[] => {
-        
+    const openModal = useCallback((mode: string = 'create') => {
+        setModalMode(mode);
+        dispatch(OpenAppModal());
+    }, [dispatch]);
+
+    const populateActions = useCallback((item: Application): DropdownList[] => {
         const tableActions: DropdownList[] = [
             { 
                 label: 'View Detail', 
                 disabled: false,
                 action: () => {
-                    setSelectedRecord(item)
+                    setSelectedRecord(item);
                     openModal('view');
                 }
             },
@@ -72,7 +76,7 @@ const ApplicationComp: FC = () => {
                 label: 'Update Record', 
                 disabled: false,
                 action: () => {
-                    setSelectedRecord(item)
+                    setSelectedRecord(item);
                     openModal('update');
                 }
             },
@@ -84,11 +88,11 @@ const ApplicationComp: FC = () => {
                     openModal('delete');
                 }
             },
-        ]
+        ];
         return tableActions;
-    }
+    }, [openModal]);
 
-    const mapResponseData = (data: Application[]) => {
+    const mapResponseData = useCallback((data: Application[]) => {
         const mappedData = data.map((item: Application, idx: number) => {
             const actions = populateActions(item);
             return {
@@ -107,14 +111,13 @@ const ApplicationComp: FC = () => {
             }
         });
         return mappedData;
-    }
+    }, [populateActions]);
 
-    const retrieveApplications = () => {
+    const retrieveApplications = useCallback(() => {
         const query: string = `?email=${user ? user.email : ''}&sort=-createdAt&populate=job,createdBy`;
         RETREIVE_APPLICATION(query)
         .then((res: AxiosResponse<ApiResponse>) => {
             const { payload } = res.data;
-            // notify("success", message);
             setApplicationsData(payload);
             setTableRows(mapResponseData(payload));
             dispatch(INITIALIZE_APPLICATIONS(payload));
@@ -123,12 +126,7 @@ const ApplicationComp: FC = () => {
             const { message } = err.response.data;
             notify("error", message);
         });
-    };
-
-    const openModal = (mode: string = 'create', id: string = '') => {
-        setModalMode(mode);
-        dispatch(OpenAppModal());
-    }
+    }, [user, mapResponseData, dispatch]);
 
     const handleDeleteRecord = (id: string) => {
         setDeleting(true);
@@ -151,12 +149,12 @@ const ApplicationComp: FC = () => {
     
     useEffect(() => {
         retrieveApplications();
-    }, []);
+    }, [retrieveApplications]);
 
     useEffect(() => {
         setApplicationsData(Applications);
         setTableRows(mapResponseData(Applications));
-    }, [Applications]);
+    }, [Applications, mapResponseData]);
 
     return (
         <>
@@ -169,18 +167,7 @@ const ApplicationComp: FC = () => {
                                 <h3 className='text-[#042f9c] text-xl font-bold mb-1'>Applications Records Table</h3>
                                 <p className='text-[#7F7F80] text-sm'>Displaying {applicationsData.length} of {applicationsData.length} Airtime Record(s)</p>
                             </div>
-
-                            {/* <div className='mb-8'>
-                                <button 
-                                    className='bg-[#042f9c] text-white py-2 px-4 rounded-md'
-                                    onClick={() => openModal('create')}
-                                >
-                                    Create Application
-                                </button>
-                            </div> */}
-
                         </div>
-
                     </div>
                     {/* Title section */}
 
@@ -190,9 +177,6 @@ const ApplicationComp: FC = () => {
             </div>
 
             <AppModalComp title=''>
-                {/* {
-                    modalMode === 'create' && <ApplicationForm mode={modalMode} />
-                } */}
                 {
                     modalMode === 'view' && <ApplicationDetailsComp data={selectedRecord} />
                 }

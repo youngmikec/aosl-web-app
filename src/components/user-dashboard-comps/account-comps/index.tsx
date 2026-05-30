@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 
-import { Step } from '../../../common';
 import AccountStepHeader from '../../../shared/account-step-header';
 
 // components
@@ -10,7 +9,7 @@ import ActivityLog from './activity-log';
 
 
 const AccountComp = () => {
-    const accountSettingSteps: Step[] = [
+    const accountSettingSteps = useMemo(() => [
         {
             title: 'Profile',
             isActive: true
@@ -23,11 +22,11 @@ const AccountComp = () => {
             title: 'Activity log',
             isActive: false
         },
-    ]
+    ], []);
     const [steps, setSteps] = useState<any[]>(accountSettingSteps)
     const [step, setStep] = useState<number>(1);
 
-    const reformatSteps = (step: number) => {
+    const reformatSteps = useCallback((step: number) => {
         accountSettingSteps.forEach((item: any, idx) => {
             if(idx === (step - 1)){
                 item.isActive = true
@@ -36,11 +35,11 @@ const AccountComp = () => {
             }
         })
         setSteps(accountSettingSteps);
-    }
+    }, [accountSettingSteps]);
 
     useEffect(() => {
         reformatSteps(step);
-    }, []);
+    }, [step, reformatSteps]);
 
     return (
         <>

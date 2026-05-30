@@ -1,4 +1,4 @@
-import React, { ReactNode, useState, useEffect } from 'react';
+import React, { ReactNode, useState, useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AxiosResponse } from 'axios';
 
@@ -21,24 +21,24 @@ const UserLayout = ({children}: Props) =>  {
   const [loadingProfile, setLoadingProfile] = useState(false);
   const [profile, setProfile] = useState<User | null>(null)
 
-  const retreiveProfile = () => {
-    setLoadingProfile(true);
-    RETRIEVE_PROFILE().then((res: AxiosResponse<ApiResponse>) => {
-        setLoadingProfile(false);
-        const { success, payload } = res.data;
-        if(success){
-            setProfile(payload);
-            dispatch(SET_PROFILE_DATA(payload))
-        }
-    }).catch((err: any) => {
-        setLoadingProfile(false);
-        // const { message } = err.response.data;
-    })
-}
+  const retreiveProfile = useCallback(() => {
+      setLoadingProfile(true);
+      RETRIEVE_PROFILE().then((res: AxiosResponse<ApiResponse>) => {
+          setLoadingProfile(false);
+          const { success, payload } = res.data;
+          if(success){
+              setProfile(payload);
+              dispatch(SET_PROFILE_DATA(payload));
+          }
+      }).catch((err: any) => {
+          setLoadingProfile(false);
+          // const { message } = err.response.data;
+      });
+  }, [dispatch]);
 
   useEffect(() => {
-    userProfile ? setProfile(userProfile) : retreiveProfile()
-  }, [userProfile]);
+      userProfile ? setProfile(userProfile) : retreiveProfile();
+  }, [userProfile, retreiveProfile]);
 
   return (
     <>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 
 
@@ -16,7 +16,7 @@ const InvoicePage = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [invoiceData, setInvoiceData] = useState<Invoice | null>(null);
 
-  const retreiveInvoiceDetail = () => {
+  const retreiveInvoiceDetail = useCallback(() => {
     setLoading(true);
     RETREIVE_INVOICE_BY_CODE(invoiceId).then(res => {
       setLoading(false);
@@ -30,13 +30,13 @@ const InvoicePage = () => {
       setLoading(false);
       const { message } = err.response.data;
       console.log('error', message);
-    });
-
-  }
+    })
+  }, [invoiceId]); 
+    
 
   useEffect(() => {
     retreiveInvoiceDetail();
-  }, [])
+  }, [retreiveInvoiceDetail])
 
   useEffect(() => {
     
