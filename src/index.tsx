@@ -1,24 +1,23 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
-import { store } from './store/index';
-import { Provider } from 'react-redux';
-import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 
 import './index.css';
-import App from './App';
-import { PayPal_CONFIG_OPTIONS } from './configs';
 import reportWebVitals from './reportWebVitals';
+
+// REACT_APP_UI_VERSION=v1 renders the original app; anything else renders the redesigned v2 app.
+const UI_VERSION = process.env.REACT_APP_UI_VERSION || 'v2';
+
+const V1Root = lazy(() => import('./V1Root'));
+const V2App = lazy(() => import('./v2/V2App'));
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <PayPalScriptProvider deferLoading={true} options={PayPal_CONFIG_OPTIONS}>
-        <App />
-      </PayPalScriptProvider>
-    </Provider>
+    <Suspense fallback={null}>
+      {UI_VERSION === 'v1' ? <V1Root /> : <V2App />}
+    </Suspense>
   </React.StrictMode>
 );
 
