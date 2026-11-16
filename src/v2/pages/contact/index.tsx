@@ -4,7 +4,7 @@ import { CORAL, MUTED, NAVY, OFF_WHITE, TEAL, TEXT } from "../../theme/tokens";
 import Newsletter from "../../components/layout/Newsletter";
 import SocialLinks from "../../components/layout/SocialLinks";
 import { errorMessage, sendContactMessage } from "../../services";
-import { PHONE_DISPLAY, PHONE_HREF, LANDLINE_DISPLAY, LANDLINE_HREF, WHATSAPP_HREF } from "../../constants/contact";
+import { PHONE_DISPLAY, PHONE_HREF, LANDLINE_DISPLAY, WHATSAPP_HREF } from "../../constants/contact";
 
 const CHARCOAL = "#3A3A5A";
 
