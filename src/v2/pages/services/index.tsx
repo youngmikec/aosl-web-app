@@ -458,7 +458,7 @@ function Hero({ onExplore }: { onExplore: () => void }) {
               className="font-bold leading-tight mb-6"
               style={{ fontSize: 56, color: NAVY, lineHeight: 1.1, letterSpacing: "-0.02em" }}
             >
-              Care, Support and transportation Services Transportation Services.
+              Care, Support and transportation Services.
             </h1>
 
             <p

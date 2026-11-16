@@ -34,7 +34,7 @@ function Hero() {
               className="font-bold leading-tight mb-6"
               style={{ fontSize: 56, color: NAVY, lineHeight: 1.1, letterSpacing: "-0.02em" }}
             >
-              Care, Support and transportation Services Transportation Services.
+              Care, Support and transportation Services.
             </h1>
             <p className="mb-10 leading-relaxed" style={{ fontSize: 18, color: "#4A4A6A", maxWidth: 460 }}>
               AOSL provides compassionate, professional care, transportation, and training services across the UK — tailored to every individual's needs.
@@ -358,6 +358,7 @@ function Teams() {
     { name: "Promise O", role: "Operation Director", img: operationsDirectorPhoto },
     { name: "Elizabeth O", role: "Service Director", img: serviceDirectorPhoto },
     { name: "David E.L", role: "HR Administrator", img: hrAdministratorPhoto },
+    { name: "Elizabeth M", role: "Head of Care", img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=240&h=240&fit=crop&crop=faces" },
   ];
   return (
     <section style={{ background: OFF_WHITE, paddingTop: 100, paddingBottom: 100 }}>
