@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { NAVY, TEAL } from "../../theme/tokens";
 import Logo from "./Logo";
 import SocialLinks from "./SocialLinks";
-import { PHONE_DISPLAY } from "../../constants/contact";
+import { PHONE_DISPLAY, LANDLINE_DISPLAY } from "../../constants/contact";
 
 type FooterLink = { label: string; to: string };
 
@@ -27,6 +27,7 @@ const COLUMNS: { head: string; links: FooterLink[] }[] = [
   {
     head: "Services",
     links: [
+      { label: "Care and Support", to: "/services/care-and-support" },
       { label: "Personal Assistant", to: "/services/personal-assistant" },
       { label: "Transportation", to: "/services/transportation" },
       { label: "Training", to: "/services/training" },
@@ -34,7 +35,7 @@ const COLUMNS: { head: string; links: FooterLink[] }[] = [
   },
 ];
 
-const CONTACT_LINES = [PHONE_DISPLAY, "info@aosl-online.com", "Mon–Fri 8am–7pm", "24/7 Emergency Line"];
+const CONTACT_LINES = [PHONE_DISPLAY, `Landline: ${LANDLINE_DISPLAY}`, "info@aosl-online.com", "Mon–Fri 8am–7pm", "24/7 Emergency Line"];
 
 export default function Footer() {
   return (

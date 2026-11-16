@@ -7,9 +7,12 @@ import ContactMessageForm from "../../components/forms/ContactMessageForm";
 import readingLogo from "../../assets/councils/reading.jpeg";
 import westBerkshireLogo from "../../assets/councils/west-berkshire.jpeg";
 import wokinghamLogo from "../../assets/councils/wokingham.jpeg";
-import { PHONE_DISPLAY } from "../../constants/contact";
+import operationsDirectorPhoto from "../../assets/operations-manager.jpeg";
+import serviceDirectorPhoto from "../../assets/service-director.jpeg";
+import hrAdministratorPhoto from "../../assets/hr-administrator.jpeg";
+import { PHONE_DISPLAY, LANDLINE_DISPLAY } from "../../constants/contact";
 
-type ServiceKey = "personal-assistant" | "transportation" | "training";
+type ServiceKey = "care-and-support" | "personal-assistant" | "transportation" | "training";
 type ServiceEntry = { key: ServiceKey; title: string; desc: string; icon: React.ReactNode };
 
 /* ─── HERO ────────────────────────────────────────────────────── */
@@ -31,7 +34,7 @@ function Hero() {
               className="font-bold leading-tight mb-6"
               style={{ fontSize: 56, color: NAVY, lineHeight: 1.1, letterSpacing: "-0.02em" }}
             >
-              Care and Support services and Transportation Services.
+              Care, Support and transportation Services Transportation Services.
             </h1>
             <p className="mb-10 leading-relaxed" style={{ fontSize: 18, color: "#4A4A6A", maxWidth: 460 }}>
               AOSL provides compassionate, professional care, transportation, and training services across the UK — tailored to every individual's needs.
@@ -141,6 +144,17 @@ export function Services() {
   const navigate = useNavigate();
   const services: ServiceEntry[] = [
     {
+      key: "care-and-support",
+      title: "Care and Support Services",
+      desc: "Person-centred care that promotes independence, wellbeing and social inclusion — from daily living support to community outreach.",
+      icon: (
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <path d="M16 27s-10-6.2-10-13.2A5.6 5.6 0 0 1 16 10.6a5.6 5.6 0 0 1 10 3.2C26 20.8 16 27 16 27z" stroke={NAVY} strokeWidth="1.8" strokeLinejoin="round" />
+          <path d="M11.5 16h3l1.5-3 2 5 1.5-2h1.5" stroke={TEAL} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      ),
+    },
+    {
       key: "personal-assistant",
       title: "Personal Assistant Services",
       desc: "Flexible part-time, full time and self-employed personal assistant support tailored to individual requirements.",
@@ -188,7 +202,7 @@ export function Services() {
           <span className="text-xs font-bold uppercase tracking-widest mb-4 block" style={{ color: TEAL }}>What We Do</span>
           <h2 className="font-bold" style={{ fontSize: 36, color: NAVY }}>We provide reliable services for individuals and organisations.</h2>
         </div>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((s) => (
             <div key={s.key} className="bg-white p-8 flex flex-col group transition-shadow hover:shadow-lg" style={{ borderRadius: 16, boxShadow: "0 2px 16px rgba(13,13,91,0.06)" }}>
               <div className="mb-6 w-16 h-16 rounded-2xl flex items-center justify-center" style={{ background: OFF_WHITE }}>
@@ -225,7 +239,7 @@ export function Banner() {
               <path d="M3 3h3l1.5 4L6 8.5c1.5 3 4.5 6 7.5 7.5l1.5-1.5 4 1.5V18a1.5 1.5 0 0 1-1.5 1.5C6.5 19.5-1.5 11.5-1.5 3A1.5 1.5 0 0 1 0 1.5H3z" fill={CORAL} />
             </svg>
           </div>
-          <p className="font-semibold text-white">Speak to our team: <span style={{ color: CORAL }}>{PHONE_DISPLAY}</span></p>
+          <p className="font-semibold text-white">Speak to our team: <span style={{ color: CORAL }}>{PHONE_DISPLAY}</span> <span style={{ color: "rgba(255,255,255,0.5)" }}>·</span> Landline: <span style={{ color: CORAL }}>{LANDLINE_DISPLAY}</span></p>
         </div>
         <Link to="/contact-us" className="font-semibold text-sm text-white rounded-full px-6 py-2.5 transition-opacity hover:opacity-90" style={{ background: CORAL }}>
           Get in touch
@@ -240,8 +254,8 @@ function HowItWorks() {
   const steps = [
     { num: "01", title: "Discovery", desc: "We listen to understand your situation, goals, and the level of support you're looking for." },
     { num: "02", title: "Consultation", desc: "Our specialists design a personalised care plan and match you with the ideal professional." },
-    { num: "03", title: "Payment", desc: "Simple, transparent pricing with no hidden fees. We accept direct payments and local authority funding." },
-    { num: "04", title: "Service Delivery", desc: "Your dedicated support begins — with regular reviews to ensure everything stays right for you." },
+    { num: "03", title: "Service Delivery", desc: "Your dedicated support begins — with regular reviews to ensure everything stays right for you." },
+    { num: "04", title: "Payment", desc: "Simple, transparent pricing with no hidden fees. We accept direct payments and local authority funding." },
   ];
   return (
     <section className="bg-white" style={{ paddingTop: 100, paddingBottom: 100 }}>
@@ -270,9 +284,9 @@ function HowItWorks() {
 /* ─── ACHIEVEMENTS ────────────────────────────────────────────── */
 function Achievements() {
   const stats = [
-    { value: "6,500+", label: "Clients Supported" },
-    { value: "600+", label: "Professionals Placed" },
-    { value: "250+", label: "Training Courses Run" },
+    { value: "60+", label: "Clients Supported" },
+    { value: "45+", label: "Customers" },
+    { value: "70+", label: "Trained Staff" },
     { value: "24/7", label: "Round-the-Clock Support" },
   ];
   return (
@@ -311,6 +325,7 @@ function Contact() {
               <p className="text-sm mb-10" style={{ color: "rgba(255,255,255,0.55)" }}>Reach us by phone, email, or visit one of our UK offices.</p>
               {[
                 { label: "Phone", value: PHONE_DISPLAY },
+                { label: "Landline", value: LANDLINE_DISPLAY },
                 { label: "Email", value: "info@aosl-online.com" },
               ].map((item) => (
                 <div key={item.label} className="flex items-start gap-4 mb-6">
@@ -340,10 +355,9 @@ function Contact() {
 /* ─── TEAMS ───────────────────────────────────────────────────── */
 function Teams() {
   const members = [
-    { name: "Sarah Mitchell", role: "Head of Care", img: "photo-1494790108377-be9c29b29330" },
-    { name: "James Okoye", role: "Transport Manager", img: "photo-1507003211169-0a1dd7228f2d" },
-    { name: "Priya Sharma", role: "Training Lead", img: "photo-1438761681033-6461ffad8d80" },
-    { name: "David Chen", role: "Operations Director", img: "photo-1472099645785-5658abf4ff4e" },
+    { name: "Promise O", role: "Operation Director", img: operationsDirectorPhoto },
+    { name: "Elizabeth O", role: "Service Director", img: serviceDirectorPhoto },
+    { name: "David E.L", role: "HR Administrator", img: hrAdministratorPhoto },
   ];
   return (
     <section style={{ background: OFF_WHITE, paddingTop: 100, paddingBottom: 100 }}>
@@ -356,7 +370,7 @@ function Teams() {
           {members.map((m) => (
             <div key={m.name} className="flex flex-col items-center text-center" style={{ width: 180 }}>
               <div className="mb-4 rounded-full" style={{ background: `linear-gradient(135deg, ${TEAL}, ${NAVY})`, padding: 3 }}>
-                <img src={`https://images.unsplash.com/${m.img}?w=160&h=160&fit=crop&auto=format`} alt={m.name} className="rounded-full object-cover" style={{ width: 120, height: 120 }} />
+                <img src={m.img} alt={`${m.name}, ${m.role}`} className="rounded-full object-cover" style={{ width: 120, height: 120, objectPosition: "center top" }} />
               </div>
               <p className="font-bold mb-0.5" style={{ fontSize: 15, color: NAVY }}>{m.name}</p>
               <p className="text-xs" style={{ color: TEAL }}>{m.role}</p>

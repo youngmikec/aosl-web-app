@@ -2,7 +2,7 @@ import { ReactNode, useState } from "react";
 import { Link } from "react-router-dom";
 import { CORAL, MUTED, NAVY, OFF_WHITE, TEAL, TEXT } from "../../theme/tokens";
 import Newsletter from "../../components/layout/Newsletter";
-import { PHONE_DISPLAY, PHONE_HREF } from "../../constants/contact";
+import { PHONE_DISPLAY, PHONE_HREF, LANDLINE_DISPLAY, LANDLINE_HREF } from "../../constants/contact";
 
 const CHARCOAL = "#3A3A5A";
 
@@ -70,10 +70,10 @@ const FAQ_CATEGORIES: { label: string; icon: string; items: FaqItem[] }[] = [
         q: "What training do your care workers receive?",
         a: "All staff complete mandatory training covering safeguarding, manual handling, medication, first aid, and infection control before deployment. Many hold NVQ Level 2 or 3 in Health and Social Care.",
       },
-      {
-        q: "Are your staff registered with the CQC?",
-        a: "AOSL operates under CQC (Care Quality Commission) registration. Our last inspection rating is available on request and on the CQC website.",
-      },
+      // {
+      //   q: "Are your staff registered with the CQC?",
+      //   a: "AOSL operates under CQC (Care Quality Commission) registration. Our last inspection rating is available on request and on the CQC website.",
+      // },
       {
         q: "How do you handle medication administration?",
         a: "Only staff who have completed our accredited medication administration training handle medicines. Detailed records are kept and reviewed by your care coordinator regularly.",
@@ -126,11 +126,11 @@ const FAQ_CATEGORIES: { label: string; icon: string; items: FaqItem[] }[] = [
     items: [
       {
         q: "What areas do you cover?",
-        a: "We currently operate across Greater London, the West Midlands, and Greater Manchester, with regional offices in each area. Contact us to confirm coverage in your specific postcode.",
+        a: "We currently operate across Berkshire and surrounding areas. Contact us to confirm coverage in your specific postcode.",
       },
       {
         q: "How do I make a complaint or give feedback?",
-        a: "We welcome all feedback. Email complaints@aosl.co.uk, call our head office, or complete the Contact form and select 'Complaint or Feedback'. We aim to acknowledge all complaints within 1 working day.",
+        a: "We welcome all feedback. Email info@aosl-online.com, call our head office, or complete the Contact form and select 'Complaint or Feedback'. We aim to acknowledge all complaints within 1 working day.",
       },
       {
         q: "Do you work with social workers and care managers?",
@@ -479,6 +479,17 @@ function StillNeedHelp() {
                 <path d="M2 2h3l1.5 3.5-2 1.5C5.8 9.3 6 9.5 9 11.5l1.5-2 3.5 1.5V14a1 1 0 0 1-1 1C5 15 1 11 1 4a1 1 0 0 1 1-1z" fill="currentColor" />
               </svg>
               {PHONE_DISPLAY}
+            </a>
+            <a
+              href={LANDLINE_HREF}
+              className="inline-flex items-center gap-2 text-sm font-semibold rounded-full px-6 py-3 border-2 border-white text-white transition-all hover:bg-white"
+              onMouseEnter={(e) => { (e.currentTarget).style.color = NAVY; }}
+              onMouseLeave={(e) => { (e.currentTarget).style.color = "white"; }}
+            >
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+                <path d="M2 2h3l1.5 3.5-2 1.5C5.8 9.3 6 9.5 9 11.5l1.5-2 3.5 1.5V14a1 1 0 0 1-1 1C5 15 1 11 1 4a1 1 0 0 1 1-1z" fill="currentColor" />
+              </svg>
+              {LANDLINE_DISPLAY}
             </a>
             <Link
               to="/contact-us"

@@ -4,7 +4,7 @@ import { CORAL, MUTED, NAVY, OFF_WHITE, TEAL, TEXT } from "../../theme/tokens";
 import Newsletter from "../../components/layout/Newsletter";
 import SocialLinks from "../../components/layout/SocialLinks";
 import { errorMessage, sendContactMessage } from "../../services";
-import { PHONE_DISPLAY, PHONE_HREF, WHATSAPP_HREF } from "../../constants/contact";
+import { PHONE_DISPLAY, PHONE_HREF, LANDLINE_DISPLAY, LANDLINE_HREF, WHATSAPP_HREF } from "../../constants/contact";
 
 const CHARCOAL = "#3A3A5A";
 
@@ -60,7 +60,7 @@ function ContactChannels() {
       ),
       title: "Phone",
       primary: PHONE_DISPLAY,
-      secondary: "Mon–Fri 8am–7pm · Sat 9am–4pm",
+      secondary: `Landline: ${LANDLINE_DISPLAY} · Mon–Fri 8am–7pm · Sat 9am–4pm`,
       cta: "Call now",
       href: PHONE_HREF,
       bg: "#E8F7F8",
@@ -78,20 +78,6 @@ function ContactChannels() {
       cta: "Send email",
       href: "mailto:info@aosl-online.com",
       bg: "#FFF0ED",
-    },
-    {
-      icon: (
-        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-          <path d="M11 2C7.686 2 5 4.686 5 8c0 4.5 6 12 6 12s6-7.5 6-12c0-3.314-2.686-6-6-6z" stroke={NAVY} strokeWidth="1.7" />
-          <circle cx="11" cy="8" r="2.5" stroke={NAVY} strokeWidth="1.7" />
-        </svg>
-      ),
-      title: "Visit Us",
-      primary: "London · Birmingham · Manchester",
-      secondary: "By appointment · Mon–Fri only",
-      cta: "Get directions",
-      href: "#offices",
-      bg: "#EEEEF8",
     },
     {
       icon: (
@@ -117,7 +103,7 @@ function ContactChannels() {
           <h2 className="font-bold" style={{ fontSize: 36, color: NAVY }}>Choose how you'd like to reach us</h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {channels.map((c) => (
             <div
               key={c.title}
@@ -227,15 +213,15 @@ function ContactForm() {
                   color: TEAL,
                 },
                 {
-                  label: "Email",
-                  value: "info@aosl-online.com",
-                  sub: "Our team is on hand to help",
+                  label: "Landline",
+                  value: LANDLINE_DISPLAY,
+                  sub: "Mon–Fri 8am–7pm",
                   color: TEAL,
                 },
                 {
-                  label: "Address",
-                  value: "12 Care Lane, London, EC1A 2BN",
-                  sub: "By appointment only",
+                  label: "Email",
+                  value: "info@aosl-online.com",
+                  sub: "Our team is on hand to help",
                   color: TEAL,
                 },
               ].map((row) => (
@@ -411,6 +397,8 @@ function Field({ label, required, children }: { label: string; required?: boolea
 }
 
 /* ─── OFFICES ─────────────────────────────────────────────────── */
+// Hidden for now (see the commented render in ContactPage); kept so it can be re-enabled.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function Offices() {
   const offices = [
     {
@@ -543,7 +531,7 @@ export default function ContactPage() {
       <PageHero />
       <ContactChannels />
       <ContactForm />
-      <Offices />
+      {/* <Offices /> — "Our Locations" section hidden until real office details are available */}
       <FAQTeaser />
       <Newsletter />
     </>

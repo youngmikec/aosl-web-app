@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { CORAL, MUTED, NAVY, TEAL } from "../../theme/tokens";
+import brandedVan from "../../assets/aosl-branded-van.png";
 import Newsletter from "../../components/layout/Newsletter";
 
 const SERVICE_BG = "#DCE6FB";
@@ -8,7 +9,7 @@ const CHARCOAL = "#3A3A5A";
 
 
 /* ─── TYPES ──────────────────────────────────────────────────── */
-export type ServiceKey = "personal-assistant" | "transportation" | "training";
+export type ServiceKey = "care-and-support" | "personal-assistant" | "transportation" | "training";
 
 type ChecklistItem = { title: string; desc: string };
 type SubCard = { title: string; desc: string; img: string };
@@ -18,16 +19,79 @@ type ServiceData = {
   heading: string;
   body: string;
   photo: string;
+  // A bundled image that overrides `photo` (an Unsplash id) when set.
+  photoSrc?: string;
   photoAlt: string;
   ctaHeadline: string;
   ctaSubtext: string;
   variant: "checklist" | "subcards";
   checklist?: ChecklistItem[];
   subcards?: SubCard[];
+  more?: MoreContent;
+};
+
+// Extra sections shown under a service's main block (used by Care and Support).
+type MoreContent = {
+  intro: string[];
+  offeringsTitle: string;
+  offeringsLead: string;
+  whyTitle: string;
+  why: ChecklistItem[];
+  communityTitle: string;
+  community: string[];
+  commitmentTitle: string;
+  commitment: string;
+  tagline: string;
 };
 
 /* ─── DATA ───────────────────────────────────────────────────── */
 const SERVICES: Record<ServiceKey, ServiceData> = {
+  "care-and-support": {
+    key: "care-and-support",
+    label: "OUR CARE AND SUPPORT SERVICES",
+    heading: "Compassionate Care, Promoting Independence, Enhancing Lives",
+    body: "At All Occupation Services Ltd (AOSL), we believe that everyone deserves to live a fulfilling, independent and dignified life, regardless of their age, disability or personal circumstances.",
+    photo: "photo-1576765608535-5f04d1e3f289?w=640&h=520&fit=crop&auto=format",
+    photoAlt: "Support worker giving friendly, attentive care to an older person",
+    ctaHeadline: "Looking for compassionate, reliable care and support?",
+    ctaSubtext: "Contact AOSL today to discuss your needs and discover how our team can support you to live more independently and confidently.",
+    variant: "checklist",
+    checklist: [
+      { title: "Personal Care and Daily Living Support", desc: "Help with personal hygiene, dressing, meal preparation, household tasks and keeping a safe, comfortable home — with dignity, privacy and choice." },
+      { title: "Learning Disabilities and Autism Support", desc: "Tailored support to develop life skills, build confidence, maintain routines and take part meaningfully in the community." },
+      { title: "Community Outreach and Social Inclusion", desc: "Access to community activities, appointments and recreation, helping people make friendships and reduce isolation." },
+      { title: "Mental Health and Emotional Wellbeing Support", desc: "Practical and emotional support to maintain daily routines, build confidence and work towards personal goals." },
+      { title: "Elderly Care and Companionship", desc: "Social engagement, help with everyday activities and practical support so older adults enjoy a better quality of life." },
+      { title: "Independent Living and Life Skills Development", desc: "Developing everyday skills such as budgeting, shopping, cooking, travelling safely and managing appointments." },
+      { title: "Respite and Family Support", desc: "Flexible arrangements giving families and unpaid carers reassurance and planned breaks, with consistent support for their loved ones." },
+    ],
+    more: {
+      intro: [
+        "We are committed to providing high-quality, person-centred care and support services tailored to the unique needs, preferences and aspirations of each individual.",
+        "Our compassionate and dedicated support staff work closely with individuals, families and other professionals to deliver reliable, respectful and empowering support that makes a positive difference in everyday life.",
+      ],
+      offeringsTitle: "Our Care and Support Services",
+      offeringsLead: "We provide a range of flexible support services designed to promote independence, wellbeing and social inclusion.",
+      whyTitle: "Why Choose AOSL?",
+      why: [
+        { title: "Person-Centred Approach", desc: "Support tailored to individual needs, choices and aspirations." },
+        { title: "Compassionate Staff", desc: "Carefully recruited, trained and dedicated support professionals." },
+        { title: "Dignity and Respect", desc: "Promoting privacy, equality, independence and individual rights." },
+        { title: "Flexible Support", desc: "Services designed around individual routines and changing circumstances." },
+        { title: "Safeguarding Commitment", desc: "Prioritising the safety, wellbeing and protection of vulnerable individuals." },
+        { title: "Community-Focused", desc: "Encouraging meaningful participation, confidence and social inclusion." },
+        { title: "Collaborative Working", desc: "Building positive relationships with families, local authorities and healthcare professionals." },
+      ],
+      communityTitle: "Supporting Our Local Communities",
+      community: [
+        "AOSL is proud to support individuals and families across Reading, Wokingham and West Berkshire.",
+        "We work with individuals accessing support through Direct Payments and other suitable care and support arrangements, helping them exercise greater choice and control over the assistance they receive.",
+      ],
+      commitmentTitle: "Our Commitment to You",
+      commitment: "At AOSL, care is more than providing assistance. It is about building trust, recognising individual strengths, respecting personal choices and creating opportunities for people to thrive.",
+      tagline: "Your Choice. Your Independence. Our Commitment.",
+    },
+  },
   "personal-assistant": {
     key: "personal-assistant",
     label: "OUR PERSONAL ASSISTANT SERVICES",
@@ -54,7 +118,8 @@ const SERVICES: Record<ServiceKey, ServiceData> = {
     heading: "Reliable Transportation Support Comfortable Everyday Travel",
     body: "At AOSL, we provide safe, dependable and affordable transportation services tailored to your needs. From local activity-centre trips to private events and airport transfers, our team helps you travel comfortably and on time.",
     photo: "photo-1558981359-219d6364c9c8?w=640&h=520&fit=crop&auto=format",
-    photoAlt: "Passengers boarding a minibus with a driver helping with luggage",
+    photoSrc: brandedVan,
+    photoAlt: "AOSL branded delivery van",
     ctaHeadline: "Need reliable transport support?",
     ctaSubtext: "Let our team help you arrange the right transportation service for your journey.",
     variant: "subcards",
@@ -106,6 +171,7 @@ function ServiceTabs({
   onChange: (k: ServiceKey) => void;
 }) {
   const tabs: { key: ServiceKey; label: string }[] = [
+    { key: "care-and-support", label: "Care and Support" },
     { key: "personal-assistant", label: "Personal Assistant" },
     { key: "transportation", label: "Transportation" },
     { key: "training", label: "Training" },
@@ -113,8 +179,8 @@ function ServiceTabs({
   return (
     <div className="flex justify-center mb-14">
       <div
-        className="inline-flex p-1.5 gap-1"
-        style={{ background: "rgba(13,13,91,0.08)", borderRadius: 50 }}
+        className="inline-flex flex-wrap justify-center p-1.5 gap-1"
+        style={{ background: "rgba(13,13,91,0.08)", borderRadius: 28 }}
       >
         {tabs.map((t) => (
           <button
@@ -200,6 +266,39 @@ function SubCards({ cards }: { cards: SubCard[] }) {
           </div>
         </div>
       ))}
+    </div>
+  );
+}
+
+/* ─── EXTRA SECTIONS (Care and Support) ───────────────────────── */
+function MoreSections({ more }: { more: MoreContent }) {
+  return (
+    <div className="mt-16 flex flex-col gap-14">
+      <div>
+        <h3 className="font-bold mb-2" style={{ fontSize: 26, color: NAVY }}>{more.whyTitle}</h3>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-6">
+          {more.why.map((w) => (
+            <div key={w.title} className="bg-white p-6" style={{ borderRadius: 16, boxShadow: "0 4px 24px rgba(13,13,91,0.07)" }}>
+              <p className="font-bold mb-1.5" style={{ fontSize: 16, color: NAVY }}>{w.title}</p>
+              <p className="text-sm leading-relaxed" style={{ color: CHARCOAL }}>{w.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="grid lg:grid-cols-2 gap-6">
+        <div className="bg-white p-8" style={{ borderRadius: 20 }}>
+          <h3 className="font-bold mb-4" style={{ fontSize: 22, color: NAVY }}>{more.communityTitle}</h3>
+          {more.community.map((p) => (
+            <p key={p} className="text-sm leading-relaxed mb-3 last:mb-0" style={{ color: CHARCOAL }}>{p}</p>
+          ))}
+        </div>
+        <div className="p-8 flex flex-col justify-center" style={{ background: NAVY, borderRadius: 20 }}>
+          <h3 className="font-bold text-white mb-4" style={{ fontSize: 22 }}>{more.commitmentTitle}</h3>
+          <p className="text-sm leading-relaxed mb-5" style={{ color: "rgba(255,255,255,0.75)" }}>{more.commitment}</p>
+          <p className="font-bold" style={{ fontSize: 16, color: "#8EE0E6" }}>{more.tagline}</p>
+        </div>
+      </div>
     </div>
   );
 }
@@ -302,13 +401,26 @@ function ServiceSection({ initialService }: { initialService: ServiceKey }) {
             style={{ borderRadius: 16, background: "#c8d4e8" }}
           >
             <img
-              src={`https://images.unsplash.com/${data.photo}`}
+              src={data.photoSrc || `https://images.unsplash.com/${data.photo}`}
               alt={data.photoAlt}
               className="w-full object-cover"
-              style={{ height: 420, display: "block" }}
+              // Bundled wide images (the branded van) are shown whole so the logo is not cropped.
+              style={{ height: data.photoSrc ? "auto" : 420, display: "block" }}
             />
           </div>
         </div>
+
+        {data.more && (
+          <div className="mb-8">
+            <div className="grid md:grid-cols-2 gap-6 mb-12" style={{ maxWidth: 900 }}>
+              {data.more.intro.map((p) => (
+                <p key={p} className="leading-relaxed" style={{ fontSize: 16, color: CHARCOAL }}>{p}</p>
+              ))}
+            </div>
+            <h3 className="font-bold mb-2" style={{ fontSize: 26, color: NAVY }}>{data.more.offeringsTitle}</h3>
+            <p style={{ fontSize: 16, color: CHARCOAL, maxWidth: 620 }}>{data.more.offeringsLead}</p>
+          </div>
+        )}
 
         {/* Checklist or sub-cards */}
         {data.variant === "checklist" && data.checklist && (
@@ -317,6 +429,8 @@ function ServiceSection({ initialService }: { initialService: ServiceKey }) {
         {data.variant === "subcards" && data.subcards && (
           <SubCards cards={data.subcards} />
         )}
+
+        {data.more && <MoreSections more={data.more} />}
 
         {/* CTA strip */}
         <CTAStrip headline={data.ctaHeadline} subtext={data.ctaSubtext} />
@@ -344,7 +458,7 @@ function Hero({ onExplore }: { onExplore: () => void }) {
               className="font-bold leading-tight mb-6"
               style={{ fontSize: 56, color: NAVY, lineHeight: 1.1, letterSpacing: "-0.02em" }}
             >
-              Care and Support services and Transportation Services.
+              Care, Support and transportation Services Transportation Services.
             </h1>
 
             <p
@@ -392,7 +506,7 @@ function Hero({ onExplore }: { onExplore: () => void }) {
                 ))}
               </div>
               <p className="text-sm" style={{ color: MUTED }}>
-                <strong style={{ color: NAVY }}>6,500+</strong> clients supported across the UK
+                <strong style={{ color: NAVY }}>60+</strong> clients supported
               </p>
             </div>
           </div>
@@ -444,7 +558,7 @@ function Hero({ onExplore }: { onExplore: () => void }) {
 }
 
 
-const SERVICE_KEYS: ServiceKey[] = ["personal-assistant", "transportation", "training"];
+const SERVICE_KEYS: ServiceKey[] = ["care-and-support", "personal-assistant", "transportation", "training"];
 
 export default function ServiceDetailPage() {
   const { service } = useParams();

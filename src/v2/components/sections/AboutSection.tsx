@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { CORAL, MUTED, NAVY, OFF_WHITE, TEAL } from "../../theme/tokens";
-import { PHONE_DISPLAY, PHONE_HREF } from "../../constants/contact";
+import { PHONE_DISPLAY, PHONE_HREF, LANDLINE_DISPLAY, LANDLINE_HREF } from "../../constants/contact";
 
 const PARAGRAPHS = [
   "We provide care, support, transportation and professional training services tailored to the individual needs of our clients.",
@@ -9,7 +9,7 @@ const PARAGRAPHS = [
 ];
 
 const HIGHLIGHTS = [
-  "Professional and trained service team",
+  "Professional and trained support team",
   "Flexible solutions tailored to individual needs",
   "Responsive communication and reliable support",
 ];
@@ -95,6 +95,17 @@ export default function AboutSection({ background = OFF_WHITE }: { background?: 
                 <span>
                   <span className="block text-xs" style={{ color: MUTED }}>Call us now</span>
                   <span className="block font-bold" style={{ color: NAVY, fontSize: 17 }}>{PHONE_DISPLAY}</span>
+                </span>
+              </a>
+              <a href={LANDLINE_HREF} className="flex items-center gap-3">
+                <span className="flex items-center justify-center rounded-full shrink-0" style={{ width: 48, height: 48, background: "#E8F7F8" }}>
+                  <svg width="20" height="20" viewBox="0 0 22 22" fill="none">
+                    <path d="M3 3h4l2 5-2.5 2C7.8 13.2 9.5 15 13 16.5l2-2.5 5 2V19a1 1 0 0 1-1 1C7 20 2 13 2 6a1 1 0 0 1 1-1z" stroke={TEAL} strokeWidth="1.7" strokeLinejoin="round" />
+                  </svg>
+                </span>
+                <span>
+                  <span className="block text-xs" style={{ color: MUTED }}>Landline</span>
+                  <span className="block font-bold" style={{ color: NAVY, fontSize: 17 }}>{LANDLINE_DISPLAY}</span>
                 </span>
               </a>
             </div>
